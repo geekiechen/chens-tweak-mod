@@ -151,6 +151,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
         settings.startup["terrain-selection"].value == "land-block-no-resource" then
         -- 修复sea-block设置的问题
         if settings.startup["terrain-selection"].value == "sea-block" then
+            -- 修复chens-tweak-mod模组的问题
             if mods["chens-tweak-mod"] then
                 table.insert(data.raw.technology["basic-resources"].effects,
                              {type = "unlock-recipe", recipe = "landfill"})
@@ -212,6 +213,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             table.insert(data.raw.technology["glass"].effects,
                          {type = "unlock-recipe", recipe = "early-quartz-ore"})
         end
+
         -- 修复pyalternativeenergy模组的问题
         if mods["pyalternativeenergy"] then
             -- 修复配方的问题
@@ -672,8 +674,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
         end
 
         -- 修复railway的问题
-        table.insert(data.raw.technology["railway"].prerequisites,
-                     "mini-trains")
+        table.insert(data.raw.technology["railway"].prerequisites, "mini-trains")
     end
 
     -- 修复Transport_Drones_Meglinge_Fork模组的问题
