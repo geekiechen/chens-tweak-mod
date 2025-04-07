@@ -1,0 +1,435 @@
+---------------------------------------------------------------------------------------------------
+版本: 0.8.6  
+日期: 2025-04-01
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 修复了iron-stick配方被科技重复解锁的问题。
+            - 删除了对bobinserters模组的调整。
+
+Version: 0.8.6
+Date: 2025-04-01
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - Fixed the issue of the iron-stick recipe being unlocked multiple times by technology.
+            - Removed the changes made to the bobinserters mod.
+---------------------------------------------------------------------------------------------------
+版本: 0.8.5  
+日期: 2025-04-01
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 修复了启动游戏时崩溃的问题。
+
+Version: 0.8.5
+Date: 2025-04-01
+    Change:
+        [Chens Modpack(py+auxiliary+others)]::
+            - Fixed a crash issue when starting the game.
+---------------------------------------------------------------------------------------------------
+版本: 0.8.4  
+日期: 2025-03-30
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 调整了void科技的前置科技。
+
+Version: 0.8.4
+Date: 2025-03-30
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - Adjusted the prerequisite technology for void technology.
+---------------------------------------------------------------------------------------------------
+版本: 0.8.3  
+日期: 2025-03-29
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 再次修复了void-chest配方被科技重复解锁的问题。
+
+Version: 0.8.3
+Date: 2025-03-29
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Fixed the issue of the void-chest recipe being unlocked multiple times by technology again.
+---------------------------------------------------------------------------------------------------
+版本: 0.8.2  
+日期: 2025-03-27
+    改变:
+        本体:
+            - 修复了启动游戏时崩溃的问题。
+
+Version: 0.8.2
+Date: 2025-03-27
+    Change:
+        [Base]:
+            - Fixed a crash issue when starting the game.
+---------------------------------------------------------------------------------------------------
+版本: 0.8.1  
+日期: 2025-03-27
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 修复了transport-system科技的前置问题。
+
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 添加了鱼的新配方。
+                - 修复了void-chest配方被科技重复解锁的问题。
+
+Version: 0.8.1
+Date: 2025-03-27
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - Fixed the prerequisite issue of the transport-system technology.
+
+            - The changes will only take effect if the terrain selection is set to "sea-block". 
+                - Added new recipes for fish.
+                - Fixed the issue of the void-chest recipe being unlocked multiple times by technology.
+---------------------------------------------------------------------------------------------------
+版本: 0.8.0  
+日期: 2025-03-27
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 修复了树脂无法获取的问题。
+                - 修复了其他矿物无法获取的问题。
+                - 调整了原木的配方。
+                - 调整了海藻的配方。
+                - 调整了实体洗涤器的流体接口位置。
+                - 删除了对VoidChestInstant模组的调整。
+
+Version: 0.8.0
+Date: 2025-03-27
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block". 
+                - Fixed the issue where resin could not be obtained.
+                - Fixed the issue where other minerals could not be obtained.
+                - Adjusted the recipe for wood.
+                - Adjusted the recipe for seaweed.
+                - Adjusted the fluid connection positions of the washer entity.
+                - Removed the changes made to the VoidChestInstant mod.
+---------------------------------------------------------------------------------------------------
+版本: 0.7.1  
+日期: 2025-03-25
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 修复了石英矿无法获取的问题。
+
+Version: 0.7.1
+Date: 2025-03-25
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block". 
+                - Fixed the issue where quartz ore could not be obtained.
+---------------------------------------------------------------------------------------------------
+版本: 0.7.0  
+日期: 2025-03-25
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.7.0
+Date: 2025-03-25
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+---------------------------------------------------------------------------------------------------
+版本: 0.6.0
+日期: 2025-03-25
+    改变:
+        本体:
+            - 版本号按照规则进行更新。
+
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+                - 添加了其他矿物的配方。
+
+Version: 0.6.0
+Date: 2025-03-25
+    Change:
+        [Base]:
+            - Updated the version number according to the rules.
+
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+                - Added recipes with other minerals.
+---------------------------------------------------------------------------------------------------
+版本: 0.1.1  
+日期: 2025-03-24
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.1.1
+Date: 2025-03-24
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+---------------------------------------------------------------------------------------------------
+版本: 0.1.0  
+日期: 2025-03-24
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了大更新，已经不适配原存档，请重新开局。
+
+Version: 0.1.0
+Date: 2025-03-24
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - A major update has been made, and it is no longer compatible with the previous save. Please start a new game.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.45  
+日期: 2025-03-22
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 修复了缺少翻译的问题。
+
+Version: 0.0.45
+Date: 2025-03-22
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - Fixed the missing translation issue.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.44  
+日期: 2025-03-22
+    改变:
+        本体:
+            - 修复了启动游戏时崩溃的问题。
+
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.0.44
+Date: 2025-03-22
+    Change:
+        [Base]:
+            - Fixed a crash issue when starting the game.
+
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.43  
+日期: 2025-03-22
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.0.43
+Date: 2025-03-22
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.42  
+日期: 2025-03-21
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.0.42
+Date: 2025-03-21
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.41  
+日期: 2025-03-21
+    改变:
+        本体:
+            - 修复了启动游戏时崩溃的问题。
+
+Version: 0.0.41
+Date: 2025-03-21
+    Change:
+        [Base]:
+            - Fixed a crash issue when starting the game.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.40  
+日期: 2025-03-21
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 更改了地图生成的逻辑，现在地图预设已可以查看地图。
+
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.0.40
+Date: 2025-03-21
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - Changed the logic of map generation so that map presets can now view maps.
+
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.39  
+日期: 2025-03-20
+    改变:
+        本体:
+            - 修复了启动游戏时崩溃的问题。
+
+Version: 0.0.39
+Date: 2025-03-20
+    Change:
+        [Base]:
+            - Fixed a crash issue when starting the game.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.38  
+日期: 2025-03-17
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 修复了抽取泵的配方问题。
+
+Version: 0.0.38
+Date: 2025-03-17
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Fixed a recipe issue with the offshore pump.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.37  
+日期: 2025-03-17
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 修复了采矿机无法使用流体的问题。
+
+Version: 0.0.37
+Date: 2025-03-17
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - Fixed the issue where mining drills could not use fluids.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.36  
+日期: 2025-03-16
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.0.36
+Date: 2025-03-16
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.35  
+日期: 2025-03-15
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.0.35
+Date: 2025-03-15
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.34  
+日期: 2025-03-15
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 修复了灰尘分离配方的问题。
+
+Version: 0.0.34
+Date: 2025-03-15
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Fixed the issue with the ash separation recipe.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.33
+日期: 2025-03-15
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 适配aai loaders sane模组，调整了aai wood loader科技。
+                - 修复了配方分类的问题。
+
+Version: 0.0.33
+Date: 2025-03-15
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Adapted to the AAI Loaders Sane mod, adjusted the AAI Wood Loader technology.
+                - Fixed an issue with recipe categorization.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.32
+日期: 2025-03-15
+    改变:
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+                - 添加了适配Py系列模组的新的树种配方。
+
+Version: 0.0.32
+Date: 2025-03-15
+    Change:
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+                - Added new tree seeds recipes compatible with the Py series mod.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.31
+日期: 2025-03-15
+    改变:
+        本体:
+            - 修复了启动游戏时崩溃的问题。
+
+        [Chens Modpack(py+auxiliary+others)]:
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+                - 添加了适配Py系列模组的新的原木配方以及苔藓配方。
+
+Version: 0.0.31
+Date: 2025-03-15
+    Change:
+        [Base]:
+            - Fixed a crash issue when starting the game.
+        [Chens Modpack(py+auxiliary+others)]:
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                - Made some balance adjustments.
+                - Added new wood and moss recipes compatible with the Py series mods.
+---------------------------------------------------------------------------------------------------
+版本: 0.0.30
+日期: 2025-03-14
+    改变:
+        本体:
+            - 优化了物品堆叠的代码，现在更多的物品可以被改变堆叠。
+
+        [Chens Modpack(py+auxiliary+others)]:
+            - 添加了英文的本地化翻译。
+            - 添加了2个地图预设。
+
+            - 需要将地形选择设置为"海岛"才会生效。
+                - 进行了一些平衡性调整。
+
+Version: 0.0.30
+Date: 2025-03-14
+    Change:
+        [Base]:
+            - Optimized the code for item stacking, now more items can be changed to the stack.
+
+        [Chens Modpack(py+auxiliary+others)]:
+            - Added localized translations for English.
+                - Added 2 map presets.
+
+            - The changes will only take effect if the terrain selection is set to "sea-block".
+                 - Made some balance adjustments.
