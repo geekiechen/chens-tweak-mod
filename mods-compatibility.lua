@@ -1,8 +1,8 @@
--- Copyright (c) 2023 JackieChen
+-- Copyright (c) 2025 JackieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 -- 修复chens-modpack-py-auxiliary-others模组的问题
 if mods["chens-modpack-py-auxiliary-others"] then
-    -- 修复land-block设置的问题
+    -- 修复land-block的问题
     if settings.startup["terrain-selection"].value == "land-block" then
         -- 注册地图预设
         data:extend({
@@ -37,8 +37,126 @@ if mods["chens-modpack-py-auxiliary-others"] then
         })
     end
 
-    -- 修复sea-block设置的问题
+    -- 修复land-block-no-resource的问题
+    if settings.startup["terrain-selection"].value == "land-block-no-resource" then
+        -- 注册地图预设
+        data:extend({
+            {
+                type = "noise-expression",
+                name = "chens-tweak-mod_land_block_no_resource",
+                intended_property = "elevation",
+                expression = "1"
+            }, {
+                type = "map-gen-presets",
+                name = "default",
+                default = {default = true, order = "a"},
+                ["chens-tweak-mod-land-block-no-resource"] = {
+                    order = "b",
+                    basic_settings = {
+                        property_expression_names = {
+                            elevation = "chens-tweak-mod_land_block_no_resource"
+                        },
+                        cliff_settings = {cliff_elevation_interval = 0},
+                        autoplace_settings = {
+                            entity = {
+                                treat_missing_as_default = false,
+                                settings = {
+                                    fish = {frequency = 0},
+                                    seaweed = {frequency = 0}
+                                }
+                            }
+                        },
+                        autoplace_controls = {
+                            trees = {frequency = 0},
+                            rocks = {frequency = 0},
+                            ["enemy-base"] = {frequency = 0}
+                        },
+                        starting_area = 0,
+                        starting_points = {{x = 0, y = 0}}
+                    }
+                }
+            }
+        })
+
+        for name, _ in pairs(data.raw.resource) do
+            if data.raw["autoplace-control"][name] then
+                data.raw["map-gen-presets"].default["chens-tweak-mod-land-block-no-resource"]
+                    .basic_settings.autoplace_controls[name] = {frequency = 0}
+            end
+
+            if data.raw.resource[name].autoplace and
+                data.raw.resource[name].autoplace.probability_expression then
+                data.raw.resource[name].autoplace.probability_expression = "0"
+            end
+        end
+    end
+
+    -- 修复sea-block的问题
     if settings.startup["terrain-selection"].value == "sea-block" then
+        -- 注册地图预设
+        data:extend({
+            {
+                type = "noise-expression",
+                name = "chens-tweak-mod_sea_block",
+                intended_property = "elevation",
+                expression = "if(abs(x - 2) <= 2, if(abs(y - 2) <= 2, 2, -1), -1)"
+            }, {
+                type = "map-gen-presets",
+                name = "default",
+                default = {default = true, order = "a"},
+                ["chens-tweak-mod-sea-block"] = {
+                    order = "b",
+                    basic_settings = {
+                        property_expression_names = {
+                            elevation = "chens-tweak-mod_sea_block"
+                        },
+                        cliff_settings = {cliff_elevation_interval = 0},
+                        autoplace_settings = {
+                            entity = {
+                                treat_missing_as_default = false,
+                                settings = {
+                                    fish = {frequency = 0},
+                                    seaweed = {frequency = 0}
+                                }
+                            }
+                        },
+                        autoplace_controls = {
+                            water = {frequency = 6, size = 6},
+                            trees = {frequency = 0},
+                            rocks = {frequency = 0},
+                            ["enemy-base"] = {frequency = 0}
+                        },
+                        starting_area = 0,
+                        starting_points = {{x = 0, y = 0}}
+                    }
+                }
+            }
+        })
+
+        for name, _ in pairs(data.raw.resource) do
+            if data.raw["autoplace-control"][name] then
+                data.raw["map-gen-presets"].default["chens-tweak-mod-sea-block"]
+                    .basic_settings.autoplace_controls[name] = {frequency = 0}
+            end
+
+            if data.raw.resource[name].autoplace and
+                data.raw.resource[name].autoplace.probability_expression then
+                data.raw.resource[name].autoplace.probability_expression = "0"
+            end
+        end
+    end
+
+    -- 修复sea-block和land-block-no-resource的问题
+    if settings.startup["terrain-selection"].value == "sea-block" or
+        settings.startup["terrain-selection"].value == "land-block-no-resource" then
+        -- 修复sea-block设置的问题
+        if settings.startup["terrain-selection"].value == "sea-block" then
+            if mods["chens-tweak-mod"] then
+                table.insert(data.raw.technology["basic-resources"].effects,
+                             {type = "unlock-recipe", recipe = "landfill"})
+            end
+        end
+
         -- 修复chens-tweak-mod模组的问题
         if mods["chens-tweak-mod"] then
             table.insert(data.raw.technology["basic-resources"].effects,
@@ -55,8 +173,6 @@ if mods["chens-modpack-py-auxiliary-others"] then
                          {type = "unlock-recipe", recipe = "inductor1-2"})
             table.insert(data.raw.technology["basic-resources"].effects,
                          {type = "unlock-recipe", recipe = "wooden-chest"})
-            table.insert(data.raw.technology["basic-resources"].effects,
-                         {type = "unlock-recipe", recipe = "landfill"})
             table.insert(data.raw.technology["basic-resources"].effects,
                          {type = "unlock-recipe", recipe = "stone-furnace"})
             table.insert(data.raw.technology["basic-resources"].effects,
@@ -480,54 +596,6 @@ if mods["chens-modpack-py-auxiliary-others"] then
 
             -- 修复wood-transport-belt的问题
             data.raw.recipe["wood-transport-belt"].enabled = false
-        end
-
-        -- 注册地图预设
-        data:extend({
-            {
-                type = "noise-expression",
-                name = "chens-tweak-mod_sea_block",
-                intended_property = "elevation",
-                expression = "if(abs(x - 2) <= 2, if(abs(y - 2) <= 2, 2, -1), -1)"
-            }, {
-                type = "map-gen-presets",
-                name = "default",
-                default = {default = true, order = "a"},
-                ["chens-tweak-mod-sea-block"] = {
-                    order = "b",
-                    basic_settings = {
-                        property_expression_names = {
-                            elevation = "chens-tweak-mod_sea_block"
-                        },
-                        cliff_settings = {cliff_elevation_interval = 0},
-                        autoplace_settings = {
-                            entity = {
-                                treat_missing_as_default = false,
-                                settings = {
-                                    fish = {frequency = 0},
-                                    seaweed = {frequency = 0}
-                                }
-                            }
-                        },
-                        autoplace_controls = {
-                            water = {frequency = 6, size = 6},
-                            trees = {frequency = 0},
-                            rocks = {frequency = 0},
-                            ["enemy-base"] = {frequency = 0}
-                        },
-                        starting_area = 0,
-                        starting_points = {{x = 0, y = 0}}
-                    },
-                    advanced_settings = {pollution = {enabled = false}}
-                }
-            }
-        })
-
-        for name, _ in pairs(data.raw.resource) do
-            if data.raw["autoplace-control"][name] then
-                data.raw["map-gen-presets"].default["chens-tweak-mod-sea-block"]
-                    .basic_settings.autoplace_controls[name] = {frequency = 0}
-            end
         end
 
         -- 修复科技的问题

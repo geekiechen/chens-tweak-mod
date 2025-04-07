@@ -1,4 +1,4 @@
--- Copyright (c) 2023 JackieChen
+-- Copyright (c) 2025 JackieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 data:extend{
     {
@@ -116,7 +116,9 @@ if mods["chens-modpack-py-auxiliary-others"] then
             name = "terrain-selection",
             setting_type = "startup",
             default_value = "default",
-            allowed_values = {"default", "land-block", "sea-block"},
+            allowed_values = {
+                "default", "land-block", "land-block-no-resource", "sea-block"
+            },
             order = "a-a"
         }
     }
