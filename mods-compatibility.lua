@@ -473,6 +473,8 @@ if mods["chens-modpack-py-auxiliary-others"] then
             -- 修复washer的问题
             table.insert(data.raw.recipe["washer"].ingredients,
                          {type = "item", name = "washer-mk00", amount = 1})
+            table.insert(data.raw.recipe["washer"].ingredients,
+                         {type = "item", name = "steel-plate", amount = 5})
         end
 
         -- 修复pypetroleumhandling模组的问题
