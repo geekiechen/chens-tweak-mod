@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.2
+Date: 2025-04-07
+    Changes:
+        [Chens Modpack(py+auxiliary+others)]:
+            - Fixed the prerequisite technology issue for the railway technology.
+---------------------------------------------------------------------------------------------------
 Version: 0.9.1
 Date: 2025-04-07
     Changes:

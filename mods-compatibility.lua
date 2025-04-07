@@ -670,6 +670,10 @@ if mods["chens-modpack-py-auxiliary-others"] then
                 break
             end
         end
+
+        -- 修复railway的问题
+        table.insert(data.raw.technology["railway"].prerequisites,
+                     "mini-trains")
     end
 
     -- 修复Transport_Drones_Meglinge_Fork模组的问题
