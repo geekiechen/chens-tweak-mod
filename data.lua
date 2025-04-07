@@ -90,6 +90,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             local washer_mk00_item_subgroup = table.deepcopy(
                                                   data.raw["item-subgroup"]["py-cp-buildings-mk01"])
             washer_mk00_item_subgroup.name = "py-cp-buildings-mk00"
+            washer_mk00_item_subgroup.group = "production"
 
             -- 注册物品
             -- 注册washer-mk00
