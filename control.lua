@@ -86,7 +86,7 @@ function on_player_creation(player)
 
     if settings.startup["start-burner-mining-drill"].value then
         if script.active_mods["chens-modpack-py-auxiliary-others"] then
-            if settings.startup["terrain-selection"].value ~= "sea-block" or
+            if settings.startup["terrain-selection"].value ~= "sea-block" and
                 settings.startup["terrain-selection"].value ~=
                 "land-block-no-resource" then
                 player.insert {name = "burner-mining-drill", count = 10}
