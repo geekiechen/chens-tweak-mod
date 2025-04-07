@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.9.1
+Date: 2025-04-07
+    Changes:
+        [Chens Modpack(py+auxiliary+others)]:
+            - Fixed the issue where burner mining drills are given in map presets land block no resource.
+---------------------------------------------------------------------------------------------------
 Version: 0.9.0
 Date: 2025-04-07
     Changes:
