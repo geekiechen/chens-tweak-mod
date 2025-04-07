@@ -1,4 +1,4 @@
--- Copyright (c) 2023 JackieChen
+-- Copyright (c) 2025 JackieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 script.on_init(function()
     -- 禁用坠机现场
@@ -24,8 +24,9 @@ script.on_init(function()
     end
 
     if script.active_mods["chens-modpack-py-auxiliary-others"] then
-        if settings.startup["terrain-selection"].value == "sea-block" then
-            -- 海岛
+        if settings.startup["terrain-selection"].value == "sea-block" or
+            settings.startup["terrain-selection"].value ==
+            "land-block-no-resource" then
             settings.startup["disable-crash-site"].value = true
             settings.startup["start-burner-mining-drill"].value = false
         end
@@ -85,7 +86,9 @@ function on_player_creation(player)
 
     if settings.startup["start-burner-mining-drill"].value then
         if script.active_mods["chens-modpack-py-auxiliary-others"] then
-            if settings.startup["terrain-selection"].value ~= "sea-block" then
+            if settings.startup["terrain-selection"].value ~= "sea-block" or
+                settings.startup["terrain-selection"].value ~=
+                "land-block-no-resource" then
                 player.insert {name = "burner-mining-drill", count = 10}
             end
         end
@@ -101,11 +104,16 @@ function on_player_creation(player)
     end
 
     if script.active_mods["chens-modpack-py-auxiliary-others"] then
-        if settings.startup["terrain-selection"].value == "sea-block" then
+        if settings.startup["terrain-selection"].value == "sea-block" or
+            settings.startup["terrain-selection"].value ==
+            "land-block-no-resource" then
             player.insert {name = "offshore-pump", count = 1}
-            player.insert {name = "landfill", count = 500}
             player.insert({name = "washer-mk00", count = 1})
             player.insert {name = "fuelmix-solid", count = 1}
+        end
+
+        if settings.startup["terrain-selection"].value == "sea-block" then
+            player.insert {name = "landfill", count = 500}
         end
     end
 end

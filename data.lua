@@ -1,7 +1,8 @@
--- Copyright (c) 2023 JackieChen
+-- Copyright (c) 2025 JackieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 if mods["chens-modpack-py-auxiliary-others"] then
-    if settings.startup["terrain-selection"].value == "sea-block" then
+    if settings.startup["terrain-selection"].value == "sea-block" or
+        settings.startup["terrain-selection"].value == "land-block-no-resource" then
         if mods["pycoalprocessing"] then
             -- 注册实体
             -- 注册washer-mk00
@@ -549,7 +550,12 @@ if mods["chens-modpack-py-auxiliary-others"] then
                 ingredients = {{type = "fluid", name = "water", amount = 200}},
                 results = {
                     {type = "item", name = "seaweed", amount = 1},
-                    {type = "item", name = "fish", amount = 1, probability = 0.05}
+                    {
+                        type = "item",
+                        name = "fish",
+                        amount = 1,
+                        probability = 0.05
+                    }
                 },
                 main_product = "seaweed",
                 enabled = false
