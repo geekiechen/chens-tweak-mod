@@ -25,13 +25,7 @@ data:extend{
         setting_type = "startup",
         default_value = false,
         order = "b-d"
-    } -- , {
-    --     type = "bool-setting",
-    --     name = "enable-item-scrap",
-    --     setting_type = "startup",
-    --     default_value = false,
-    --     order = "c-a"
-    -- }
+    } 
     , {
         type = "bool-setting",
         name = "start-robot",
@@ -108,21 +102,6 @@ data:extend{
         order = "y-j"
     }
 }
-
-if mods["chens-modpack-py-auxiliary-others"] then
-    data:extend{
-        {
-            type = "string-setting",
-            name = "terrain-selection",
-            setting_type = "startup",
-            default_value = "default",
-            allowed_values = {
-                "default", "land-block", "land-block-no-resource", "sea-block"
-            },
-            order = "a-a"
-        }
-    }
-end
 
 if not mods["pypostprocessing"] then
     data:extend{
