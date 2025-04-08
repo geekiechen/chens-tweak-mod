@@ -6,27 +6,32 @@ data:extend{
         name = "disable-crash-site",
         setting_type = "startup",
         default_value = false,
-        order = "b-a"
+        order = "a-a"
     }, {
         type = "bool-setting",
         name = "disable-hand-crafting",
         setting_type = "startup",
         default_value = false,
-        order = "b-b"
+        order = "a-b"
     }, {
         type = "bool-setting",
         name = "furnace-recipe-select",
         setting_type = "startup",
         default_value = false,
-        order = "b-c"
+        order = "a-c"
     }, {
         type = "bool-setting",
         name = "inventory-clear",
         setting_type = "startup",
         default_value = false,
-        order = "b-d"
-    } 
-    , {
+        order = "a-d"
+    }, {
+        type = "bool-setting",
+        name = "enable-machine-item-stack-size-tweak",
+        setting_type = "startup",
+        default_value = false,
+        order = "a-e"
+    }, {
         type = "bool-setting",
         name = "start-robot",
         setting_type = "startup",
