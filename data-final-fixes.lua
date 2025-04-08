@@ -42,6 +42,12 @@ if settings.startup["furnace-recipe-select"].value then
     end
 end
 
+if settings.startup["enable-machine-item-stack-size-tweak"].value then
+    for _, recipe in pairs(data.raw.recipe) do
+        recipe.allow_inserter_overload = false
+    end
+end
+
 local maxStackSize = 2147483647
 local maxRobotSpeed = 2147483647
 local maxTransportBeltSpeed = 2147483647

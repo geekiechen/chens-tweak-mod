@@ -1,6 +1,6 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.10.0",
+    "version": "0.10.1",
     "title": "Chens Tweak Mod",
     "author": "JackieChen",
     "dependencies": [
@@ -14,7 +14,7 @@
         "? pyalternativeenergy",
         "? pypostprocessing"
     ],
-    "description": "这个是我做的调整模组。",
+    "description": "这个是我做的调整模组。（需要游戏的测试版）",
     "factorio_version": "2.0",
     "license": "MIT"
 }
