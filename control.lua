@@ -3,8 +3,7 @@
 script.on_init(function()
     -- 禁用坠机现场
     if settings.startup["disable-crash-site"].value or
-        (script.active_mods["chens-modpack-py-auxiliary-others"] and
-            settings.startup["terrain-selection"].value == "sea-block") then
+        script.active_mods["chens-py-sea-block-mod"] then
         if remote.interfaces.freeplay then
             -- 禁用坠机现场
             if remote.interfaces.freeplay.set_disable_crashsite then
@@ -23,13 +22,11 @@ script.on_init(function()
         end
     end
 
-    if script.active_mods["chens-modpack-py-auxiliary-others"] then
-        if settings.startup["terrain-selection"].value == "sea-block" or
-            settings.startup["terrain-selection"].value ==
-            "land-block-no-resource" then
-            settings.startup["disable-crash-site"].value = true
-            settings.startup["start-burner-mining-drill"].value = false
-        end
+    if script.active_mods["chens-py-sea-block-mod"] or
+        (script.active_mods["chens-py-land-block-mod"] and
+            settings.startup["enable-no-resource"].value) then
+        settings.startup["disable-crash-site"].value = true
+        settings.startup["start-burner-mining-drill"].value = false
     end
 end)
 
@@ -85,12 +82,10 @@ function on_player_creation(player)
     end
 
     if settings.startup["start-burner-mining-drill"].value then
-        if script.active_mods["chens-modpack-py-auxiliary-others"] then
-            if settings.startup["terrain-selection"].value ~= "sea-block" and
-                settings.startup["terrain-selection"].value ~=
-                "land-block-no-resource" then
-                player.insert {name = "burner-mining-drill", count = 10}
-            end
+        if not (script.active_mods["chens-py-sea-block-mod"] or
+            (script.active_mods["chens-py-land-block-mod"] and
+                settings.startup["enable-no-resource"].value)) then
+            player.insert {name = "burner-mining-drill", count = 10}
         end
     end
 
@@ -104,15 +99,15 @@ function on_player_creation(player)
     end
 
     if script.active_mods["chens-modpack-py-auxiliary-others"] then
-        if settings.startup["terrain-selection"].value == "sea-block" or
-            settings.startup["terrain-selection"].value ==
-            "land-block-no-resource" then
+        if script.active_mods["chens-py-sea-block-mod"] or
+            (script.active_mods["chens-py-land-block-mod"] and
+                settings.startup["enable-no-resource"].value) then
             player.insert {name = "offshore-pump", count = 1}
             player.insert({name = "washer-mk00", count = 1})
             player.insert {name = "fuelmix-solid", count = 1}
         end
 
-        if settings.startup["terrain-selection"].value == "sea-block" then
+        if script.active_mods["chens-py-sea-block-mod"] then
             player.insert {name = "landfill", count = 500}
         end
     end
