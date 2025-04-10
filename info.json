@@ -1,18 +1,19 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.10.1",
+    "version": "0.10.2",
     "title": "Chens Tweak Mod",
     "author": "JackieChen",
     "dependencies": [
         "base >= 2.0.0",
 
-        "? space-age >= 2.0.0",
+        "? chens-arcosphere-mod",
         "? chens-py-land-block-mod",
         "? chens-py-sea-block-mod",
         "? chens-modpack-py-auxiliary-others",
         "? 5dim_logistic",
         "? pyalternativeenergy",
-        "? pypostprocessing"
+        "? pypostprocessing",
+        "? space-age >= 2.0.0"
     ],
     "description": "这个是我做的调整模组。（需要游戏的测试版）",
     "factorio_version": "2.0",
