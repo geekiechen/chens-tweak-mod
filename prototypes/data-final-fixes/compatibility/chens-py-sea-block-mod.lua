@@ -110,6 +110,24 @@ if mods["pyrawores"] then
     data.raw.recipe["copper-plate"].enabled = false
 end
 
+-- 修复pycoalprocessing模组的问题
+if mods["pycoalprocessing"] then
+    -- 修复科技的问题
+    -- 修复niobium的问题
+    table.insert(data.raw.technology["niobium"].effects,
+                 {type = "unlock-recipe", recipe = "early-niobium-ore"})
+
+    -- 修复配方的问题
+    -- 修复burner-inserter的问题
+    data.raw.recipe["burner-inserter"].enabled = false
+
+    -- 修复copper-cable的问题
+    data.raw.recipe["copper-cable"].enabled = false
+
+    -- 修复log-wood的问题
+    data.raw.recipe["log-wood"].enabled = false
+end
+
 -- 修复pyindustry模组的问题
 if mods["pyindustry"] then
     -- 修复配方的问题
