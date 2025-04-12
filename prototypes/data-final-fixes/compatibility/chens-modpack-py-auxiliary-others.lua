@@ -73,13 +73,6 @@ if mods["pycoalprocessing"] then
     end
 end
 
--- 修复pyindustry模组的问题
-if mods["pyindustry"] then
-    -- 修复配方的问题
-    -- 修复iron-stick的问题
-    data.raw.recipe["iron-stick"].enabled = false
-end
-
 -- 修复pypetroleumhandling模组的问题
 if mods["pypetroleumhandling"] then
     -- 修复配方的问题

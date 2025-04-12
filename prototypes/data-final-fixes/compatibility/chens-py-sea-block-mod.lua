@@ -142,6 +142,9 @@ if mods["pyindustry"] then
 
     -- 修复iron-gear-wheel的问题
     data.raw.recipe["iron-gear-wheel"].enabled = false
+
+    -- 修复iron-stick的问题
+    data.raw.recipe["iron-stick"].enabled = false
 end
 
 -- 修复pyhightech模组的问题
