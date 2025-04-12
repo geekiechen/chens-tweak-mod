@@ -1,16 +1,15 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.10.2",
+    "version": "0.11.0",
     "title": "Chens Tweak Mod",
     "author": "JackieChen",
     "dependencies": [
         "base >= 2.0.0",
 
-        "? chens-arcosphere-mod",
+        "? 5dim_logistic",
+        "? chens-modpack-py-auxiliary-others",
         "? chens-py-land-block-mod",
         "? chens-py-sea-block-mod",
-        "? chens-modpack-py-auxiliary-others",
-        "? 5dim_logistic",
         "? pyalternativeenergy",
         "? pypostprocessing",
         "? space-age >= 2.0.0"
