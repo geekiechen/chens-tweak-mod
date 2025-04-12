@@ -28,6 +28,17 @@ script.on_init(function()
         settings.startup["disable-crash-site"].value = true
         settings.startup["start-burner-mining-drill"].value = false
     end
+
+    if settings.startup["start-robot"].value then
+        local force = game.forces.player
+
+        for i = 1, 5 do
+            local tech_name = "worker-robots-speed-" .. i
+            if force.technologies[tech_name] then
+                force.technologies[tech_name].researched = true
+            end
+        end
+    end
 end)
 
 function on_player_creation(player)
