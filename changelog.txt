@@ -3,7 +3,7 @@ Version: 0.11.3
 Date: 2025-04-12
  Changes:
   - [Chens Modpack(py+auxiliary+others)]:
-   -Fixed the issue with the iron-stick recipe.
+   - Fixed the issue with the iron-stick recipe.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.2
 Date: 2025-04-12
