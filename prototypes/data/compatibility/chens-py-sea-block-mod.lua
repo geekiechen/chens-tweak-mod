@@ -500,8 +500,7 @@ data:extend({
         type = "technology",
         name = "basic-resources",
         icon = "__pypetroleumhandlinggraphics__/graphics/icons/kerogen.png",
-        icon_size = 256,
-        icon_mipmaps = 4,
+        icon_size = 64,
         prerequisites = {},
         research_trigger = {type = "craft-item", item = "kerogen", count = 10},
         effects = {

@@ -116,11 +116,14 @@ function on_player_creation(player)
             player.insert {name = "offshore-pump", count = 1}
             player.insert({name = "washer-mk00", count = 1})
             player.insert {name = "fuelmix-solid", count = 1}
+        elseif script.active_mods["pyhardmode"] then
+            player.insert {name = "offshore-pump", count = 1}
         end
 
         if script.active_mods["chens-py-sea-block-mod"] then
             player.insert {name = "landfill", count = 500}
         end
+
     end
 end
 
