@@ -110,20 +110,19 @@ function on_player_creation(player)
     end
 
     if script.active_mods["chens-modpack-py-auxiliary-others"] then
-        if script.active_mods["chens-py-sea-block-mod"] or
-            (script.active_mods["chens-py-land-block-mod"] and
-                settings.startup["enable-no-resource"].value) then
+        if script.active_mods["chens-py-sea-block-mod"] then
+            player.insert {name = "offshore-pump", count = 1}
+            player.insert({name = "washer-mk00", count = 1})
+            player.insert {name = "fuelmix-solid", count = 1}
+            player.insert {name = "landfill", count = 500}
+        elseif script.active_mods["chens-py-land-block-mod"] and
+            settings.startup["enable-no-resource"].value then
             player.insert {name = "offshore-pump", count = 1}
             player.insert({name = "washer-mk00", count = 1})
             player.insert {name = "fuelmix-solid", count = 1}
         elseif script.active_mods["pyhardmode"] then
             player.insert {name = "offshore-pump", count = 1}
         end
-
-        if script.active_mods["chens-py-sea-block-mod"] then
-            player.insert {name = "landfill", count = 500}
-        end
-
     end
 end
 
