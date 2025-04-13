@@ -113,19 +113,59 @@ end
 -- 修复pycoalprocessing模组的问题
 if mods["pycoalprocessing"] then
     -- 修复科技的问题
+    -- 修复automation-science-pack的问题
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "starting-native-flora"})
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "starting-seaweed"})
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "log-wood"})
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "botanical-nursery"})
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "washer-mk00"})
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "burner-inserter"})
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "burner-mining-drill"})
+
+    -- 修复steam-power的问题
+    for i = #data.raw.technology["steam-power"].effects, 1, -1 do
+        local effect = data.raw.technology["steam-power"].effects[i]
+        if effect.type == "unlock-recipe" and effect.recipe == "inductor1-2" then
+            table.remove(data.raw.technology["steam-power"].effects, i)
+        end
+    end
+
     -- 修复niobium的问题
     table.insert(data.raw.technology["niobium"].effects,
                  {type = "unlock-recipe", recipe = "early-niobium-ore"})
 
     -- 修复配方的问题
-    -- 修复burner-inserter的问题
-    data.raw.recipe["burner-inserter"].enabled = false
+    -- 修复log-wood的问题
+    data.raw.recipe["log-wood"].enabled = false
 
     -- 修复copper-cable的问题
     data.raw.recipe["copper-cable"].enabled = false
 
-    -- 修复log-wood的问题
-    data.raw.recipe["log-wood"].enabled = false
+    -- 修复burner-inserter的问题
+    data.raw.recipe["burner-inserter"].enabled = false
+
+    -- 修复botanical-nursery的问题
+    for i = #data.raw.recipe["botanical-nursery"].ingredients, 1, -1 do
+        local ingredient = data.raw.recipe["botanical-nursery"].ingredients[i]
+        local name = ingredient[1] or ingredient.name
+        if name == "glass" or name == "fluid-drill-mk01" or name ==
+            "soil-extractor-mk01" then
+            table.remove(data.raw.recipe["botanical-nursery"].ingredients, i)
+        end
+    end
+
+    -- 修复washer的问题
+    table.insert(data.raw.recipe["washer"].ingredients,
+                 {type = "item", name = "washer-mk00", amount = 1})
+    table.insert(data.raw.recipe["washer"].ingredients,
+                 {type = "item", name = "steel-plate", amount = 5})
 end
 
 -- 修复pyindustry模组的问题
