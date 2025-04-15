@@ -1,5 +1,12 @@
 {
-  "devDependencies": {
-    "standard-version": "^9.5.0"
-  }
+    "name": "chens-tweak-mod",
+    "version": "0.12.1",
+    "scripts": {
+        "release": "standard-version",
+        "full-release": "npm run release && git push --follow-tags && npx github-release-from-changelog"
+    },
+    "devDependencies": {
+        "github-release-from-changelog": "^2.1.1",
+        "standard-version": "^9.5.0"
+    }
 }
