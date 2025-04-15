@@ -86,6 +86,19 @@ end
 
 -- 修复pyrawores模组的问题
 if mods["pyrawores"] then
+    -- 修复实体的问题
+    -- 修复flotation-cell-mk01的问题
+    data.raw["assembling-machine"]["flotation-cell-mk01"].crafting_speed = 2
+
+    -- 修复flotation-cell-mk02的问题
+    data.raw["assembling-machine"]["flotation-cell-mk02"].crafting_speed = 3
+
+    -- 修复flotation-cell-mk03的问题
+    data.raw["assembling-machine"]["flotation-cell-mk03"].crafting_speed = 4
+
+    -- 修复flotation-cell-mk04的问题
+    data.raw["assembling-machine"]["flotation-cell-mk04"].crafting_speed = 5
+
     -- 修复科技的问题
     -- 修复solder-mk01的问题
     table.insert(data.raw.technology["solder-mk01"].effects,
@@ -111,6 +124,10 @@ if mods["pyrawores"] then
 
     -- 修复copper-plate的问题
     data.raw.recipe["copper-plate"].enabled = false
+
+    -- 修复flotation-cell-mk01的问题
+    table.insert(data.raw.recipe["flotation-cell-mk01"].ingredients,
+                 {type = "item", name = "flotation-cell-mk00", amount = 1})
 end
 
 -- 修复pycoalprocessing模组的问题
@@ -172,14 +189,6 @@ if mods["pycoalprocessing"] then
         end
     end
 
-end
-
--- 修复pyrawores模组的问题
-if mods["pyrawores"] then
-    -- 修复配方的问题
-    -- 修复flotation-cell-mk01的问题
-    table.insert(data.raw.recipe["flotation-cell-mk01"].ingredients,
-                 {type = "item", name = "flotation-cell-mk00", amount = 1})
 end
 
 -- 修复pyindustry模组的问题

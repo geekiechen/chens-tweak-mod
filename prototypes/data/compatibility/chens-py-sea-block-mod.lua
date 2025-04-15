@@ -26,7 +26,6 @@ if mods["chens-modpack-py-auxiliary-others"] then
         }
         flotation_cell_mk00_entity.energy_usage = "800kW"
         flotation_cell_mk00_entity.next_upgrade = "flotation-cell-mk01"
-        flotation_cell_mk00_entity.crafting_speed = 0.75
         flotation_cell_mk00_entity.crafting_categories = {"flotation"}
 
         if flotation_cell_mk00_entity.graphics_set and
@@ -138,98 +137,30 @@ data:extend({
                 type = "item",
                 name = "sludge",
                 amount_min = 1,
-                amount_max = 3,
+                amount_max = 2,
                 probability = 0.8
             },
             {
                 type = "item",
                 name = "organic-waste",
                 amount_min = 1,
-                amount_max = 3
+                amount_max = 2
             }
         },
         main_product = "sludge",
         enabled = true
-    }, -- 注册石矿
-    {
-        type = "recipe",
-        name = "early-stone",
-        order = "a",
-        category = "flotation",
-        energy_required = 1.5,
-        ingredients = {
-            {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "water", amount = 200}
-        },
-        results = {
-            {
-                type = "item",
-                name = "stone",
-                amount_min = 1,
-                amount_max = 3,
-                probability = 0.6
-            }
-        },
-        main_product = "stone",
-        enabled = false
-    }, -- 注册干酪根
-    {
-        type = "recipe",
-        name = "early-kerogen",
-        order = "a",
-        category = "flotation",
-        energy_required = 1.5,
-        ingredients = {
-            {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "carbolic-oil", amount = 3}
-        },
-        results = {
-            {type = "item", name = "kerogen", amount_min = 1, amount_max = 3}
-        },
-        main_product = "kerogen",
-        enabled = false
-    }, -- 注册原煤
-    {
-        type = "recipe",
-        name = "early-raw-coal",
-        order = "a",
-        category = "flotation",
-        energy_required = 1.5,
-        ingredients = {
-            {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "water", amount = 200}
-        },
-        results = {
-            {
-                type = "item",
-                name = "raw-coal",
-                amount_min = 1,
-                amount_max = 3,
-                probability = 0.8
-            }
-        },
-        main_product = "raw-coal",
-        enabled = false
     }, -- 注册铁矿
     {
         type = "recipe",
         name = "early-iron-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "water", amount = 200}
+            {type = "fluid", name = "water", amount = 10}
         },
-        results = {
-            {
-                type = "item",
-                name = "iron-ore",
-                amount_min = 1,
-                amount_max = 3,
-                probability = 0.6
-            }
-        },
+        results = {{type = "item", name = "iron-ore", amount = 1}},
         main_product = "iron-ore",
         enabled = false
     }, -- 注册铜矿
@@ -238,21 +169,55 @@ data:extend({
         name = "early-copper-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "water", amount = 200}
+            {type = "fluid", name = "water", amount = 10}
         },
-        results = {
-            {
-                type = "item",
-                name = "copper-ore",
-                amount_min = 1,
-                amount_max = 3,
-                probability = 0.4
-            }
-        },
+        results = {{type = "item", name = "copper-ore", amount = 1}},
         main_product = "copper-ore",
+        enabled = false
+    }, -- 注册石矿
+    {
+        type = "recipe",
+        name = "early-stone",
+        order = "a",
+        category = "flotation",
+        energy_required = 2,
+        ingredients = {
+            {type = "item", name = "sludge", amount = 1},
+            {type = "fluid", name = "water", amount = 10}
+        },
+        results = {{type = "item", name = "stone", amount = 1}},
+        main_product = "stone",
+        enabled = false
+    }, -- 注册原煤
+    {
+        type = "recipe",
+        name = "early-raw-coal",
+        order = "a",
+        category = "flotation",
+        energy_required = 2,
+        ingredients = {
+            {type = "item", name = "sludge", amount = 1},
+            {type = "fluid", name = "water", amount = 10}
+        },
+        results = {{type = "item", name = "raw-coal", amount = 1}},
+        main_product = "raw-coal",
+        enabled = false
+    }, -- 注册干酪根
+    {
+        type = "recipe",
+        name = "early-kerogen",
+        order = "a",
+        category = "flotation",
+        energy_required = 2,
+        ingredients = {
+            {type = "item", name = "sludge", amount = 1},
+            {type = "fluid", name = "carbolic-oil", amount = 3}
+        },
+        results = {{type = "item", name = "kerogen", amount = 1}},
+        main_product = "kerogen",
         enabled = false
     }, -- 注册稀土矿
     {
@@ -260,19 +225,12 @@ data:extend({
         name = "early-rare-earth-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "naphtha", amount = 10}
         },
-        results = {
-            {
-                type = "item",
-                name = "rare-earth-ore",
-                amount_min = 1,
-                amount_max = 3
-            }
-        },
+        results = {{type = "item", name = "rare-earth-ore", amount = 1}},
         main_product = "rare-earth-ore",
         enabled = false
     }, -- 注册铝矿
@@ -281,19 +239,12 @@ data:extend({
         name = "early-aluminium-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "coal-gas", amount = 10}
         },
-        results = {
-            {
-                type = "item",
-                name = "ore-aluminium",
-                amount_min = 1,
-                amount_max = 3
-            }
-        },
+        results = {{type = "item", name = "ore-aluminium", amount = 1}},
         main_product = "ore-aluminium",
         enabled = false
     }, -- 注册天然硼砂
@@ -302,14 +253,12 @@ data:extend({
         name = "early-raw-borax",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "syngas", amount = 10}
+            {type = "fluid", name = "syngas", amount = 3}
         },
-        results = {
-            {type = "item", name = "raw-borax", amount_min = 1, amount_max = 3}
-        },
+        results = {{type = "item", name = "raw-borax", amount = 1}},
         main_product = "raw-borax",
         enabled = false
     }, -- 注册铬矿
@@ -318,19 +267,12 @@ data:extend({
         name = "early-chromium-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "syngas", amount = 4}
         },
-        results = {
-            {
-                type = "item",
-                name = "ore-chromium",
-                amount_min = 1,
-                amount_max = 3
-            }
-        },
+        results = {{type = "item", name = "ore-chromium", amount = 1}},
         main_product = "ore-chromium",
         enabled = false
     }, -- 注册铅矿
@@ -339,7 +281,7 @@ data:extend({
         name = "early-lead-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "acetylene", amount = 10}
@@ -355,7 +297,7 @@ data:extend({
         name = "early-nickel-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "syngas", amount = 4}
@@ -371,19 +313,12 @@ data:extend({
         name = "early-niobium-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "refsyngas", amount = 6}
         },
-        results = {
-            {
-                type = "item",
-                name = "niobium-ore",
-                amount_min = 1,
-                amount_max = 3
-            }
-        },
+        results = {{type = "item", name = "niobium-ore", amount = 1}},
         main_product = "niobium-ore",
         enabled = false
     }, -- 注册锡矿
@@ -392,13 +327,13 @@ data:extend({
         name = "early-tin-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "steam", amount = 10}
         },
         results = {
-            {type = "item", name = "ore-tin", amount_min = 1, amount_max = 3}
+            {type = "item", name = "ore-tin", amount = 1}
         },
         main_product = "ore-tin",
         enabled = false
@@ -408,19 +343,12 @@ data:extend({
         name = "early-titanium-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "acetylene", amount = 4}
         },
-        results = {
-            {
-                type = "item",
-                name = "ore-titanium",
-                amount_min = 1,
-                amount_max = 3
-            }
-        },
+        results = {{type = "item", name = "ore-titanium", amount = 1}},
         main_product = "ore-titanium",
         enabled = false
     }, -- 注册锌矿
@@ -429,13 +357,13 @@ data:extend({
         name = "early-zinc-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "aromatics", amount = 4}
         },
         results = {
-            {type = "item", name = "ore-zinc", amount_min = 1, amount_max = 3}
+            {type = "item", name = "ore-zinc", amount = 1}
         },
         main_product = "ore-zinc",
         enabled = false
@@ -445,13 +373,13 @@ data:extend({
         name = "early-quartz-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "coal-gas", amount = 30}
+            {type = "fluid", name = "coal-gas", amount = 4}
         },
         results = {
-            {type = "item", name = "ore-quartz", amount_min = 1, amount_max = 3}
+            {type = "item", name = "ore-quartz", amount = 1}
         },
         main_product = "ore-quartz",
         enabled = false
@@ -461,19 +389,12 @@ data:extend({
         name = "early-uranium-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "sulfuric-acid", amount = 10}
+            {type = "fluid", name = "sulfuric-acid", amount = 4}
         },
-        results = {
-            {
-                type = "item",
-                name = "uranium-ore",
-                amount_min = 1,
-                amount_max = 3
-            }
-        },
+        results = {{type = "item", name = "uranium-ore", amount = 1}},
         main_product = "uranium-ore",
         enabled = false
     }, -- 注册锑矿
@@ -482,19 +403,12 @@ data:extend({
         name = "early-antimonium-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "syngas", amount = 10}
+            {type = "fluid", name = "syngas", amount = 8}
         },
-        results = {
-            {
-                type = "item",
-                name = "antimonium-ore",
-                amount_min = 1,
-                amount_max = 3
-            }
-        },
+        results = {{type = "item", name = "antimonium-ore", amount = 1}},
         main_product = "antimonium-ore",
         enabled = false
     }, -- 注册钼矿
@@ -503,19 +417,12 @@ data:extend({
         name = "early-molybdenum-ore",
         order = "a",
         category = "flotation",
-        energy_required = 1.5,
+        energy_required = 2,
         ingredients = {
             {type = "item", name = "sludge", amount = 1},
-            {type = "fluid", name = "gasoline", amount = 10}
+            {type = "fluid", name = "gasoline", amount = 8}
         },
-        results = {
-            {
-                type = "item",
-                name = "molybdenum-ore",
-                amount_min = 1,
-                amount_max = 3
-            }
-        },
+        results = {{type = "item", name = "molybdenum-ore", amount = 1}},
         main_product = "molybdenum-ore",
         enabled = false
     }, -- 注册原木
@@ -586,7 +493,6 @@ data:extend({
         type = "technology",
         name = "basic-resources",
         icon = "__chens-tweak-mod__/graphics/icons/sludge.png",
-        -- icon_size = 64,
         prerequisites = {},
         research_trigger = {type = "craft-item", item = "sludge", count = 10},
         effects = {

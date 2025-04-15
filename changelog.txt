@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.12.1
+Date: 2025-04-16
+ Changes:
+  - [Chens Modpack(py+auxiliary+others)]:
+   - Adjusted the recipes for ores.
+   - Adjusted the crafting speed for all Flotation Cells.
+---------------------------------------------------------------------------------------------------
 Version: 0.12.0
 Date: 2025-04-15
  Changes:
