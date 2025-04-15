@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.12.0
+Date: 2025-04-15
+ Changes:
+  - [Chens Modpack(py+auxiliary+others)]:
+   - Added a new machine, Flotation Cell Mk0, to replace the Washer Mk0.
+   - Overhauled all recipes.
+---------------------------------------------------------------------------------------------------
 Version: 0.11.5
 Date: 2025-04-13
  Changes:

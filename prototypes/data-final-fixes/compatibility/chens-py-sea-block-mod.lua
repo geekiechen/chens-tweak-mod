@@ -22,8 +22,6 @@ if mods["chens-tweak-mod"] then
     table.insert(data.raw.technology["basic-resources"].effects,
                  {type = "unlock-recipe", recipe = "inductor1-2"})
     table.insert(data.raw.technology["basic-resources"].effects,
-                 {type = "unlock-recipe", recipe = "wooden-chest"})
-    table.insert(data.raw.technology["basic-resources"].effects,
                  {type = "unlock-recipe", recipe = "stone-furnace"})
     table.insert(data.raw.technology["basic-resources"].effects,
                  {type = "unlock-recipe", recipe = "iron-plate"})
@@ -70,6 +68,11 @@ end
 
 -- 修复pypetroleumhandling模组的问题
 if mods["pypetroleumhandling"] then
+    -- 修复科技的问题
+    -- 修复kerogen的问题
+    table.insert(data.raw.technology["kerogen"].effects,
+                 {type = "unlock-recipe", recipe = "early-kerogen"})
+
     -- 修复配方的问题
     -- 修复bolts的问题
     data.raw.recipe["bolts"].enabled = false
@@ -123,11 +126,19 @@ if mods["pycoalprocessing"] then
     table.insert(data.raw.technology["automation-science-pack"].effects,
                  {type = "unlock-recipe", recipe = "botanical-nursery"})
     table.insert(data.raw.technology["automation-science-pack"].effects,
-                 {type = "unlock-recipe", recipe = "washer-mk00"})
+                 {type = "unlock-recipe", recipe = "flotation-cell-mk00"})
     table.insert(data.raw.technology["automation-science-pack"].effects,
                  {type = "unlock-recipe", recipe = "burner-inserter"})
     table.insert(data.raw.technology["automation-science-pack"].effects,
                  {type = "unlock-recipe", recipe = "burner-mining-drill"})
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "early-log"})
+    table.insert(data.raw.technology["automation-science-pack"].effects,
+                 {type = "unlock-recipe", recipe = "wooden-chest"})
+
+    -- 修复coal-processing-1的问题
+    table.insert(data.raw.technology["coal-processing-1"].effects,
+                 {type = "unlock-recipe", recipe = "early-raw-coal"})
 
     -- 修复steam-power的问题
     for i = #data.raw.technology["steam-power"].effects, 1, -1 do
@@ -161,11 +172,14 @@ if mods["pycoalprocessing"] then
         end
     end
 
-    -- 修复washer的问题
-    table.insert(data.raw.recipe["washer"].ingredients,
-                 {type = "item", name = "washer-mk00", amount = 1})
-    table.insert(data.raw.recipe["washer"].ingredients,
-                 {type = "item", name = "steel-plate", amount = 5})
+end
+
+-- 修复pyrawores模组的问题
+if mods["pyrawores"] then
+    -- 修复配方的问题
+    -- 修复flotation-cell-mk01的问题
+    table.insert(data.raw.recipe["flotation-cell-mk01"].ingredients,
+                 {type = "item", name = "flotation-cell-mk00", amount = 1})
 end
 
 -- 修复pyindustry模组的问题
@@ -225,9 +239,7 @@ if mods["wood-logistics"] then
     -- 修复automation-science-pack的问题
     table.insert(data.raw.technology["automation-science-pack"].effects,
                  {type = "unlock-recipe", recipe = "wood-transport-belt"})
-
-    -- 修复basic-resources的问题
-    table.insert(data.raw.technology["basic-resources"].effects,
+    table.insert(data.raw.technology["automation-science-pack"].effects,
                  {type = "unlock-recipe", recipe = "lumber"})
 
     -- 修复配方的问题
