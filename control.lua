@@ -112,13 +112,13 @@ function on_player_creation(player)
     if script.active_mods["chens-modpack-py-auxiliary-others"] then
         if script.active_mods["chens-py-sea-block-mod"] then
             player.insert {name = "offshore-pump", count = 1}
-            player.insert({name = "washer-mk00", count = 1})
+            player.insert({name = "flotation-cell-mk00", count = 1})
             player.insert {name = "fuelmix-solid", count = 1}
             player.insert {name = "landfill", count = 500}
         elseif script.active_mods["chens-py-land-block-mod"] and
             settings.startup["enable-no-resource"].value then
             player.insert {name = "offshore-pump", count = 1}
-            player.insert({name = "washer-mk00", count = 1})
+            player.insert({name = "flotation-cell-mk00", count = 1})
             player.insert {name = "fuelmix-solid", count = 1}
         elseif script.active_mods["pyhardmode"] then
             player.insert {name = "offshore-pump", count = 1}
@@ -144,7 +144,7 @@ script.on_event(defines.events.on_research_finished, function(event)
     -- 研究完成后给予物品
     if event.research.name == "basic-resources" then
         for _, player in pairs(game.connected_players) do
-            player.insert {name = "washer-mk00", count = 1}
+            player.insert {name = "flotation-cell-mk00", count = 1}
         end
     end
 end)
