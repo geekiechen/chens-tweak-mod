@@ -286,9 +286,7 @@ data:extend({
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "acetylene", amount = 10}
         },
-        results = {
-            {type = "item", name = "ore-lead", amount_min = 1, amount_max = 3}
-        },
+        results = {{type = "item", name = "ore-lead", amount = 1}},
         main_product = "ore-lead",
         enabled = false
     }, -- 注册镍矿
@@ -303,7 +301,7 @@ data:extend({
             {type = "fluid", name = "syngas", amount = 4}
         },
         results = {
-            {type = "item", name = "ore-nickel", amount_min = 1, amount_max = 3}
+            {type = "item", name = "ore-nickel", amount = 1}
         },
         main_product = "ore-nickel",
         enabled = false
@@ -332,9 +330,7 @@ data:extend({
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "steam", amount = 10}
         },
-        results = {
-            {type = "item", name = "ore-tin", amount = 1}
-        },
+        results = {{type = "item", name = "ore-tin", amount = 1}},
         main_product = "ore-tin",
         enabled = false
     }, -- 注册钛矿
@@ -362,9 +358,7 @@ data:extend({
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "aromatics", amount = 4}
         },
-        results = {
-            {type = "item", name = "ore-zinc", amount = 1}
-        },
+        results = {{type = "item", name = "ore-zinc", amount = 1}},
         main_product = "ore-zinc",
         enabled = false
     }, -- 注册石英矿
@@ -378,9 +372,7 @@ data:extend({
             {type = "item", name = "sludge", amount = 1},
             {type = "fluid", name = "coal-gas", amount = 4}
         },
-        results = {
-            {type = "item", name = "ore-quartz", amount = 1}
-        },
+        results = {{type = "item", name = "ore-quartz", amount = 1}},
         main_product = "ore-quartz",
         enabled = false
     }, -- 注册铀矿
