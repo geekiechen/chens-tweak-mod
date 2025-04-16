@@ -24,7 +24,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             mining_time = 1,
             result = "flotation-cell-mk00"
         }
-        flotation_cell_mk00_entity.energy_usage = "800kW"
+        flotation_cell_mk00_entity.energy_usage = "500kW"
         flotation_cell_mk00_entity.next_upgrade = "flotation-cell-mk01"
         flotation_cell_mk00_entity.crafting_categories = {"flotation"}
 
@@ -118,7 +118,7 @@ data:extend({
         order = "a",
         stack_size = 100,
         fuel_category = "chemical",
-        fuel_value = "2MJ"
+        fuel_value = "1.25MJ"
     }
 })
 
@@ -130,21 +130,30 @@ data:extend({
         name = "sludge",
         order = "a",
         category = "flotation",
-        energy_required = 1,
+        energy_required = 1.75,
         ingredients = {{type = "fluid", name = "water", amount = 200}},
         results = {
             {
                 type = "item",
                 name = "sludge",
-                amount_min = 1,
-                amount_max = 2,
-                probability = 0.8
+                amount = 1,
+                probability = 0.6
+            },{
+                type = "item",
+                name = "sludge",
+                amount = 1,
+                probability = 0.3
             },
             {
                 type = "item",
                 name = "organic-waste",
-                amount_min = 1,
-                amount_max = 2
+                amount = 1
+            },
+            {
+                type = "item",
+                name = "organic-waste",
+                amount = 1,
+                probability = 0.7
             }
         },
         main_product = "sludge",
