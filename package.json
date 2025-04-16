@@ -1,6 +1,6 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.12.1",
+    "version": "0.12.2",
     "scripts": {
         "release": "standard-version",
         "full-release": "npm run release && git push --follow-tags && npx github-release-from-changelog"
