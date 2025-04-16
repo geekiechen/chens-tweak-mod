@@ -57,10 +57,154 @@ if mods["pyalienlife"] then
     -- 修复glass的问题
     table.insert(data.raw.technology["glass"].effects,
                  {type = "unlock-recipe", recipe = "early-quartz-ore"})
+
+    -- 修复fluid-drill的问题
+    for i = 1, 4 do
+        local base_name = "fluid-drill-mk0" .. i
+        local assembler_name = base_name .. "-assembler"
+
+        for _, tech in pairs(data.raw.technology) do
+            if tech.effects then
+                for _, effect in pairs(tech.effects) do
+                    if effect.type == "unlock-recipe" and effect.recipe ==
+                        base_name then
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name
+                        })
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name .. "-reverse"
+                        })
+                        break
+                    end
+                end
+            end
+        end
+    end
 end
 
 -- 修复pyalternativeenergy模组的问题
 if mods["pyalternativeenergy"] then
+    -- 修复科技的问题
+    -- 修复ree-mining-drill的问题
+    for i = 1, 4 do
+        local base_name = "ree-mining-drill-mk0" .. i
+        local assembler_name = base_name .. "-assembler"
+
+        for _, tech in pairs(data.raw.technology) do
+            if tech.effects then
+                for _, effect in pairs(tech.effects) do
+                    if effect.type == "unlock-recipe" and effect.recipe ==
+                        base_name then
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name
+                        })
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name .. "-reverse"
+                        })
+                        break
+                    end
+                end
+            end
+        end
+    end
+
+    -- 修复uranium-processing的问题
+    table.insert(data.raw.technology["uranium-processing"].effects,
+                 {type = "unlock-recipe", recipe = "early-uranium-ore"})
+
+    -- 修复antimony-mk01的问题
+    table.insert(data.raw.technology["antimony-mk01"].effects,
+                 {type = "unlock-recipe", recipe = "early-antimonium-ore"})
+
+    -- 修复ree-mining-drill的问题
+    for i = 1, 4 do
+        local base_name = "ree-mining-drill-mk0" .. i
+        local assembler_name = base_name .. "-assembler"
+
+        for _, tech in pairs(data.raw.technology) do
+            if tech.effects then
+                for _, effect in pairs(tech.effects) do
+                    if effect.type == "unlock-recipe" and effect.recipe ==
+                        base_name then
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name
+                        })
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name .. "-reverse"
+                        })
+                        break
+                    end
+                end
+            end
+        end
+    end
+
+    -- 修复uranium-mining-drill的问题
+    do
+        local base_name = "uranium-mining-drill"
+        local assembler_name = base_name .. "-assembler"
+
+        for _, tech in pairs(data.raw.technology) do
+            if tech.effects then
+                for _, effect in pairs(tech.effects) do
+                    if effect.type == "unlock-recipe" and effect.recipe ==
+                        base_name then
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name
+                        })
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name .. "-reverse"
+                        })
+                        break
+                    end
+                end
+            end
+        end
+    end
+
+    -- 修复antimony-drill的问题
+    for i = 1, 4 do
+        local base_name = "antimony-drill-mk0" .. i
+        local assembler_name = base_name .. "-assembler"
+
+        for _, tech in pairs(data.raw.technology) do
+            if tech.effects then
+                for _, effect in pairs(tech.effects) do
+                    if effect.type == "unlock-recipe" and effect.recipe ==
+                        base_name then
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name
+                        })
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name .. "-reverse"
+                        })
+                        break
+                    end
+                end
+            end
+        end
+    end
+
     -- 修复配方的问题
     -- 修复stone-brick的问题
     data.raw.recipe["stone-brick"].enabled = false
@@ -169,6 +313,60 @@ if mods["pycoalprocessing"] then
     table.insert(data.raw.technology["niobium"].effects,
                  {type = "unlock-recipe", recipe = "early-niobium-ore"})
 
+    -- 修复borax-mine的问题
+    for i = 1, 4 do
+        local base_name = i == 1 and "borax-mine" or "borax-mine-mk0" .. i
+        local assembler_name = base_name .. "-assembler"
+
+        for _, tech in pairs(data.raw.technology) do
+            if tech.effects then
+                for _, effect in pairs(tech.effects) do
+                    if effect.type == "unlock-recipe" and effect.recipe ==
+                        base_name then
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name
+                        })
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name .. "-reverse"
+                        })
+                        break
+                    end
+                end
+            end
+        end
+    end
+
+    -- 修复niobium-mine的问题
+    do
+        local base_name = "niobium-mine"
+        local assembler_name = base_name .. "-assembler"
+
+        for _, tech in pairs(data.raw.technology) do
+            if tech.effects then
+                for _, effect in pairs(tech.effects) do
+                    if effect.type == "unlock-recipe" and effect.recipe ==
+                        base_name then
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name
+                        })
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name .. "-reverse"
+                        })
+                        break
+                    end
+                end
+            end
+        end
+    end
+
     -- 修复配方的问题
     -- 修复log-wood的问题
     data.raw.recipe["log-wood"].enabled = false
@@ -228,18 +426,33 @@ if mods["pyfusionenergy"] then
     -- 修复molybdenum-processing的问题
     table.insert(data.raw.technology["molybdenum-processing"].effects,
                  {type = "unlock-recipe", recipe = "early-molybdenum-ore"})
-end
 
--- 修复pyalternativeenergy模组的问题
-if mods["pyalternativeenergy"] then
-    -- 修复科技的问题
-    -- 修复uranium-processing的问题
-    table.insert(data.raw.technology["uranium-processing"].effects,
-                 {type = "unlock-recipe", recipe = "early-uranium-ore"})
+    -- 修复mo-mine的问题
+    do
+        local base_name = "mo-mine"
+        local assembler_name = base_name .. "-assembler"
 
-    -- 修复antimony-mk01的问题
-    table.insert(data.raw.technology["antimony-mk01"].effects,
-                 {type = "unlock-recipe", recipe = "early-antimonium-ore"})
+        for _, tech in pairs(data.raw.technology) do
+            if tech.effects then
+                for _, effect in pairs(tech.effects) do
+                    if effect.type == "unlock-recipe" and effect.recipe ==
+                        base_name then
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name
+                        })
+
+                        table.insert(tech.effects, {
+                            type = "unlock-recipe",
+                            recipe = assembler_name .. "-reverse"
+                        })
+                        break
+                    end
+                end
+            end
+        end
+    end
 end
 
 -- 修复wood-logistics模组的问题

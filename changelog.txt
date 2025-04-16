@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.12.4
+Date: 2025-04-16
+ Changes:
+  - [Chens Modpack(py+auxiliary+others)]: Added more machines.  
+  - [Chens Modpack(py+auxiliary+others)]: Adjusted some recipes.
+---------------------------------------------------------------------------------------------------
 Version: 0.12.3
 Date: 2025-04-16
  Changes:
