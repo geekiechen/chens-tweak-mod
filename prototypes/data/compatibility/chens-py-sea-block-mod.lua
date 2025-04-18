@@ -1,6 +1,103 @@
 -- Copyright (c) 2025 JackieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 if mods["chens-modpack-py-auxiliary-others"] then
+    if mods["pycoalprocessing"] then
+        -- 注册实体
+        -- 注册evaporator-mk00
+        local evaporator_mk00_entity = table.deepcopy(
+                                           data.raw["assembling-machine"]["evaporator"])
+        evaporator_mk00_entity.name = "evaporator-mk00"
+        evaporator_mk00_entity.icon = nil
+        evaporator_mk00_entity.icons = {
+            {
+                icon = "__pycoalprocessinggraphics__/graphics/icons/evaporator.png",
+                icon_size = 64,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+        evaporator_mk00_entity.energy_source.type = "burner"
+        evaporator_mk00_entity.energy_source.fuel_categories = {"chemical"}
+        evaporator_mk00_entity.energy_source.fuel_inventory_size = 1
+        evaporator_mk00_entity.energy_source.burnt_inventory_size = 1
+        evaporator_mk00_entity.energy_source.burnt_result = "ash"
+        evaporator_mk00_entity.minable = {
+            mining_time = 1,
+            result = "evaporator-mk00"
+        }
+        evaporator_mk00_entity.energy_usage = "500kW"
+        evaporator_mk00_entity.next_upgrade = "evaporator"
+        evaporator_mk00_entity.crafting_categories = {"evaporator"}
+
+        if evaporator_mk00_entity.graphics_set and
+            evaporator_mk00_entity.graphics_set.animation and
+            evaporator_mk00_entity.graphics_set.animation.layers then
+            for _, layer in pairs(evaporator_mk00_entity.graphics_set.animation
+                                      .layers) do
+                if layer.tint then
+                    layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                end
+            end
+        end
+
+        if evaporator_mk00_entity.graphics_set and
+            evaporator_mk00_entity.graphics_set.working_visualisations then
+            for _, visual in pairs(evaporator_mk00_entity.graphics_set
+                                       .working_visualisations) do
+                if visual.animation and visual.animation.layers then
+                    for _, layer in pairs(visual.animation.layers) do
+                        if layer.tint then
+                            layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                        end
+                    end
+                end
+            end
+        end
+
+        -- 注册物品子组
+        -- 注册evaporator-mk00
+        local evaporator_mk00_item_subgroup = table.deepcopy(
+                                                  data.raw["item-subgroup"]["py-cp-buildings-mk01"])
+        evaporator_mk00_item_subgroup.name = "py-cp-buildings-mk00"
+        evaporator_mk00_item_subgroup.group = "coal-processing"
+
+        -- 注册物品
+        -- 注册evaporator-mk00
+        local evaporator_mk00_item = table.deepcopy(data.raw.item["evaporator"])
+        evaporator_mk00_item.name = "evaporator-mk00"
+        evaporator_mk00_item.icon = nil
+        evaporator_mk00_item.icons = {
+            {
+                icon = "__pycoalprocessinggraphics__/graphics/icons/evaporator.png",
+                icon_size = 64,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+
+        evaporator_mk00_item.place_result = "evaporator-mk00"
+        evaporator_mk00_item.subgroup = "py-cp-buildings-mk00"
+
+        -- 注册配方
+        -- 注册evaporator-mk00
+        local evaporator_mk00_recipe = table.deepcopy(
+                                           data.raw.recipe["evaporator"])
+        evaporator_mk00_recipe.name = "evaporator-mk00"
+        evaporator_mk00_recipe.ingredients = {
+            {type = "item", name = "pipe", amount = 2},
+            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "copper-plate", amount = 3},
+            {type = "item", name = "small-parts-01", amount = 3}
+        }
+        evaporator_mk00_recipe.results = {
+            {type = "item", name = "evaporator-mk00", amount = 1}
+        }
+        evaporator_mk00_recipe.enabled = false
+
+        data:extend({
+            evaporator_mk00_entity, evaporator_mk00_item_subgroup,
+            evaporator_mk00_item, evaporator_mk00_recipe
+        })
+    end
+
     if mods["pyrawores"] then
         -- 注册实体
         -- 注册flotation-cell-mk00
@@ -12,7 +109,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             {
                 icon = "__pyraworesgraphics__/graphics/icons/flotation-cell-mk01.png",
                 icon_size = 32,
-                tint = {r = 0.5, g = 0.5, b = 0.5, a = 1}
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
             }
         }
         flotation_cell_mk00_entity.energy_source.type = "burner"
@@ -53,12 +150,126 @@ if mods["chens-modpack-py-auxiliary-others"] then
             end
         end
 
+        -- 注册hydroclassifier-mk00
+        local hydroclassifier_mk00_entity = table.deepcopy(
+                                                data.raw["assembling-machine"]["hydroclassifier-mk01"])
+        hydroclassifier_mk00_entity.name = "hydroclassifier-mk00"
+        hydroclassifier_mk00_entity.icon = nil
+        hydroclassifier_mk00_entity.icons = {
+            {
+                icon = "__pyraworesgraphics__/graphics/icons/hydroclassifier-mk01.png",
+                icon_size = 32,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+        hydroclassifier_mk00_entity.energy_source.type = "burner"
+        hydroclassifier_mk00_entity.energy_source.fuel_categories = {"chemical"}
+        hydroclassifier_mk00_entity.energy_source.fuel_inventory_size = 1
+        hydroclassifier_mk00_entity.energy_source.burnt_inventory_size = 1
+        hydroclassifier_mk00_entity.energy_source.burnt_result = "ash"
+        hydroclassifier_mk00_entity.minable = {
+            mining_time = 1,
+            result = "hydroclassifier-mk00"
+        }
+        hydroclassifier_mk00_entity.energy_usage = "500kW"
+        hydroclassifier_mk00_entity.next_upgrade = "hydroclassifier-mk01"
+        hydroclassifier_mk00_entity.crafting_categories = {"hydroclassifier"}
+
+        if hydroclassifier_mk00_entity.graphics_set and
+            hydroclassifier_mk00_entity.graphics_set.animation and
+            hydroclassifier_mk00_entity.graphics_set.animation.layers then
+            for _, layer in pairs(hydroclassifier_mk00_entity.graphics_set
+                                      .animation.layers) do
+                if layer.tint then
+                    layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                end
+            end
+        end
+
+        if hydroclassifier_mk00_entity.graphics_set and
+            hydroclassifier_mk00_entity.graphics_set.working_visualisations then
+            for _, visual in pairs(hydroclassifier_mk00_entity.graphics_set
+                                       .working_visualisations) do
+                if visual.animation and visual.animation.layers then
+                    for _, layer in pairs(visual.animation.layers) do
+                        if layer.tint then
+                            layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                        end
+                    end
+                end
+            end
+        end
+
+        -- 注册leaching-station-mk00
+        local leaching_station_mk00_entity = table.deepcopy(
+                                                 data.raw["assembling-machine"]["leaching-station-mk01"])
+        leaching_station_mk00_entity.name = "leaching-station-mk00"
+        leaching_station_mk00_entity.icon = nil
+        leaching_station_mk00_entity.icons = {
+            {
+                icon = "__pyraworesgraphics__/graphics/icons/leaching-station-mk01.png",
+                icon_size = 32,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+        leaching_station_mk00_entity.energy_source.type = "burner"
+        leaching_station_mk00_entity.energy_source.fuel_categories = {
+            "chemical"
+        }
+        leaching_station_mk00_entity.energy_source.fuel_inventory_size = 1
+        leaching_station_mk00_entity.energy_source.burnt_inventory_size = 1
+        leaching_station_mk00_entity.energy_source.burnt_result = "ash"
+        leaching_station_mk00_entity.minable = {
+            mining_time = 1,
+            result = "leaching-station-mk00"
+        }
+        leaching_station_mk00_entity.energy_usage = "500kW"
+        leaching_station_mk00_entity.next_upgrade = "leaching-station-mk01"
+        leaching_station_mk00_entity.crafting_categories = {"leaching"}
+
+        if leaching_station_mk00_entity.graphics_set and
+            leaching_station_mk00_entity.graphics_set.animation and
+            leaching_station_mk00_entity.graphics_set.animation.layers then
+            for _, layer in pairs(leaching_station_mk00_entity.graphics_set
+                                      .animation.layers) do
+                if layer.tint then
+                    layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                end
+            end
+        end
+
+        if leaching_station_mk00_entity.graphics_set and
+            leaching_station_mk00_entity.graphics_set.working_visualisations then
+            for _, visual in pairs(leaching_station_mk00_entity.graphics_set
+                                       .working_visualisations) do
+                if visual.animation and visual.animation.layers then
+                    for _, layer in pairs(visual.animation.layers) do
+                        if layer.tint then
+                            layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                        end
+                    end
+                end
+            end
+        end
+
         -- 注册物品子组
         -- 注册flotation-cell-mk00
         local flotation_cell_mk00_item_subgroup = table.deepcopy(
-                                                      data.raw["item-subgroup"]["py-cp-buildings-mk01"])
-        flotation_cell_mk00_item_subgroup.name = "py-cp-buildings-mk00"
-        flotation_cell_mk00_item_subgroup.group = "production"
+                                                      data.raw["item-subgroup"]["py-rawores-buildings-mk01"])
+        flotation_cell_mk00_item_subgroup.name = "py-rawores-buildings-mk00"
+        flotation_cell_mk00_item_subgroup.group = "py-rawores"
+
+        -- 注册hydroclassifier-mk00
+        local hydroclassifier_mk00_item_subgroup = table.deepcopy(
+                                                       data.raw["item-subgroup"]["py-rawores-buildings-mk01"])
+        hydroclassifier_mk00_item_subgroup.name = "py-rawores-buildings-mk00"
+        hydroclassifier_mk00_item_subgroup.group = "py-rawores"
+
+        -- 注册leaching-station-mk00
+        local leaching_station_mk00_item_subgroup = table.deepcopy(
+                                                        data.raw["item-subgroup"]["py-rawores-buildings-mk01"])
+        leaching_station_mk00_item_subgroup.name = "py-rawores-buildings-mk00"
+        leaching_station_mk00_item_subgroup.group = "py-rawores"
 
         -- 注册物品
         -- 注册flotation-cell-mk00
@@ -75,7 +286,39 @@ if mods["chens-modpack-py-auxiliary-others"] then
         }
 
         flotation_cell_mk00_item.place_result = "flotation-cell-mk00"
-        flotation_cell_mk00_item.subgroup = "py-cp-buildings-mk00"
+        flotation_cell_mk00_item.subgroup = "py-rawores-buildings-mk00"
+
+        -- 注册hydroclassifier-mk00
+        local hydroclassifier_mk00_item = table.deepcopy(
+                                              data.raw.item["hydroclassifier-mk01"])
+        hydroclassifier_mk00_item.name = "hydroclassifier-mk00"
+        hydroclassifier_mk00_item.icon = nil
+        hydroclassifier_mk00_item.icons = {
+            {
+                icon = "__pyraworesgraphics__/graphics/icons/hydroclassifier-mk01.png",
+                icon_size = 32,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+
+        hydroclassifier_mk00_item.place_result = "hydroclassifier-mk00"
+        hydroclassifier_mk00_item.subgroup = "py-rawores-buildings-mk00"
+
+        -- 注册leaching-station-mk00
+        local leaching_station_mk00_item = table.deepcopy(
+                                               data.raw.item["leaching-station-mk01"])
+        leaching_station_mk00_item.name = "leaching-station-mk00"
+        leaching_station_mk00_item.icon = nil
+        leaching_station_mk00_item.icons = {
+            {
+                icon = "__pyraworesgraphics__/graphics/icons/leaching-station-mk01.png",
+                icon_size = 32,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+
+        leaching_station_mk00_item.place_result = "leaching-station-mk00"
+        leaching_station_mk00_item.subgroup = "py-rawores-buildings-mk00"
 
         -- 注册配方
         -- 注册flotation-cell-mk00
@@ -84,7 +327,8 @@ if mods["chens-modpack-py-auxiliary-others"] then
         flotation_cell_mk00_recipe.name = "flotation-cell-mk00"
         flotation_cell_mk00_recipe.ingredients = {
             {type = "item", name = "pipe", amount = 3},
-            {type = "item", name = "iron-plate", amount = 3},
+            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "copper-plate", amount = 3},
             {type = "item", name = "small-parts-01", amount = 3}
         }
         flotation_cell_mk00_recipe.results = {
@@ -92,428 +336,175 @@ if mods["chens-modpack-py-auxiliary-others"] then
         }
         flotation_cell_mk00_recipe.enabled = false
 
-        data:extend({
-            flotation_cell_mk00_entity, flotation_cell_mk00_item_subgroup,
-            flotation_cell_mk00_item, flotation_cell_mk00_recipe
-        })
+        -- 注册hydroclassifier-mk00
+        local hydroclassifier_mk00_recipe = table.deepcopy(
+                                                data.raw.recipe["hydroclassifier-mk01"])
+        hydroclassifier_mk00_recipe.name = "hydroclassifier-mk00"
+        hydroclassifier_mk00_recipe.ingredients = {
+            {type = "item", name = "pipe", amount = 3},
+            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "copper-plate", amount = 3},
+            {type = "item", name = "small-parts-01", amount = 3}
+        }
+        hydroclassifier_mk00_recipe.results = {
+            {type = "item", name = "hydroclassifier-mk00", amount = 1}
+        }
+        hydroclassifier_mk00_recipe.enabled = false
 
+        -- 注册leaching-station-mk00
+        local leaching_station_mk00_recipe = table.deepcopy(
+                                                 data.raw.recipe["leaching-station-mk01"])
+        leaching_station_mk00_recipe.name = "leaching-station-mk00"
+        leaching_station_mk00_recipe.ingredients = {
+            {type = "item", name = "pipe", amount = 3},
+            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "copper-plate", amount = 3},
+            {type = "item", name = "small-parts-01", amount = 3}
+        }
+        leaching_station_mk00_recipe.results = {
+            {type = "item", name = "leaching-station-mk00", amount = 1}
+        }
+        leaching_station_mk00_recipe.enabled = false
+
+        data:extend({
+            flotation_cell_mk00_entity, hydroclassifier_mk00_entity,
+            leaching_station_mk00_entity, flotation_cell_mk00_item_subgroup,
+            hydroclassifier_mk00_item_subgroup,
+            leaching_station_mk00_item_subgroup, flotation_cell_mk00_item,
+            hydroclassifier_mk00_item, leaching_station_mk00_item,
+            flotation_cell_mk00_recipe, hydroclassifier_mk00_recipe,
+            leaching_station_mk00_recipe
+        })
     end
 
     if mods["pyalienlife"] then
-        for i = 1, 4 do
-            local base_name = "fluid-drill-mk0" .. i
-            local assembler_name = base_name .. "-assembler"
-
-            -- 注册实体
-            local entity = table.deepcopy(data.raw["mining-drill"][base_name])
-            entity.type = "assembling-machine"
-            entity.name = assembler_name
-            entity.minable = {mining_time = 1, result = assembler_name}
-            entity.crafting_categories = {"fluid-drill-crafting"}
-            entity.crafting_speed = entity.mining_speed
-            entity.fluid_boxes = {table.deepcopy(entity.input_fluid_box)}
-            entity.fluid_boxes[1].production_type = "input"
-            entity.module_slots = 2
-            entity.allowed_effects = {
-                "speed", "productivity", "consumption", "pollution"
+        -- 注册实体
+        -- 注册biofactory-mk00
+        local biofactory_mk00_entity = table.deepcopy(
+                                           data.raw["assembling-machine"]["biofactory-mk01"])
+        biofactory_mk00_entity.name = "biofactory-mk00"
+        biofactory_mk00_entity.icon = nil
+        biofactory_mk00_entity.icons = {
+            {
+                icon = "__pyalienlifegraphics__/graphics/icons/biofactory-mk01.png",
+                icon_size = 64,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
             }
-            entity.resource_categories = nil
-            entity.mining_speed = nil
+        }
+        biofactory_mk00_entity.energy_source.type = "burner"
+        biofactory_mk00_entity.energy_source.fuel_categories = {"chemical"}
+        biofactory_mk00_entity.energy_source.fuel_inventory_size = 1
+        biofactory_mk00_entity.energy_source.burnt_inventory_size = 1
+        biofactory_mk00_entity.energy_source.burnt_result = "ash"
+        biofactory_mk00_entity.minable = {
+            mining_time = 1,
+            result = "biofactory-mk00"
+        }
+        biofactory_mk00_entity.energy_usage = "500kW"
+        biofactory_mk00_entity.next_upgrade = "biofactory-mk01"
+        biofactory_mk00_entity.crafting_categories = {"biofactory"}
 
-            -- 注册物品
-            local item = table.deepcopy(data.raw.item[base_name])
-            item.name = assembler_name
-            item.place_result = assembler_name
-
-            -- 注册配方
-            local recipe = {
-                type = "recipe",
-                name = assembler_name,
-                category = "crafting",
-                ingredients = {{type = "item", name = base_name, amount = 1}},
-                results = {{type = "item", name = assembler_name, amount = 1}},
-                main_product = assembler_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            -- 注册反向配方
-            local reverse_recipe = {
-                type = "recipe",
-                name = assembler_name .. "-reverse",
-                category = "crafting",
-                ingredients = {
-                    {type = "item", name = assembler_name, amount = 1}
-                },
-                results = {{type = "item", name = base_name, amount = 1}},
-                main_product = base_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            data:extend({entity, item, recipe, reverse_recipe})
+        if biofactory_mk00_entity.graphics_set and
+            biofactory_mk00_entity.graphics_set.animation and
+            biofactory_mk00_entity.graphics_set.animation.layers then
+            for _, layer in pairs(biofactory_mk00_entity.graphics_set.animation
+                                      .layers) do
+                if layer.tint then
+                    layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                end
+            end
         end
 
-        -- 注册配方类型
-        data:extend({ -- 注册fluid-drill-crafting
-            {type = "recipe-category", name = "fluid-drill-crafting"}
+        if biofactory_mk00_entity.graphics_set and
+            biofactory_mk00_entity.graphics_set.working_visualisations then
+            for _, visual in pairs(biofactory_mk00_entity.graphics_set
+                                       .working_visualisations) do
+                if visual.animation and visual.animation.layers then
+                    for _, layer in pairs(visual.animation.layers) do
+                        if layer.tint then
+                            layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                        end
+                    end
+                end
+            end
+        end
+
+        -- 注册物品子组
+        -- 注册biofactory-mk00
+        local biofactory_mk00_item_subgroup = table.deepcopy(
+                                                  data.raw["item-subgroup"]["py-alienlife-buildings-mk01"])
+        biofactory_mk00_item_subgroup.name = "py-alienlife-buildings-mk00"
+        biofactory_mk00_item_subgroup.group = "py-alienlife"
+
+        -- 注册物品
+        -- 注册biofactory-mk00
+        local biofactory_mk00_item = table.deepcopy(
+                                         data.raw.item["biofactory-mk01"])
+        biofactory_mk00_item.name = "biofactory-mk00"
+        biofactory_mk00_item.icon = nil
+        biofactory_mk00_item.icons = {
+            {
+                icon = "__pyalienlifegraphics__/graphics/icons/biofactory-mk01.png",
+                icon_size = 64,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+
+        biofactory_mk00_item.place_result = "biofactory-mk00"
+        biofactory_mk00_item.subgroup = "py-alienlife-buildings-mk00"
+
+        -- 注册配方
+        -- 注册biofactory-mk00
+        local biofactory_mk00_recipe = table.deepcopy(
+                                           data.raw.recipe["biofactory-mk01"])
+        biofactory_mk00_recipe.name = "biofactory-mk00"
+        biofactory_mk00_recipe.ingredients = {
+            {type = "item", name = "pipe", amount = 3},
+            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "copper-plate", amount = 3},
+            {type = "item", name = "small-parts-01", amount = 3}
+        }
+        biofactory_mk00_recipe.results = {
+            {type = "item", name = "biofactory-mk00", amount = 1}
+        }
+        biofactory_mk00_recipe.enabled = false
+
+        data:extend({
+            biofactory_mk00_entity, biofactory_mk00_item_subgroup,
+            biofactory_mk00_item, biofactory_mk00_recipe
         })
     end
 
-    if mods["pyalternativeenergy"] then
-        for i = 1, 4 do
-            local base_name = "ree-mining-drill-mk0" .. i
-            local assembler_name = base_name .. "-assembler"
-
-            -- 注册实体
-            local entity = table.deepcopy(data.raw["mining-drill"][base_name])
-            entity.type = "assembling-machine"
-            entity.name = assembler_name
-            entity.minable = {mining_time = 1, result = assembler_name}
-            entity.crafting_categories = {"ree-mining-drill-crafting"}
-            entity.crafting_speed = entity.mining_speed
-            entity.fluid_boxes = {table.deepcopy(entity.input_fluid_box)}
-            entity.fluid_boxes[1].production_type = "input"
-            entity.module_slots = 2
-            entity.allowed_effects = {
-                "speed", "productivity", "consumption", "pollution"
-            }
-            entity.resource_categories = nil
-            entity.mining_speed = nil
-
-            -- 注册物品
-            local item = table.deepcopy(data.raw.item[base_name])
-            item.name = assembler_name
-            item.place_result = assembler_name
-
-            -- 注册配方
-            local recipe = {
-                type = "recipe",
-                name = assembler_name,
-                category = "crafting",
-                ingredients = {{type = "item", name = base_name, amount = 1}},
-                results = {{type = "item", name = assembler_name, amount = 1}},
-                main_product = assembler_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            -- 注册反向配方
-            local reverse_recipe = {
-                type = "recipe",
-                name = assembler_name .. "-reverse",
-                category = "crafting",
-                ingredients = {
-                    {type = "item", name = assembler_name, amount = 1}
-                },
-                results = {{type = "item", name = base_name, amount = 1}},
-                main_product = base_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            data:extend({entity, item, recipe, reverse_recipe})
-        end
-
-        do
-            local base_name = "uranium-mining-drill"
-            local assembler_name = base_name .. "-assembler"
-
-            -- 注册实体
-            local entity = table.deepcopy(data.raw["mining-drill"][base_name])
-            entity.type = "assembling-machine"
-            entity.name = assembler_name
-            entity.minable = {mining_time = 1, result = assembler_name}
-            entity.crafting_categories = {"uranium-mining-drill-crafting"}
-            entity.crafting_speed = entity.mining_speed
-            entity.module_slots = 2
-            entity.allowed_effects = {
-                "speed", "productivity", "consumption", "pollution"
-            }
-            entity.resource_categories = nil
-            entity.mining_speed = nil
-
-            -- 注册物品
-            local item = table.deepcopy(data.raw.item[base_name])
-            item.name = assembler_name
-            item.place_result = assembler_name
-
-            -- 注册配方
-            local recipe = {
-                type = "recipe",
-                name = assembler_name,
-                category = "crafting",
-                ingredients = {{type = "item", name = base_name, amount = 1}},
-                results = {{type = "item", name = assembler_name, amount = 1}},
-                main_product = assembler_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            -- 注册反向配方
-            local reverse_recipe = {
-                type = "recipe",
-                name = assembler_name .. "-reverse",
-                category = "crafting",
-                ingredients = {
-                    {type = "item", name = assembler_name, amount = 1}
-                },
-                results = {{type = "item", name = base_name, amount = 1}},
-                main_product = base_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            data:extend({entity, item, recipe, reverse_recipe})
-        end
-
-        for i = 1, 4 do
-            local base_name = "antimony-drill-mk0" .. i
-            local assembler_name = base_name .. "-assembler"
-
-            -- 注册实体
-            local entity = table.deepcopy(data.raw["mining-drill"][base_name])
-            entity.type = "assembling-machine"
-            entity.name = assembler_name
-            entity.minable = {mining_time = 1, result = assembler_name}
-            entity.crafting_categories = {"antimony-drill-crafting"}
-            entity.crafting_speed = entity.mining_speed
-            entity.module_slots = 2
-            entity.allowed_effects = {
-                "speed", "productivity", "consumption", "pollution"
-            }
-            entity.resource_categories = nil
-            entity.mining_speed = nil
-
-            -- 注册物品
-            local item = table.deepcopy(data.raw.item[base_name])
-            item.name = assembler_name
-            item.place_result = assembler_name
-
-            -- 注册配方
-            local recipe = {
-                type = "recipe",
-                name = assembler_name,
-                category = "crafting",
-                ingredients = {{type = "item", name = base_name, amount = 1}},
-                results = {{type = "item", name = assembler_name, amount = 1}},
-                main_product = assembler_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            -- 注册反向配方
-            local reverse_recipe = {
-                type = "recipe",
-                name = assembler_name .. "-reverse",
-                category = "crafting",
-                ingredients = {
-                    {type = "item", name = assembler_name, amount = 1}
-                },
-                results = {{type = "item", name = base_name, amount = 1}},
-                main_product = base_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            data:extend({entity, item, recipe, reverse_recipe})
-        end
-
-        -- 注册配方类型
-        data:extend({ -- 注册ree-mining-drill-crafting
-            {type = "recipe-category", name = "ree-mining-drill-crafting"},
-            -- 注册uranium-mining-drill-crafting
-            {type = "recipe-category", name = "uranium-mining-drill-crafting"},
-            -- 注册antimony-drill-crafting
-            {type = "recipe-category", name = "antimony-drill-crafting"}
-        })
-    end
-
-    if mods["pycoalprocessing"] then
-        for i = 1, 4 do
-            local base_name = i == 1 and "borax-mine" or "borax-mine-mk0" .. i
-            local assembler_name = base_name .. "-assembler"
-
-            -- 注册实体
-            local entity = table.deepcopy(data.raw["mining-drill"][base_name])
-            entity.type = "assembling-machine"
-            entity.name = assembler_name
-            entity.minable = {mining_time = 1, result = assembler_name}
-            entity.crafting_categories = {"borax-mine-crafting"}
-            entity.crafting_speed = entity.mining_speed
-            entity.fluid_boxes = {table.deepcopy(entity.input_fluid_box)}
-            entity.fluid_boxes[1].production_type = "input"
-            entity.module_slots = 2
-            entity.allowed_effects = {
-                "speed", "productivity", "consumption", "pollution"
-            }
-            entity.resource_categories = nil
-            entity.mining_speed = nil
-
-            -- 注册物品
-            local item = table.deepcopy(data.raw.item[base_name])
-            item.name = assembler_name
-            item.place_result = assembler_name
-
-            -- 注册配方
-            local recipe = {
-                type = "recipe",
-                name = assembler_name,
-                category = "crafting",
-                ingredients = {{type = "item", name = base_name, amount = 1}},
-                results = {{type = "item", name = assembler_name, amount = 1}},
-                main_product = assembler_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            -- 注册反向配方
-            local reverse_recipe = {
-                type = "recipe",
-                name = assembler_name .. "-reverse",
-                category = "crafting",
-                ingredients = {
-                    {type = "item", name = assembler_name, amount = 1}
-                },
-                results = {{type = "item", name = base_name, amount = 1}},
-                main_product = base_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            data:extend({entity, item, recipe, reverse_recipe})
-        end
-
-        do
-            local base_name = "niobium-mine"
-            local assembler_name = base_name .. "-assembler"
-
-            -- 注册实体
-            local entity = table.deepcopy(data.raw["mining-drill"][base_name])
-            entity.type = "assembling-machine"
-            entity.name = assembler_name
-            entity.minable = {mining_time = 1, result = assembler_name}
-            entity.crafting_categories = {"niobium-mine-crafting"}
-            entity.crafting_speed = entity.mining_speed
-            entity.fluid_boxes = {table.deepcopy(entity.input_fluid_box)}
-            entity.fluid_boxes[1].production_type = "input"
-            entity.module_slots = 2
-            entity.allowed_effects = {
-                "speed", "productivity", "consumption", "pollution"
-            }
-            entity.resource_categories = nil
-            entity.mining_speed = nil
-
-            -- 注册物品
-            local item = table.deepcopy(data.raw.item[base_name])
-            item.name = assembler_name
-            item.place_result = assembler_name
-
-            -- 注册配方
-            local recipe = {
-                type = "recipe",
-                name = assembler_name,
-                category = "crafting",
-                ingredients = {{type = "item", name = base_name, amount = 1}},
-                results = {{type = "item", name = assembler_name, amount = 1}},
-                main_product = assembler_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            -- 注册反向配方
-            local reverse_recipe = {
-                type = "recipe",
-                name = assembler_name .. "-reverse",
-                category = "crafting",
-                ingredients = {
-                    {type = "item", name = assembler_name, amount = 1}
-                },
-                results = {{type = "item", name = base_name, amount = 1}},
-                main_product = base_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            data:extend({entity, item, recipe, reverse_recipe})
-        end
-
-        -- 注册配方类型
-        data:extend({ -- 注册borax-mine-crafting
-            {type = "recipe-category", name = "borax-mine-crafting"},
-            -- 注册niobium-mine
-            {type = "recipe-category", name = "niobium-mine-crafting"}
-        })
-    end
-
-    if mods["pyfusionenergy"] then
-        do
-            local base_name = "mo-mine"
-            local assembler_name = base_name .. "-assembler"
-
-            -- 注册实体
-            local entity = table.deepcopy(data.raw["mining-drill"][base_name])
-            entity.type = "assembling-machine"
-            entity.name = assembler_name
-            entity.minable = {mining_time = 1, result = assembler_name}
-            entity.crafting_categories = {"mo-mine-crafting"}
-            entity.crafting_speed = entity.mining_speed
-            entity.module_slots = 2
-            entity.allowed_effects = {
-                "speed", "productivity", "consumption", "pollution"
-            }
-            entity.resource_categories = nil
-            entity.mining_speed = nil
-
-            -- 注册物品
-            local item = table.deepcopy(data.raw.item[base_name])
-            item.name = assembler_name
-            item.place_result = assembler_name
-
-            -- 注册配方
-            local recipe = {
-                type = "recipe",
-                name = assembler_name,
-                category = "crafting",
-                ingredients = {{type = "item", name = base_name, amount = 1}},
-                results = {{type = "item", name = assembler_name, amount = 1}},
-                main_product = assembler_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            -- 注册反向配方
-            local reverse_recipe = {
-                type = "recipe",
-                name = assembler_name .. "-reverse",
-                category = "crafting",
-                ingredients = {
-                    {type = "item", name = assembler_name, amount = 1}
-                },
-                results = {{type = "item", name = base_name, amount = 1}},
-                main_product = base_name,
-                energy_required = 1,
-                enabled = false
-            }
-
-            data:extend({entity, item, recipe, reverse_recipe})
-        end
-
-        -- 注册配方类型
-        data:extend({ -- 注册mo-mine
-            {type = "recipe-category", name = "mo-mine-crafting"}
-        })
-    end
+    -- 注册物品
+    data:extend({ -- 注册污泥
+        {
+            type = "item",
+            name = "sludge",
+            icon = "__chens-tweak-mod__/graphics/icons/sludge.png",
+            subgroup = "raw-resource",
+            order = "a",
+            stack_size = 100
+        }, -- 注册有机废料
+        {
+            type = "item",
+            name = "organic-waste",
+            icon = "__chens-tweak-mod__/graphics/icons/organic-waste.png",
+            subgroup = "raw-resource",
+            order = "a",
+            stack_size = 100,
+            fuel_category = "chemical",
+            fuel_value = "1.25MJ"
+        }
+    })
 
     -- 注册配方
-    -- flotation
-    data:extend({
-        -- 注册污泥和有机废料
+    -- evaporator
+    data:extend({ -- 注册污泥和有机废料
         {
             type = "recipe",
             name = "sludge",
             order = "a",
-            category = "flotation",
+            category = "evaporator",
             energy_required = 1.75,
             ingredients = {{type = "fluid", name = "water", amount = 200}},
             results = {
@@ -529,82 +520,16 @@ if mods["chens-modpack-py-auxiliary-others"] then
             },
             main_product = "sludge",
             enabled = true
-        }, -- 注册铁矿
-        {
-            type = "recipe",
-            name = "early-iron-ore",
-            order = "a",
-            category = "flotation",
-            energy_required = 2,
-            ingredients = {
-                {type = "item", name = "sludge", amount = 1},
-                {type = "fluid", name = "water", amount = 10}
-            },
-            results = {{type = "item", name = "iron-ore", amount = 1}},
-            main_product = "iron-ore",
-            enabled = false
-        }, -- 注册铜矿
-        {
-            type = "recipe",
-            name = "early-copper-ore",
-            order = "a",
-            category = "flotation",
-            energy_required = 2,
-            ingredients = {
-                {type = "item", name = "sludge", amount = 1},
-                {type = "fluid", name = "water", amount = 10}
-            },
-            results = {{type = "item", name = "copper-ore", amount = 1}},
-            main_product = "copper-ore",
-            enabled = false
-        }, -- 注册石矿
-        {
-            type = "recipe",
-            name = "early-stone",
-            order = "a",
-            category = "flotation",
-            energy_required = 2,
-            ingredients = {
-                {type = "item", name = "sludge", amount = 1},
-                {type = "fluid", name = "water", amount = 10}
-            },
-            results = {{type = "item", name = "stone", amount = 1}},
-            main_product = "stone",
-            enabled = false
-        }, -- 注册原煤
-        {
-            type = "recipe",
-            name = "early-raw-coal",
-            order = "a",
-            category = "flotation",
-            energy_required = 2,
-            ingredients = {
-                {type = "item", name = "sludge", amount = 1},
-                {type = "fluid", name = "water", amount = 10}
-            },
-            results = {{type = "item", name = "raw-coal", amount = 1}},
-            main_product = "raw-coal",
-            enabled = false
-        }, -- 注册干酪根
-        {
-            type = "recipe",
-            name = "early-kerogen",
-            order = "a",
-            category = "flotation",
-            energy_required = 2,
-            ingredients = {
-                {type = "item", name = "sludge", amount = 1},
-                {type = "fluid", name = "carbolic-oil", amount = 3}
-            },
-            results = {{type = "item", name = "kerogen", amount = 1}},
-            main_product = "kerogen",
-            enabled = false
-        }, -- 注册原木
+        }
+    })
+
+    -- biofactory
+    data:extend({ -- 注册原木
         {
             type = "recipe",
             name = "early-log",
             order = "a",
-            category = "flotation",
+            category = "biofactory",
             energy_required = 16,
             ingredients = {{type = "fluid", name = "water", amount = 200}},
             results = {
@@ -618,7 +543,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             type = "recipe",
             name = "starting-seaweed",
             order = "a",
-            category = "flotation",
+            category = "biofactory",
             energy_required = 16,
             ingredients = {{type = "fluid", name = "water", amount = 200}},
             results = {
@@ -626,6 +551,80 @@ if mods["chens-modpack-py-auxiliary-others"] then
                 {type = "item", name = "fish", amount = 1, probability = 0.05}
             },
             main_product = "seaweed",
+            enabled = false
+        }
+    })
+
+    -- hydroclassifier
+    data:extend({ -- 注册铁矿
+        {
+            type = "recipe",
+            name = "early-iron-ore",
+            order = "a",
+            category = "hydroclassifier",
+            energy_required = 2,
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "water", amount = 10}
+            },
+            results = {{type = "item", name = "iron-ore", amount = 1}},
+            main_product = "iron-ore",
+            enabled = false
+        }, -- 注册铜矿
+        {
+            type = "recipe",
+            name = "early-copper-ore",
+            order = "a",
+            category = "hydroclassifier",
+            energy_required = 2,
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "water", amount = 10}
+            },
+            results = {{type = "item", name = "copper-ore", amount = 1}},
+            main_product = "copper-ore",
+            enabled = false
+        }, -- 注册石矿
+        {
+            type = "recipe",
+            name = "early-stone",
+            order = "a",
+            category = "hydroclassifier",
+            energy_required = 2,
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "water", amount = 10}
+            },
+            results = {{type = "item", name = "stone", amount = 1}},
+            main_product = "stone",
+            enabled = false
+        }, -- 注册原煤
+        {
+            type = "recipe",
+            name = "early-raw-coal",
+            order = "a",
+            category = "hydroclassifier",
+            energy_required = 2,
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "water", amount = 10}
+            },
+            results = {{type = "item", name = "raw-coal", amount = 1}},
+            main_product = "raw-coal",
+            enabled = false
+        }, -- 注册干酪根
+        {
+            type = "recipe",
+            name = "early-kerogen",
+            order = "a",
+            category = "hydroclassifier",
+            energy_required = 2,
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "carbolic-oil", amount = 3}
+            },
+            results = {{type = "item", name = "kerogen", amount = 1}},
+            main_product = "kerogen",
             enabled = false
         }
     })
@@ -664,13 +663,13 @@ if mods["chens-modpack-py-auxiliary-others"] then
         }
     })
 
-    -- fluid-drill-crafting
+    -- flotation
     data:extend({ -- 注册铝矿
         {
             type = "recipe",
             name = "early-aluminium-ore",
             order = "a",
-            category = "fluid-drill-crafting",
+            category = "flotation",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -684,7 +683,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             type = "recipe",
             name = "early-tin-ore",
             order = "a",
-            category = "fluid-drill-crafting",
+            category = "flotation",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -698,7 +697,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             type = "recipe",
             name = "early-zinc-ore",
             order = "a",
-            category = "fluid-drill-crafting",
+            category = "flotation",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -712,7 +711,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             type = "recipe",
             name = "early-lead-ore",
             order = "a",
-            category = "fluid-drill-crafting",
+            category = "flotation",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -726,7 +725,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             type = "recipe",
             name = "early-titanium-ore",
             order = "a",
-            category = "fluid-drill-crafting",
+            category = "flotation",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -740,7 +739,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             type = "recipe",
             name = "early-nickel-ore",
             order = "a",
-            category = "fluid-drill-crafting",
+            category = "flotation",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -754,7 +753,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             type = "recipe",
             name = "early-chromium-ore",
             order = "a",
-            category = "fluid-drill-crafting",
+            category = "flotation",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -766,31 +765,13 @@ if mods["chens-modpack-py-auxiliary-others"] then
         }
     })
 
-    -- ree-mining-drill-crafting
-    data:extend({ -- 注册稀土矿
-        {
-            type = "recipe",
-            name = "early-rare-earth-ore",
-            order = "a",
-            category = "ree-mining-drill-crafting",
-            energy_required = 2,
-            ingredients = {
-                {type = "item", name = "sludge", amount = 1},
-                {type = "fluid", name = "naphtha", amount = 10}
-            },
-            results = {{type = "item", name = "rare-earth-ore", amount = 1}},
-            main_product = "rare-earth-ore",
-            enabled = false
-        }
-    })
-
-    -- borax-mine-crafting
+    -- leaching
     data:extend({ -- 注册天然硼砂
         {
             type = "recipe",
             name = "early-raw-borax",
             order = "a",
-            category = "borax-mine-crafting",
+            category = "leaching",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -804,7 +785,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             type = "recipe",
             name = "early-quartz-ore",
             order = "a",
-            category = "borax-mine-crafting",
+            category = "leaching",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -813,46 +794,48 @@ if mods["chens-modpack-py-auxiliary-others"] then
             results = {{type = "item", name = "ore-quartz", amount = 1}},
             main_product = "ore-quartz",
             enabled = false
-        }
-    })
-
-    -- uranium-mining-drill-crafting
-    data:extend({ -- 注册铀矿
+        }, -- 注册稀土矿
+        {
+            type = "recipe",
+            name = "early-rare-earth-ore",
+            order = "a",
+            category = "leaching",
+            energy_required = 2,
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "naphtha", amount = 10}
+            },
+            results = {{type = "item", name = "rare-earth-ore", amount = 1}},
+            main_product = "rare-earth-ore",
+            enabled = false
+        }, -- 注册铀矿
         {
             type = "recipe",
             name = "early-uranium-ore",
             order = "a",
-            category = "uranium-mining-drill-crafting",
+            category = "leaching",
             energy_required = 2,
             ingredients = {{type = "item", name = "sludge", amount = 1}},
             results = {{type = "item", name = "uranium-ore", amount = 1}},
             main_product = "uranium-ore",
             enabled = false
-        }
-    })
-
-    -- antimony-drill-crafting
-    data:extend({ -- 注册锑矿
+        }, -- 注册锑矿
         {
             type = "recipe",
             name = "early-antimonium-ore",
             order = "a",
-            category = "antimony-drill-crafting",
+            category = "leaching",
             energy_required = 2,
             ingredients = {{type = "item", name = "sludge", amount = 1}},
             results = {{type = "item", name = "antimonium-ore", amount = 1}},
             main_product = "antimonium-ore",
             enabled = false
-        }
-    })
-
-    -- niobium-mine-crafting
-    data:extend({ -- 注册铌矿
+        }, -- 注册铌矿
         {
             type = "recipe",
             name = "early-niobium-ore",
             order = "a",
-            category = "niobium-mine-crafting",
+            category = "leaching",
             energy_required = 2,
             ingredients = {
                 {type = "item", name = "sludge", amount = 1},
@@ -861,16 +844,12 @@ if mods["chens-modpack-py-auxiliary-others"] then
             results = {{type = "item", name = "niobium-ore", amount = 1}},
             main_product = "niobium-ore",
             enabled = false
-        }
-    })
-
-    -- mo-mine-crafting
-    data:extend({ -- 注册钼矿
+        }, -- 注册钼矿
         {
             type = "recipe",
             name = "early-molybdenum-ore",
             order = "a",
-            category = "mo-mine-crafting",
+            category = "leaching",
             energy_required = 2,
             ingredients = {{type = "item", name = "sludge", amount = 1}},
             results = {{type = "item", name = "molybdenum-ore", amount = 1}},
@@ -902,27 +881,3 @@ if mods["chens-modpack-py-auxiliary-others"] then
         }
     })
 end
-
--- 注册物品
-data:extend({
-    -- 注册污泥
-    {
-        type = "item",
-        name = "sludge",
-        icon = "__chens-tweak-mod__/graphics/icons/sludge.png",
-        subgroup = "raw-resource",
-        order = "a",
-        stack_size = 100
-    }, -- 注册有机废料
-    {
-        type = "item",
-        name = "organic-waste",
-        icon = "__chens-tweak-mod__/graphics/icons/organic-waste.png",
-        subgroup = "raw-resource",
-        order = "a",
-        stack_size = 100,
-        fuel_category = "chemical",
-        fuel_value = "1.25MJ"
-    }
-})
-
