@@ -1,255 +1,345 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.13.0
+Date: 2025-04-19
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Added new machines.
+      - Adjusted some recipes.
+---------------------------------------------------------------------------------------------------
 Version: 0.12.4
 Date: 2025-04-16
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Added more machines.  
-  - [Chens Modpack(py+auxiliary+others)]: Adjusted some recipes.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Added more machines.  
+      - Adjusted some recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.3
 Date: 2025-04-16
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Performed some balance adjustments.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]:
+      - Performed some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.2
 Date: 2025-04-16
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the issues with the early-lead-ore and early-nickel-ore recipes.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the issues with the early-lead-ore and early-nickel-ore recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.1
 Date: 2025-04-16
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Adjusted the recipes for ores.
-  - [Chens Modpack(py+auxiliary+others)]: Adjusted the crafting speed for all Flotation Cells.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Adjusted the recipes for ores.
+      - Adjusted the crafting speed for all Flotation Cells.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.0
 Date: 2025-04-15
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Added a new machine, Flotation Cell Mk0, to replace the Washer Mk0.
-  - [Chens Modpack(py+auxiliary+others)]: Overhauled all recipes.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Added a new machine, Flotation Cell Mk0, to replace the Washer Mk0.
+      - Overhauled all recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.5
 Date: 2025-04-13
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the issue with the technology icons.
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the issue with starting items.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the issue with the technology icons.
+      - Fixed the issue with starting items.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.4
 Date: 2025-04-13
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed multiple issues with recipes.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]:
+      - Fixed multiple issues with recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.3
 Date: 2025-04-12
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the issue with the iron-stick recipe.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the issue with the iron-stick recipe.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.2
 Date: 2025-04-12
- Changes:
-  - [Base]: Unlock the robot speed technologies when the start-robot setting is enabled.
+  Changes:
+    - [Base]: 
+      - Unlock the robot speed technologies when the start-robot setting is enabled.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.1
 Date: 2025-04-12
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed issues with several recipes being unlocked at the start.
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the issue where the early-niobium-ore recipe couldn't be unlocked.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed issues with several recipes being unlocked at the start.
+      - Fixed the issue where the early-niobium-ore recipe couldn't be unlocked.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.0
 Date: 2025-04-12
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Removed optional dependency mod: Chens Arcosphere Mod.
-  - [Chens Modpack(py+auxiliary+others)]: Simplified the mineral recipes.
-  - [Chens Modpack(py+auxiliary+others)]: Removed all adjustments to washer entities.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Removed optional dependency mod: Chens Arcosphere Mod.
+      - Simplified the mineral recipes. 
+      - Removed all adjustments to washer entities.
 ---------------------------------------------------------------------------------------------------
 Version: 0.10.2
 Date: 2025-04-11
- Changes:
-  - [Base]: Added optional dependency mod: Chens Arcosphere Mod.
+  Changes:
+    - [Base]: 
+      - Added optional dependency mod: Chens Arcosphere Mod.
 ---------------------------------------------------------------------------------------------------
 Version: 0.10.1
 Date: 2025-04-08
- Changes:
-  - [Base]: Added setting to adjust item stack size inside machines.
+  Changes:
+    - [Base]: 
+      - Added setting to adjust item stack size inside machines.
 ---------------------------------------------------------------------------------------------------
 Version: 0.10.0
 Date: 2025-04-08
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Split the map presets into 2 separate mods.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Split the map presets into 2 separate mods.
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.4
 Date: 2025-04-07
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Adjusted the recipe for washer.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Adjusted the recipe for washer.
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.3
 Date: 2025-04-07
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the group issue of the item "washer-mk00".
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the group issue of the item "washer-mk00".
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.2
 Date: 2025-04-07
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the prerequisite technology issue for the railway technology.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the prerequisite technology issue for the railway technology.
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.1
 Date: 2025-04-07
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the issue where burner mining drills are given in map presets land block no resource.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the issue where burner mining drills are given in map presets land block no resource.
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.0
 Date: 2025-04-07
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Added a map preset with no water and no resources.
-  - [Chens Modpack(py+auxiliary+others)]: Modified the code to disable automatic resource generation.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Added a map preset with no water and no resources.
+      - Modified the code to disable automatic resource generation.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.6
 Date: 2025-04-01
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the issue of the iron-stick recipe being unlocked multiple times by technology.
-  - [Chens Modpack(py+auxiliary+others)]: Removed the changes made to the bobinserters mod.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the issue of the iron-stick recipe being unlocked multiple times by technology.
+      - Removed the changes made to the bobinserters mod.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.5
 Date: 2025-04-01
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed a crash issue when starting the game.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed a crash issue when starting the game.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.4
 Date: 2025-03-30
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Adjusted the prerequisite technology for void technology.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Adjusted the prerequisite technology for void technology.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.3
 Date: 2025-03-29
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Fixed the issue of the void-chest recipe being unlocked multiple times by technology again.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block": 
+        - Fixed the issue of the void-chest recipe being unlocked multiple times by technology again.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.2
 Date: 2025-03-27
- Changes:
-  - [Base]: Fixed a crash issue when starting the game.
+  Changes:
+    - [Base]: 
+      - Fixed a crash issue when starting the game.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.1
 Date: 2025-03-27
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the prerequisite issue of the transport-system technology.
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Added new recipes for fish. Fixed the issue of the void-chest recipe being unlocked multiple times by technology.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the prerequisite issue of the transport-system technology.
+
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Added new recipes for fish. Fixed the issue of the void-chest recipe being unlocked multiple times by technology.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.0
 Date: 2025-03-27
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Fixed the issue where resin could not be obtained. Fixed the issue where other minerals could not be obtained. Adjusted the recipe for wood. Adjusted the recipe for seaweed. Adjusted the fluid connection positions of the washer entity. Removed the changes made to the VoidChestInstant mod.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Fixed the issue where resin could not be obtained. Fixed the issue where other minerals could not be obtained. 
+          - Adjusted the recipe for wood. 
+          - Adjusted the recipe for seaweed. 
+          - Adjusted the fluid connection positions of the washer entity. 
+          - Removed the changes made to the VoidChestInstant mod.
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.1
 Date: 2025-03-25
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Fixed the issue where quartz ore could not be obtained.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Fixed the issue where quartz ore could not be obtained.
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.0
 Date: 2025-03-25
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.0
 Date: 2025-03-25
- Changes:
-  - [Base]: Updated the version number according to the rules.
+  Changes:
+    - [Base]: 
+      - Updated the version number according to the rules.
 
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments. Added recipes with other minerals.
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
+        - Added recipes with other minerals.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 2025-03-24
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 2025-03-24
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". A major update has been made, and it is no longer compatible with the previous save. Please start a new game.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]:
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - A major update has been made, and it is no longer compatible with the previous save. Please start a new game.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.45
 Date: 2025-03-22
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the missing translation issue.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed the missing translation issue.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.44
 Date: 2025-03-22
- Changes:
-  - [Base]: Fixed a crash issue when starting the game.
+  Changes:
+    - [Base]: 
+      - Fixed a crash issue when starting the game.
 
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.43
 Date: 2025-03-22
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.42
 Date: 2025-03-21
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.41
 Date: 2025-03-21
- Changes:
-  - [Base]: Fixed a crash issue when starting the game.
+  Changes:
+    - [Base]: 
+      - Fixed a crash issue when starting the game.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.40
 Date: 2025-03-21
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Changed the logic of map generation so that map presets can now view maps.
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Changed the logic of map generation so that map presets can now view maps.
+
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.39
 Date: 2025-03-20
- Changes:
-  - [Base]: Fixed a crash issue when starting the game.
+  Changes:
+    - [Base]:
+      - Fixed a crash issue when starting the game.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.38
 Date: 2025-03-17
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Fixed a recipe issue with the offshore pump.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Fixed a recipe issue with the offshore pump.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.37
 Date: 2025-03-17
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: Fixed the issue where mining drills could not use fluids.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]:
+      - Fixed the issue where mining drills could not use fluids.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.36
 Date: 2025-03-16
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]:
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.35
 Date: 2025-03-15
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]:
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.34
 Date: 2025-03-15
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Fixed the issue with the ash separation recipe.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Fixed the issue with the ash separation recipe.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.33
 Date: 2025-03-15
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Adapted to the AAI Loaders Sane mod, adjusted the AAI Wood Loader technology. Fixed an issue with recipe categorization.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]:
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Adapted to the AAI Loaders Sane mod, adjusted the AAI Wood Loader technology.
+        - Fixed an issue with recipe categorization.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.32
 Date: 2025-03-15
- Changes:
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments. Added new tree seeds recipes compatible with the Py series mod.
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments. 
+        - Added new tree seeds recipes compatible with the Py series mod.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.31
 Date: 2025-03-15
- Changes:
-  - [Base]: Fixed a crash issue when starting the game.
+  Changes:
+    - [Base]: 
+      - Fixed a crash issue when starting the game.
 
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments. Added new wood and moss recipes compatible with the Py series mods.
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments. 
+        - Added new wood and moss recipes compatible with the Py series mods.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.30
 Date: 2025-03-14
- Changes:
-  - [Base]: Optimized the code for item stacking, now more items can be changed to the stack.
+  Changes:
+    - [Base]: 
+      - Optimized the code for item stacking, now more items can be changed to the stack.
 
-  - [Chens Modpack(py+auxiliary+others)]: Added localized translations for English. Added 2 map presets.
-  - [Chens Modpack(py+auxiliary+others)]: The changes will only take effect if the terrain selection is set to "sea-block". Made some balance adjustments.
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Added localized translations for English. 
+      - Added 2 map presets.
+
+      - The changes will only take effect if the terrain selection is set to "sea-block":
+        - Made some balance adjustments.
