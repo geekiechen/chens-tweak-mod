@@ -3,10 +3,11 @@
     "version": "0.12.5",
     "scripts": {
         "release": "standard-version",
-        "full-release": "git add . && git commit -m \"chore: release prep\" && npm run release && git push origin main --follow-tags && npx github-release-from-changelog"
+        "full-release": "node release.js"
     },
     "devDependencies": {
         "github-release-from-changelog": "^2.1.1",
+        "inquirer": "^12.5.2",
         "standard-version": "^9.5.0"
     },
     "repository": {
