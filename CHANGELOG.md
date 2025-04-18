@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.5](https://github.com/geekiechen/chens-tweak-mod/compare/v0.12.4...v0.12.5) (2025-04-18)
+
 ### [0.12.4](https://github.com/geekiechen/chens-tweak-mod/compare/v0.12.3...v0.12.4) (2025-04-16)
 
 ### [0.12.3](https://github.com/geekiechen/chens-tweak-mod/compare/v0.12.2...v0.12.3) (2025-04-16)
