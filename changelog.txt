@@ -1,61 +1,70 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.13.1
+Date: 2025-04-19
+  Changes:
+    - [Chens Py Sea Block Mod]: 
+      - Added new item: organic fuel.
+      - Added new recipe for producing organic fuel.
+      - Adjusted the recipe for landfill.
+      - Adjusted the recipe for sludge.
+---------------------------------------------------------------------------------------------------
 Version: 0.13.0
 Date: 2025-04-19
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Added new machines.
       - Adjusted some recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.4
 Date: 2025-04-16
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Added more machines.  
       - Adjusted some recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.3
 Date: 2025-04-16
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]:
+    - [Chens Py Sea Block Mod]:
       - Performed some balance adjustments.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.2
 Date: 2025-04-16
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Fixed the issues with the early-lead-ore and early-nickel-ore recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.1
 Date: 2025-04-16
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Adjusted the recipes for ores.
       - Adjusted the crafting speed for all Flotation Cells.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.0
 Date: 2025-04-15
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Added a new machine, Flotation Cell Mk0, to replace the Washer Mk0.
       - Overhauled all recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.5
 Date: 2025-04-13
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Fixed the issue with the technology icons.
       - Fixed the issue with starting items.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.4
 Date: 2025-04-13
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]:
+    - [Chens Py Sea Block Mod]:
       - Fixed multiple issues with recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.3
 Date: 2025-04-12
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Fixed the issue with the iron-stick recipe.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.2
@@ -67,14 +76,14 @@ Date: 2025-04-12
 Version: 0.11.1
 Date: 2025-04-12
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Fixed issues with several recipes being unlocked at the start.
       - Fixed the issue where the early-niobium-ore recipe couldn't be unlocked.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.0
 Date: 2025-04-12
   Changes:
-    - [Chens Modpack(py+auxiliary+others)]: 
+    - [Chens Py Sea Block Mod]: 
       - Removed optional dependency mod: Chens Arcosphere Mod.
       - Simplified the mineral recipes. 
       - Removed all adjustments to washer entities.
