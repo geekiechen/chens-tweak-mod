@@ -494,6 +494,16 @@ if mods["chens-modpack-py-auxiliary-others"] then
             stack_size = 100,
             fuel_category = "chemical",
             fuel_value = "1.25MJ"
+        }, -- 注册有机燃料
+        {
+            type = "item",
+            name = "organic-fuel",
+            icon = "__chens-tweak-mod__/graphics/icons/organic-fuel.png",
+            subgroup = "raw-resource",
+            order = "a",
+            stack_size = 100,
+            fuel_category = "chemical",
+            fuel_value = "5MJ"
         }
     })
 
@@ -508,14 +518,13 @@ if mods["chens-modpack-py-auxiliary-others"] then
             energy_required = 1.75,
             ingredients = {{type = "fluid", name = "water", amount = 200}},
             results = {
-                {type = "item", name = "sludge", amount = 1, probability = 0.6},
-                {type = "item", name = "sludge", amount = 1, probability = 0.3},
+                {type = "item", name = "sludge", amount = 1, probability = 0.9},
                 {type = "item", name = "organic-waste", amount = 1},
                 {
                     type = "item",
                     name = "organic-waste",
                     amount = 1,
-                    probability = 0.7
+                    probability = 0.75
                 }
             },
             main_product = "sludge",
@@ -854,6 +863,21 @@ if mods["chens-modpack-py-auxiliary-others"] then
             ingredients = {{type = "item", name = "sludge", amount = 1}},
             results = {{type = "item", name = "molybdenum-ore", amount = 1}},
             main_product = "molybdenum-ore",
+            enabled = false
+        }
+    })
+
+    -- distilator
+    data:extend({ -- 注册有机燃料
+        {
+            type = "recipe",
+            name = "organic-fuel",
+            order = "a",
+            category = "distilator",
+            energy_required = 2,
+            ingredients = {{type = "item", name = "organic-waste", amount = 5}},
+            results = {{type = "item", name = "organic-fuel", amount = 1}},
+            main_product = "organic-fuel",
             enabled = false
         }
     })

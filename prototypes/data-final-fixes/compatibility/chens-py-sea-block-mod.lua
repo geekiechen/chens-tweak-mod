@@ -2,8 +2,53 @@
 if mods["chens-py-sea-block-mod"] then
     -- 修复chens-tweak-mod模组的问题
     if mods["chens-tweak-mod"] then
+        -- 修复科技的问题
+        -- 修复basic-resources的问题
         table.insert(data.raw.technology["basic-resources"].effects,
                      {type = "unlock-recipe", recipe = "landfill"})
+
+        -- 修复landfill的问题
+        for i = #data.raw.technology["landfill"].effects, 1, -1 do
+            local effect = data.raw.technology["landfill"].effects[i]
+            if effect.type == "unlock-recipe" and effect.recipe == "landfill" then
+                table.remove(data.raw.technology["landfill"].effects, i)
+                break
+            end
+        end
+
+        if data.raw.technology["landfill"] and
+            next(data.raw.technology["landfill"].effects or {}) == nil then
+            for _, tech in pairs(data.raw.technology) do
+                if tech.prerequisites and
+                    table.contains(tech.prerequisites, "landfill") then
+                    for i, prerequisite in ipairs(tech.prerequisites) do
+                        if prerequisite == "landfill" then
+                            table.remove(tech.prerequisites, i)
+                            break
+                        end
+                    end
+
+                    for _, prerequisite in ipairs(
+                                               data.raw.technology["landfill"]
+                                                   .prerequisites or {}) do
+                        if not table.contains(tech.prerequisites, prerequisite) then
+                            table.insert(tech.prerequisites, prerequisite)
+                        end
+                    end
+                end
+            end
+
+            data.raw.technology["landfill"] = nil
+        end
+
+        -- 修复配方的问题
+        -- 修复landfill的问题
+        if data.raw.recipe["landfill"] then
+            data.raw.recipe["landfill"].ingredients = {
+                {type = "item", name = "stone", amount = 5},
+                {type = "item", name = "ash", amount = 10}
+            }
+        end
     end
 end
 
@@ -248,6 +293,8 @@ if mods["pycoalprocessing"] then
     -- 修复coal-processing-1的问题
     table.insert(data.raw.technology["coal-processing-1"].effects,
                  {type = "unlock-recipe", recipe = "early-raw-coal"})
+    table.insert(data.raw.technology["coal-processing-1"].effects,
+                 {type = "unlock-recipe", recipe = "organic-fuel"})
 
     -- 修复steam-power的问题
     for i = #data.raw.technology["steam-power"].effects, 1, -1 do
@@ -346,46 +393,6 @@ if mods["wood-logistics"] then
 end
 
 -- 修复科技的问题
--- 修复landfill的问题
-for i = #data.raw.technology["landfill"].effects, 1, -1 do
-    local effect = data.raw.technology["landfill"].effects[i]
-    if effect.type == "unlock-recipe" and effect.recipe == "landfill" then
-        table.remove(data.raw.technology["landfill"].effects, i)
-        break
-    end
-end
-
-if data.raw.technology["landfill"] and
-    next(data.raw.technology["landfill"].effects or {}) == nil then
-    for _, tech in pairs(data.raw.technology) do
-        if tech.prerequisites and table.contains(tech.prerequisites, "landfill") then
-            for i, prerequisite in ipairs(tech.prerequisites) do
-                if prerequisite == "landfill" then
-                    table.remove(tech.prerequisites, i)
-                    break
-                end
-            end
-
-            for _, prerequisite in ipairs(
-                                       data.raw.technology["landfill"]
-                                           .prerequisites or {}) do
-                if not table.contains(tech.prerequisites, prerequisite) then
-                    table.insert(tech.prerequisites, prerequisite)
-                end
-            end
-        end
-    end
-
-    data.raw.technology["landfill"] = nil
-end
-
 -- 修复steam-power的问题
 table.insert(data.raw.technology["steam-power"].prerequisites, "basic-resources")
 
--- 修复配方的问题
--- 修复landfill的问题
-if data.raw.recipe["landfill"] then
-    data.raw.recipe["landfill"].ingredients = {}
-    table.insert(data.raw.recipe["landfill"].ingredients,
-                 {type = "item", name = "stone", amount = 3})
-end
