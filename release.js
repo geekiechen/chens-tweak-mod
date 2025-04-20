@@ -109,22 +109,26 @@ function extractLatestChangelogBlockFromMd(filePath) {
         // ✅ 同步写入 CHANGELOG.md
         appendToChangelogMd(v, d, block);
 
-        // 直接在命令中传递 --notes-file 的内容
         execSync(`git push origin main --follow-tags`, {
             stdio: "inherit",
         });
 
-        // 🟡 从 CHANGELOG.md 中提取最新的版本块
+        // 创建临时文件保存此次更新日志
+        const tempChangelogFile = path.join(__dirname, `changelog-v${v}.md`);
         const latestChangelog =
             extractLatestChangelogBlockFromMd("CHANGELOG.md");
+        fs.writeFileSync(tempChangelogFile, latestChangelog, "utf-8");
 
-        // ✅ 创建 GitHub Release，并直接从 CHANGELOG.md 中提取最新的版本块作为 --notes-file
+        // ✅ 创建 GitHub Release，并直接从临时文件读取 --notes
         execSync(
-            `gh release create v${version} --title "v${version}" --notes '${latestChangelog}'`,
+            `gh release create v${version} --title "v${version}" --notes-file "${tempChangelogFile}"`,
             {
                 stdio: "inherit",
             }
         );
+
+        // 删除临时文件
+        fs.unlinkSync(tempChangelogFile);
     } catch (e) {
         console.error("❌ 发布过程中出错：", e.message);
     }
