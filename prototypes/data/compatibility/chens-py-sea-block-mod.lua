@@ -824,7 +824,10 @@ if mods["chens-modpack-py-auxiliary-others"] then
             order = "a",
             category = "leaching",
             energy_required = 2,
-            ingredients = {{type = "item", name = "sludge", amount = 1}},
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "sulfuric-acid", amount = 8}
+            },
             results = {{type = "item", name = "uranium-ore", amount = 1}},
             main_product = "uranium-ore",
             enabled = false
@@ -835,7 +838,10 @@ if mods["chens-modpack-py-auxiliary-others"] then
             order = "a",
             category = "leaching",
             energy_required = 2,
-            ingredients = {{type = "item", name = "sludge", amount = 1}},
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "syngas", amount = 7}
+            },
             results = {{type = "item", name = "antimonium-ore", amount = 1}},
             main_product = "antimonium-ore",
             enabled = false
@@ -860,7 +866,10 @@ if mods["chens-modpack-py-auxiliary-others"] then
             order = "a",
             category = "leaching",
             energy_required = 2,
-            ingredients = {{type = "item", name = "sludge", amount = 1}},
+            ingredients = {
+                {type = "item", name = "sludge", amount = 1},
+                {type = "fluid", name = "gasoline", amount = 7}
+            },
             results = {{type = "item", name = "molybdenum-ore", amount = 1}},
             main_product = "molybdenum-ore",
             enabled = false

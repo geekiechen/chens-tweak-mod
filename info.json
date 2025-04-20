@@ -1,6 +1,6 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.13.1",
+    "version": "0.13.2",
     "title": "Chens Tweak Mod",
     "author": "JackieChen",
     "dependencies": [
@@ -12,7 +12,7 @@
         "? chens-py-sea-block-mod",
         "? pyalternativeenergy",
         "? pypostprocessing",
-        "? space-age >= 2.0.0"
+        "? space-age"
     ],
     "description": "这个是我做的调整模组。（需要游戏的测试版）",
     "factorio_version": "2.0",
