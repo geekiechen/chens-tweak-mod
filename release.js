@@ -41,6 +41,29 @@ function appendToChangelogMd(version, date, rawTextBlock) {
     fs.writeFileSync(changelogMdPath, updated);
 }
 
+function extractFromChangelogMd() {
+    const changelogMdPath = "CHANGELOG.md";
+    const mdContent = fs.readFileSync(changelogMdPath, "utf-8");
+
+    // 从 CHANGELOG.md 中提取最新的更新日志块
+    const match = mdContent.match(
+        /^## \[([^\]]+)] - ([^\n]+)\s*([\s\S]+?)\n\n/m
+    );
+    if (!match) {
+        throw new Error("❌ 无法从 CHANGELOG.md 提取最新的更新日志");
+    }
+
+    const version = match[1].trim();
+    const date = match[2].trim();
+    const changes = match[3].trim();
+
+    console.log("从 CHANGELOG.md 提取的版本：", version);
+    console.log("从 CHANGELOG.md 提取的日期：", date);
+    console.log("从 CHANGELOG.md 提取的变更内容：", changes);
+
+    return { version, date, changes };
+}
+
 (async () => {
     const prompt = inquirer.createPromptModule();
     const { type } = await prompt([
@@ -76,10 +99,10 @@ function appendToChangelogMd(version, date, rawTextBlock) {
             stdio: "inherit",
         });
 
-        // 🟡 提取 changelog.txt 中最新块
+        // 🟡 提取 changelog.txt 中最新块并追加到 CHANGELOG.md
         const block = extractLatestChangelogBlock("changelog.txt");
 
-        // 🟢 提取 Version 和 Date 行（用于 md 标题）
+        // 🟢 同步更新到 CHANGELOG.md 文件
         const [versionLine, dateLine, ...changes] = block
             .split("\n")
             .map((line) => line.trim()); // 去除多余的空白和缩进
@@ -91,16 +114,19 @@ function appendToChangelogMd(version, date, rawTextBlock) {
         const v = versionMatch[1].trim();
         const d = dateMatch[1].trim();
 
-        console.log("提取的版本：", v); // 打印提取的版本
-        console.log("提取的日期：", d); // 打印提取的日期
-        console.log("提取的变更内容：", changes.join("\n")); // 打印变更内容
-
         // ✅ 同步写入 CHANGELOG.md
         appendToChangelogMd(v, d, block);
 
-        // ✅ 创建 GitHub Release，使用 changelog.txt 中提取的更新日志内容
+        // ✅ 从 CHANGELOG.md 中提取最新的版本信息和变更内容
+        const {
+            version: mdVersion,
+            date: mdDate,
+            changes: mdChanges,
+        } = extractFromChangelogMd();
+
+        // ✅ 创建 GitHub Release，使用从 CHANGELOG.md 提取的更新日志内容
         execSync(
-            `gh release create v${version} --title "v${version}" --notes "${block}"`,
+            `gh release create v${version} --title "v${version}" --notes "${mdChanges}"`,
             {
                 stdio: "inherit",
             }
