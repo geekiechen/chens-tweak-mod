@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const { execSync } = require("child_process");
 const fs = require("fs");
+const path = require("path");
 
 function extractLatestChangelogBlock(filePath) {
     const content = fs.readFileSync(filePath, "utf-8");
