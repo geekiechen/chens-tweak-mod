@@ -27,14 +27,9 @@ function appendToChangelogMd(version, date, rawTextBlock) {
     const mdText = fs.readFileSync(changelogMdPath, "utf-8");
 
     // 格式化 rawTextBlock 为 Markdown 样式
-    const lines = rawTextBlock
-        .split("\n")
-        .map((line) => line.replace(/^  /, "").replace(/^- /, "-")) // 清理缩进
-        .filter((line) => line.trim() !== ""); // 去掉空行
-
     const formattedBlock = [
         `## [${version}] - ${date}`, // 显示版本和日期
-        ...lines.slice(2), // 去掉前两行（Version 和 Date），我们已经有了
+        rawTextBlock, // 保留原始的更新日志块
     ].join("\n");
 
     // 插入到 # Changelog 下方
