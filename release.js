@@ -4,15 +4,13 @@ const fs = require("fs");
 
 function extractLatestChangelogBlock(filePath) {
     const content = fs.readFileSync(filePath, "utf-8");
-    const matches = [
-        ...content.matchAll(/^-+\n(Version:[\s\S]*?)(?=^-+|\s*$)/gm),
-    ];
 
-    if (matches.length === 0) {
+    const match = content.match(/^[-]{5,}\r?\n([\s\S]*?)(?=\r?\n[-]{5,})/m);
+    if (!match) {
         throw new Error("❌ 无法在 changelog.txt 中提取版本记录");
     }
 
-    return matches[0][1].trim();
+    return match[1].trim();
 }
 
 function appendToChangelogMd(version, date, rawTextBlock) {
