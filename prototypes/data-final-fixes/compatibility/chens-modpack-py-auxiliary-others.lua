@@ -1,4 +1,5 @@
--- 修复Nanobots2模组的问题
+-- 修复模组的问题
+-- 修复Nanobots2的问题
 if mods["Nanobots2"] then
     -- 修复科技的问题
     -- 修复nanobots的问题
@@ -11,7 +12,7 @@ if mods["Nanobots2"] then
     end
 end
 
--- 修复Mini_Trains模组的问题
+-- 修复Mini_Trains的问题
 if mods["Mini_Trains"] then
     -- 修复科技的问题
     -- 修复mini-trains的问题
@@ -27,7 +28,7 @@ if mods["Mini_Trains"] then
     table.insert(data.raw.technology["railway"].prerequisites, "mini-trains")
 end
 
--- 修复Transport_Drones_Meglinge_Fork模组的问题
+-- 修复Transport_Drones_Meglinge_Fork的问题
 if mods["Transport_Drones_Meglinge_Fork"] then
     -- 修复科技的问题
     -- 修复transport-system的问题
@@ -43,7 +44,7 @@ if mods["Transport_Drones_Meglinge_Fork"] then
                  "logistic-science-pack")
 end
 
--- 修复pycoalprocessing模组的问题
+-- 修复pycoalprocessing的问题
 if mods["pycoalprocessing"] then
     -- 修复科技的问题
     -- 修复concrete的问题
@@ -73,7 +74,7 @@ if mods["pycoalprocessing"] then
     end
 end
 
--- 修复pypetroleumhandling模组的问题
+-- 修复pypetroleumhandling的问题
 if mods["pypetroleumhandling"] then
     -- 修复配方的问题
     -- 修复transport-belt-2的问题
@@ -81,9 +82,9 @@ if mods["pypetroleumhandling"] then
                  {type = "item", name = "electronic-circuit", amount = 3})
 end
 
--- 修复wood-logistics模组的问题
+-- 修复wood-logistics的问题
 if mods["wood-logistics"] then
-    -- 修复bobinserters模组的问题
+    -- 修复bobinserters的问题
     if mods["bobinserters"] then
         -- 修复科技的问题
         -- 修复bob-long-inserters-1的问题
@@ -128,7 +129,7 @@ if mods["wood-logistics"] then
                  {type = "item", name = "electronic-circuit", amount = 1})
 end
 
--- 修复ElectricFurnacesRevamp模组的问题
+-- 修复ElectricFurnacesRevamp的问题
 if mods["ElectricFurnacesRevamp"] then
     -- 修复科技的问题
     -- 修复electronics的问题
@@ -145,7 +146,7 @@ if mods["ElectricFurnacesRevamp"] then
     data.raw.recipe["electric-boiler"].enabled = false
 end
 
--- 修复aai-loaders模组的问题
+-- 修复aai-loaders的问题
 if mods["aai-loaders"] then
     -- 修复实体的问题
     -- 修复aai-loader的问题
@@ -154,7 +155,7 @@ if mods["aai-loaders"] then
     end
 end
 
--- 修复easyvoid模组的问题
+-- 修复easyvoid的问题
 if mods["easyvoid"] then
     -- 修复科技的问题
     -- 修复void的问题
