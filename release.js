@@ -11,11 +11,7 @@ function extractLatestChangelogBlock(filePath) {
         throw new Error("❌ 无法在 changelog.txt 中提取版本记录");
     }
 
-    // return match[1].trim();
-
-    const extractedBlock = match[1].trim();
-    console.log("提取的更新日志块：", extractedBlock); // 打印提取的更新日志块
-    return extractedBlock;
+    return match[1].trim();
 }
 
 function appendToChangelogMd(version, date, rawTextBlock) {
@@ -87,7 +83,9 @@ function appendToChangelogMd(version, date, rawTextBlock) {
         const block = extractLatestChangelogBlock("changelog.txt");
 
         // 🟢 提取 Version 和 Date 行（用于 md 标题）
-        const [versionLine, dateLine] = block.split("\n");
+        const [versionLine, dateLine, ...changes] = block
+            .split("\n")
+            .map((line) => line.trim()); // 去除多余的空白和缩进
         const versionMatch = versionLine.match(/Version:\s*(.+)/);
         const dateMatch = dateLine.match(/Date:\s*(.+)/);
 
