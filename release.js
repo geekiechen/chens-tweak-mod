@@ -84,13 +84,13 @@ function appendToChangelogMd(version, date, rawTextBlock) {
 
         // 🟢 提取 Version 和 Date 行（用于 md 标题）
         const [versionLine, dateLine] = block.split("\n");
-        const versionMatch = versionLine.match(/Version:\s*(.+)/);
-        const dateMatch = dateLine.match(/Date:\s*(.+)/);
+        const versionMatch = versionLine.match(/Version:\s*(\S+)\s*(.*)/);
+        const dateMatch = dateLine.match(/Date:\s*(.*)/);
 
         if (!versionMatch || !dateMatch) throw new Error("无法解析版本或日期");
 
-        const v = versionMatch[1].trim();
-        const d = dateMatch[1].trim();
+        const v = versionMatch[1].trim(); // 获取版本号
+        const d = dateMatch[1].trim(); // 获取日期
 
         // ✅ 同步写入 CHANGELOG.md
         appendToChangelogMd(v, d, block);
