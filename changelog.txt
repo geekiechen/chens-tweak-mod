@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.13.3
+Date: 2025-04-20
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed recipe: iron-stick, which was being unlocked by multiple technologies.
+---------------------------------------------------------------------------------------------------
 Version: 0.13.2
 Date: 2025-04-20
   Changes:

@@ -47,13 +47,13 @@ end
 if mods["pycoalprocessing"] then
     -- 修复科技的问题
     -- 修复concrete的问题
-    -- for i = #data.raw.technology["concrete"].effects, 1, -1 do
-    --     local effect = data.raw.technology["concrete"].effects[i]
-    --     if effect.type == "unlock-recipe" and effect.recipe == "iron-stick" then
-    --         table.remove(data.raw.technology["concrete"].effects, i)
-    --         break
-    --     end
-    -- end
+    for i = #data.raw.technology["concrete"].effects, 1, -1 do
+        local effect = data.raw.technology["concrete"].effects[i]
+        if effect.type == "unlock-recipe" and effect.recipe == "iron-stick" then
+            table.remove(data.raw.technology["concrete"].effects, i)
+            break
+        end
+    end
 
     -- 修复circuit-network的问题
     for i = #data.raw.technology["circuit-network"].effects, 1, -1 do
