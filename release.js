@@ -96,6 +96,10 @@ function appendToChangelogMd(version, date, rawTextBlock) {
         const v = versionMatch[1].trim();
         const d = dateMatch[1].trim();
 
+        console.log("提取的版本：", v); // 打印提取的版本
+        console.log("提取的日期：", d); // 打印提取的日期
+        console.log("提取的变更内容：", changes.join("\n")); // 打印变更内容
+
         // ✅ 同步写入 CHANGELOG.md
         appendToChangelogMd(v, d, block);
 
