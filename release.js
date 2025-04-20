@@ -5,7 +5,7 @@ const fs = require("fs");
 function extractLatestChangelogBlock(filePath) {
     const content = fs.readFileSync(filePath, "utf-8");
 
-    // 使用正则提取 changelog.txt 中的最新更新日志块
+    // 使用正则提取 changelog.txt 中的最新更新日志块（包括 Version, Date 和 Changes）
     const match = content.match(/^[-]{5,}\r?\n([\s\S]*?)(?=\r?\n[-]{5,})/m);
     if (!match) {
         throw new Error("❌ 无法在 changelog.txt 中提取版本记录");
@@ -31,13 +31,13 @@ function appendToChangelogMd(version, date, rawTextBlock) {
         .filter((line) => line.trim() !== ""); // 去掉空行
 
     const formattedBlock = [
-        `## [${version}] - ${date}`,
+        `## [${version}] - ${date}`, // 显示版本和日期
         ...lines.slice(2), // 去掉前两行（Version 和 Date），我们已经有了
     ].join("\n");
 
     // 插入到 # Changelog 下方
     const updated = mdText.replace(
-        /^# Changelog\s*/,
+        /^# Changelog\s*/m,
         `# Changelog\n\n${formattedBlock}\n\n`
     );
 
@@ -63,7 +63,7 @@ function appendToChangelogMd(version, date, rawTextBlock) {
     ]);
 
     try {
-        execSync(`git add . && git commit -m "chore: release prep"`, {
+        execSync('git add . && git commit -m "chore: release prep"', {
             stdio: "inherit",
         });
 
@@ -75,7 +75,7 @@ function appendToChangelogMd(version, date, rawTextBlock) {
             fs.readFileSync("package.json", "utf8")
         ).version;
 
-        execSync(`git push origin main --follow-tags`, {
+        execSync("git push origin main --follow-tags", {
             stdio: "inherit",
         });
 
@@ -84,13 +84,13 @@ function appendToChangelogMd(version, date, rawTextBlock) {
 
         // 🟢 提取 Version 和 Date 行（用于 md 标题）
         const [versionLine, dateLine] = block.split("\n");
-        const versionMatch = versionLine.match(/Version:\s*(\S+)\s*(.*)/);
-        const dateMatch = dateLine.match(/Date:\s*(.*)/);
+        const versionMatch = versionLine.match(/Version:\s*(.+)/);
+        const dateMatch = dateLine.match(/Date:\s*(.+)/);
 
         if (!versionMatch || !dateMatch) throw new Error("无法解析版本或日期");
 
-        const v = versionMatch[1].trim(); // 获取版本号
-        const d = dateMatch[1].trim(); // 获取日期
+        const v = versionMatch[1].trim();
+        const d = dateMatch[1].trim();
 
         // ✅ 同步写入 CHANGELOG.md
         appendToChangelogMd(v, d, block);
