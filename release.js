@@ -34,7 +34,9 @@ function appendToChangelogMd(version, date, rawTextBlock) {
         "  Changes:",
         rawTextBlock
             .split("\n")
-            .map((line) => `    - ${line.trim()}`) // 将每一行变为符合格式的项
+            .map((line) => line.trim()) // 去除每一行的多余空白
+            .filter((line) => line) // 过滤掉空行
+            .map((line) => `    - ${line}`) // 生成符合 Markdown 格式的项目
             .join("\n"),
         `All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.`,
         `### [${version}](https://github.com/geekiechen/chens-tweak-mod/compare/v${version}...v${version}) (${date})`,
