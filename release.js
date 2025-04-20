@@ -126,7 +126,7 @@ function extractFromChangelogMd() {
 
         // ✅ 创建 GitHub Release，使用从 CHANGELOG.md 提取的更新日志内容
         execSync(
-            `gh release create v${version} --title "v${version}" --notes "${mdChanges}"`,
+            `gh release create v${version} --title "v${version}" --notes "Version: ${mdVersion}\nDate: ${mdDate}\n\n${mdChanges}"`,
             {
                 stdio: "inherit",
             }
