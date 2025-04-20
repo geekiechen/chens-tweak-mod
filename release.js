@@ -5,6 +5,7 @@ const fs = require("fs");
 function extractLatestChangelogBlock(filePath) {
     const content = fs.readFileSync(filePath, "utf-8");
 
+    // 使用正则提取 changelog.txt 中的最新更新日志块
     const match = content.match(/^[-]{5,}\r?\n([\s\S]*?)(?=\r?\n[-]{5,})/m);
     if (!match) {
         throw new Error("❌ 无法在 changelog.txt 中提取版本记录");
@@ -94,9 +95,9 @@ function appendToChangelogMd(version, date, rawTextBlock) {
         // ✅ 同步写入 CHANGELOG.md
         appendToChangelogMd(v, d, block);
 
-        // ✅ 创建 GitHub Release
+        // ✅ 创建 GitHub Release，使用 changelog.txt 中提取的更新日志内容
         execSync(
-            `gh release create v${version} --title "v${version}" --notes-file CHANGELOG.md`,
+            `gh release create v${version} --title "v${version}" --notes "${block}"`,
             {
                 stdio: "inherit",
             }

@@ -1,6 +1,8 @@
--- 修复chens-py-sea-block-mod设置的问题
+-- 修复模组的问题
+-- 修复chens-py-sea-block-mod的问题
 if mods["chens-py-sea-block-mod"] then
-    -- 修复chens-tweak-mod模组的问题
+    -- 修复模组的问题
+    -- 修复chens-tweak-mod的问题
     if mods["chens-tweak-mod"] then
         -- 修复科技的问题
         -- 修复basic-resources的问题
@@ -52,7 +54,8 @@ if mods["chens-py-sea-block-mod"] then
     end
 end
 
--- 修复chens-tweak-mod模组的问题
+-- 修复模组的问题
+-- 修复chens-tweak-mod的问题
 if mods["chens-tweak-mod"] then
     table.insert(data.raw.technology["basic-resources"].effects,
                  {type = "unlock-recipe", recipe = "iron-stick"})
@@ -76,7 +79,7 @@ if mods["chens-tweak-mod"] then
                  {type = "unlock-recipe", recipe = "stone-brick"})
 end
 
--- 修复pyalienlife模组的问题
+-- 修复pyalienlife的问题
 if mods["pyalienlife"] then
     -- 修复实体的问题
     -- 修复biofactory-mk01的问题
@@ -127,7 +130,7 @@ if mods["pyalienlife"] then
                  {type = "item", name = "biofactory-mk00", amount = 1})
 end
 
--- 修复pyalternativeenergy模组的问题
+-- 修复pyalternativeenergy的问题
 if mods["pyalternativeenergy"] then
     -- 修复科技的问题
     -- 修复uranium-processing的问题
@@ -143,7 +146,7 @@ if mods["pyalternativeenergy"] then
     data.raw.recipe["stone-brick"].enabled = false
 end
 
--- 修复pypetroleumhandling模组的问题
+-- 修复pypetroleumhandling的问题
 if mods["pypetroleumhandling"] then
     -- 修复科技的问题
     -- 修复kerogen的问题
@@ -161,7 +164,7 @@ if mods["pypetroleumhandling"] then
     data.raw.recipe["burner-mining-drill"].enabled = false
 end
 
--- 修复pyrawores模组的问题
+-- 修复pyrawores的问题
 if mods["pyrawores"] then
     -- 修复实体的问题
     -- 修复flotation-cell-mk01的问题
@@ -264,7 +267,7 @@ if mods["pyrawores"] then
     end
 end
 
--- 修复pycoalprocessing模组的问题
+-- 修复pycoalprocessing的问题
 if mods["pycoalprocessing"] then
     -- 修复实体的问题
     -- 修复evaporator的问题
@@ -347,7 +350,7 @@ if mods["pycoalprocessing"] then
                  {type = "item", name = "evaporator-mk00", amount = 1})
 end
 
--- 修复pyindustry模组的问题
+-- 修复pyindustry的问题
 if mods["pyindustry"] then
     -- 修复配方的问题
     -- 修复stone-furnace的问题
@@ -366,7 +369,7 @@ if mods["pyindustry"] then
     data.raw.recipe["iron-stick"].enabled = false
 end
 
--- 修复pyhightech模组的问题
+-- 修复pyhightech的问题
 if mods["pyhightech"] then
     -- 修复科技的问题
     -- 修复rare-earth-tech的问题
@@ -374,7 +377,7 @@ if mods["pyhightech"] then
                  {type = "unlock-recipe", recipe = "early-rare-earth-ore"})
 end
 
--- 修复pyfusionenergy模组的问题
+-- 修复pyfusionenergy的问题
 if mods["pyfusionenergy"] then
     -- 修复科技的问题
     -- 修复boron的问题
@@ -386,7 +389,7 @@ if mods["pyfusionenergy"] then
                  {type = "unlock-recipe", recipe = "early-molybdenum-ore"})
 end
 
--- 修复wood-logistics模组的问题
+-- 修复wood-logistics的问题
 if mods["wood-logistics"] then
     -- 修复科技的问题
     -- 修复automation-science-pack的问题

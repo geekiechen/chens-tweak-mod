@@ -33,28 +33,34 @@ data:extend{
         order = "a-e"
     }, {
         type = "bool-setting",
+        name = "enable-aai-loaders-no-fluid",
+        setting_type = "startup",
+        default_value = false,
+        order = "b-a"
+    }, {
+        type = "bool-setting",
         name = "start-robot",
         setting_type = "startup",
         default_value = false,
-        order = "x-a"
+        order = "y-a"
     }, {
         type = "bool-setting",
         name = "start-burner-mining-drill",
         setting_type = "startup",
         default_value = false,
-        order = "x-b"
+        order = "y-b"
     }, {
         type = "bool-setting",
         name = "start-weapon",
         setting_type = "startup",
         default_value = false,
-        order = "x-c"
+        order = "y-c"
     }, {
         type = "bool-setting",
         name = "enable-item-stack-size-multiplier",
         setting_type = "startup",
         default_value = false,
-        order = "y-a"
+        order = "z-a"
     }, {
         type = "double-setting",
         name = "item-stack-size-multiplier",
@@ -62,13 +68,27 @@ data:extend{
         minimum_value = 1,
         default_value = 10,
         maximum_value = 2147483647,
-        order = "y-b"
+        order = "z-b"
+    }, {
+        type = "bool-setting",
+        name = "enable-robot-speed-multiplier",
+        setting_type = "startup",
+        default_value = false,
+        order = "z-c"
+    }, {
+        type = "double-setting",
+        name = "robot-speed-multiplier",
+        setting_type = "startup",
+        minimum_value = 1,
+        default_value = 1,
+        maximum_value = 2147483647,
+        order = "z-d"
     }, {
         type = "bool-setting",
         name = "enable-transport-belt-speed-multiplier",
         setting_type = "startup",
         default_value = false,
-        order = "y-e"
+        order = "z-e"
     }, {
         type = "double-setting",
         name = "transport-belt-speed-multiplier",
@@ -76,13 +96,13 @@ data:extend{
         minimum_value = 1,
         default_value = 1,
         maximum_value = 2147483647,
-        order = "y-f"
+        order = "z-f"
     }, {
         type = "bool-setting",
         name = "enable-inserter-speed-multiplier",
         setting_type = "startup",
         default_value = false,
-        order = "y-g"
+        order = "z-g"
     }, {
         type = "double-setting",
         name = "inserter-speed-multiplier",
@@ -90,13 +110,13 @@ data:extend{
         minimum_value = 1,
         default_value = 1,
         maximum_value = 2147483647,
-        order = "y-h"
+        order = "z-h"
     }, {
         type = "bool-setting",
         name = "enable-player-running-speed-multiplier",
         setting_type = "startup",
         default_value = false,
-        order = "y-i"
+        order = "z-i"
     }, {
         type = "double-setting",
         name = "player-running-speed-multiplier",
@@ -104,27 +124,7 @@ data:extend{
         minimum_value = 1,
         default_value = 1,
         maximum_value = 2147483647,
-        order = "y-j"
+        order = "z-j"
     }
 }
-
-if not mods["pypostprocessing"] then
-    data:extend{
-        {
-            type = "bool-setting",
-            name = "enable-robot-speed-multiplier",
-            setting_type = "startup",
-            default_value = false,
-            order = "y-c"
-        }, {
-            type = "double-setting",
-            name = "robot-speed-multiplier",
-            setting_type = "startup",
-            minimum_value = 1,
-            default_value = 1,
-            maximum_value = 2147483647,
-            order = "y-d"
-        }
-    }
-end
 
