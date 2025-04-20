@@ -34,7 +34,7 @@ function appendToChangelogMd(version, date, rawTextBlock) {
         "  Changes:",
         rawTextBlock
             .split("\n")
-            .map((line) => `    - ${line}`)
+            .map((line) => `    - ${line.trim()}`) // 将每一行变为符合格式的项
             .join("\n"),
         `All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.`,
         `### [${version}](https://github.com/geekiechen/chens-tweak-mod/compare/v${version}...v${version}) (${date})`,
@@ -91,10 +91,12 @@ function extractFromChangelogMd() {
     ]);
 
     try {
+        // 执行 Git 提交准备操作
         execSync('git add . && git commit -m "chore: release prep"', {
             stdio: "inherit",
         });
 
+        // 使用 standard-version 生成版本和变更日志
         execSync(`npx standard-version --release-as ${type}`, {
             stdio: "inherit",
         });
@@ -103,14 +105,10 @@ function extractFromChangelogMd() {
             fs.readFileSync("package.json", "utf8")
         ).version;
 
-        execSync("git push origin main --follow-tags", {
-            stdio: "inherit",
-        });
-
-        // 🟡 提取 changelog.txt 中最新块并追加到 CHANGELOG.md
+        // 提取 changelog.txt 中最新的更新日志块
         const block = extractLatestChangelogBlock("changelog.txt");
 
-        // 🟢 同步更新到 CHANGELOG.md 文件
+        // 从提取的块中获取版本和日期
         const [versionLine, dateLine, ...changes] = block
             .split("\n")
             .map((line) => line.trim()); // 去除多余的空白和缩进
@@ -122,22 +120,23 @@ function extractFromChangelogMd() {
         const v = versionMatch[1].trim();
         const d = dateMatch[1].trim();
 
-        // ✅ 同步写入 CHANGELOG.md
+        // 同步更新到 CHANGELOG.md 文件
         appendToChangelogMd(v, d, block);
 
-        // ✅ 从 CHANGELOG.md 中提取最新的版本信息和变更内容
+        // 从 CHANGELOG.md 中提取最新的版本信息和变更内容
         const {
             version: mdVersion,
             date: mdDate,
             changes: mdChanges,
         } = extractFromChangelogMd();
 
-        // ✅ 创建 GitHub Release，使用从 CHANGELOG.md 提取的更新日志内容
+        // 推送版本到 GitHub
+        execSync("git push origin main --follow-tags", { stdio: "inherit" });
+
+        // 创建 GitHub Release
         execSync(
             `gh release create v${version} --title "v${version}" --notes "Version: ${mdVersion}\nDate: ${mdDate}\n\n${mdChanges}"`,
-            {
-                stdio: "inherit",
-            }
+            { stdio: "inherit" }
         );
     } catch (e) {
         console.error("❌ 发布过程中出错：", e.message);
