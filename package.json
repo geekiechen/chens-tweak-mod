@@ -1,6 +1,6 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.13.8",
+    "version": "0.13.ee",
     "scripts": {
         "release": "standard-version",
         "full-release": "node release.js"

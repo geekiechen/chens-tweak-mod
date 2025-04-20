@@ -5,12 +5,15 @@ const fs = require("fs");
 function extractLatestChangelogBlock(filePath) {
     const content = fs.readFileSync(filePath, "utf-8");
 
-    const match = content.match(/^[-]{5,}\r?\n([\s\S]*?)(?=\r?\n[-]{5,})/m);
+    // 匹配以 '##' 开头的块（即版本号部分），并提取最新版本的更新记录
+    const match = content.match(
+        /^## \[\d+\.\d+\.\d+\] - \d{4}-\d{2}-\d{2}[\s\S]*?(\n##|\n$)/
+    );
     if (!match) {
         throw new Error("❌ 无法在 changelog.txt 中提取版本记录");
     }
 
-    return match[1].trim();
+    return match[0].trim(); // 返回匹配到的最新版本更新记录块
 }
 
 function appendToChangelogMd(version, date, rawTextBlock) {
@@ -31,7 +34,7 @@ function appendToChangelogMd(version, date, rawTextBlock) {
 
     const formattedBlock = [
         `## [${version}] - ${date}`,
-        ...lines.slice(2), // 去掉前两行（Version 和 Date），我们已经有了
+        ...lines.slice(1), // 保留版本和日期后的内容
     ].join("\n");
 
     // 插入到 # Changelog 下方
@@ -79,8 +82,8 @@ function appendToChangelogMd(version, date, rawTextBlock) {
 
         // 🟢 提取 Version 和 Date 行（用于 md 标题）
         const [versionLine, dateLine] = block.split("\n");
-        const versionMatch = versionLine.match(/Version:\s*(.+)/);
-        const dateMatch = dateLine.match(/Date:\s*(.+)/);
+        const versionMatch = versionLine.match(/(\d+\.\d+\.\d+)/);
+        const dateMatch = dateLine.match(/(\d{4}-\d{2}-\d{2})/);
 
         if (!versionMatch || !dateMatch) throw new Error("无法解析版本或日期");
 
@@ -105,3 +108,4 @@ function appendToChangelogMd(version, date, rawTextBlock) {
         console.error("❌ 发布过程中出错：", e.message);
     }
 })();
+    
