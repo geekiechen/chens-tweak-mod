@@ -1,12 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.13.2
+Date: 2025-04-20
+  Changes:
+    - [Chens Py Sea Block Mod]: 
+      - Adjusted recipe: early-uranium-ore.
+      - Adjusted recipe: early-antimonium-ore.
+      - Adjusted recipe: early-molybdenum-ore.
+      - Adjusted technology: machines-mk02.
+      - Adjusted technology: machines-mk01.
+---------------------------------------------------------------------------------------------------
 Version: 0.13.1
 Date: 2025-04-19
   Changes:
     - [Chens Py Sea Block Mod]: 
-      - Added new item: organic fuel.
-      - Added new recipe for producing organic fuel.
-      - Adjusted the recipe for landfill.
-      - Adjusted the recipe for sludge.
+      - Added item: organic fuel.
+      - Added recipe for producing organic fuel.
+      - Adjusted the recipe: landfill.
+      - Adjusted the recipe: sludge.
 ---------------------------------------------------------------------------------------------------
 Version: 0.13.0
 Date: 2025-04-19
@@ -110,7 +120,7 @@ Version: 0.9.4
 Date: 2025-04-07
   Changes:
     - [Chens Modpack(py+auxiliary+others)]: 
-      - Adjusted the recipe for washer.
+      - Adjusted the recipe: washer.
 ---------------------------------------------------------------------------------------------------
 Version: 0.9.3
 Date: 2025-04-07
@@ -184,8 +194,8 @@ Date: 2025-03-27
     - [Chens Modpack(py+auxiliary+others)]: 
       - The changes will only take effect if the terrain selection is set to "sea-block":
         - Fixed the issue where resin could not be obtained. Fixed the issue where other minerals could not be obtained. 
-          - Adjusted the recipe for wood. 
-          - Adjusted the recipe for seaweed. 
+          - Adjusted the recipe: wood. 
+          - Adjusted the recipe: seaweed. 
           - Adjusted the fluid connection positions of the washer entity. 
           - Removed the changes made to the VoidChestInstant mod.
 ---------------------------------------------------------------------------------------------------

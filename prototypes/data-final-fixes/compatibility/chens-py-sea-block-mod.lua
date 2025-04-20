@@ -219,6 +219,20 @@ if mods["pyrawores"] then
     table.insert(data.raw.technology["nickel-mk01"].effects,
                  {type = "unlock-recipe", recipe = "early-nickel-ore"})
 
+    -- 修复machines-mk02的问题
+    for i = #data.raw.technology["machines-mk02"].effects, 1, -1 do
+        local effect = data.raw.technology["machines-mk02"].effects[i]
+        if effect.type == "unlock-recipe" and effect.recipe ==
+            "leaching-station-mk01" then
+            table.remove(data.raw.technology["machines-mk02"].effects, i)
+            break
+        end
+    end
+
+    -- 修复machines-mk01的问题
+    table.insert(data.raw.technology["machines-mk01"].effects,
+                 {type = "unlock-recipe", recipe = "leaching-station-mk01"})
+
     -- 修复配方的问题
     -- 修复iron-plate的问题
     data.raw.recipe["iron-plate"].enabled = false
