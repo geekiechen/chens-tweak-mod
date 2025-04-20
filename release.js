@@ -28,8 +28,16 @@ function appendToChangelogMd(version, date, rawTextBlock) {
 
     // 格式化 rawTextBlock 为 Markdown 样式
     const formattedBlock = [
-        `## [${version}] - ${date}`, // 显示版本和日期
-        rawTextBlock, // 保留原始的更新日志块
+        `## [${version}] - ${date}`,
+        `Version: ${version}`,
+        `Date: ${date}`,
+        "  Changes:",
+        rawTextBlock
+            .split("\n")
+            .map((line) => `    - ${line}`)
+            .join("\n"),
+        `All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.`,
+        `### [${version}](https://github.com/geekiechen/chens-tweak-mod/compare/v${version}...v${version}) (${date})`,
     ].join("\n");
 
     // 插入到 # Changelog 下方
