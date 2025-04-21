@@ -59,8 +59,13 @@ function extractLatestChangelogBlockFromMd(filePath) {
     const date = match[2]; // 提取日期
     const changelogText = match[3].trim(); // 提取变更内容
 
-    // 返回带有 # Changelog 和提取的版本块
-    return `# Changelog\n\n## [${version}] - ${date}\nChanges:\n${changelogText}\n\nAll notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.\n\n### [${version}](https://github.com/geekiechen/chens-tweak-mod/compare/v${version}...v${version}) (${date})`;
+    // 🔧 从 package.json 中获取项目名称
+    const projectName = JSON.parse(
+        fs.readFileSync("package.json", "utf8")
+    ).name;
+
+    // 返回带有 # Changelog 和提取的版本块，注意不要重复添加 "Changes:"
+    return `# Changelog\n\n## [${version}] - ${date}\n${changelogText}\n\nAll notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.\n\n### [${version}](https://github.com/geekiechen/${projectName}/compare/v${version}...v${version}) (${date})`;
 }
 
 (async () => {
@@ -82,18 +87,6 @@ function extractLatestChangelogBlockFromMd(filePath) {
     ]);
 
     try {
-        execSync(`git add . && git commit -m "chore: release prep"`, {
-            stdio: "inherit",
-        });
-
-        execSync(`npx standard-version --release-as ${type}`, {
-            stdio: "inherit",
-        });
-
-        const version = JSON.parse(
-            fs.readFileSync("package.json", "utf8")
-        ).version;
-
         // 🟡 提取 changelog.txt 中最新块
         const block = extractLatestChangelogBlock("changelog.txt");
 
@@ -110,19 +103,27 @@ function extractLatestChangelogBlockFromMd(filePath) {
         // ✅ 同步写入 CHANGELOG.md
         appendToChangelogMd(v, d, block);
 
-        execSync(`git push origin main --follow-tags`, {
-            stdio: "inherit",
-        });
-
         // 创建临时文件保存此次更新日志
         const tempChangelogFile = path.join(__dirname, `changelog-v${v}.md`);
         const latestChangelog =
             extractLatestChangelogBlockFromMd("CHANGELOG.md");
         fs.writeFileSync(tempChangelogFile, latestChangelog, "utf-8");
 
+        // 将 Git 操作和版本发布的部分移到最后
+        // 首先进行 Git 操作和版本更新，确保所有变更已提交
+        execSync(`git add . && git commit -m "chore: release prep"`, {
+            stdio: "inherit",
+        });
+
+        execSync(`npx standard-version --release-as ${type}`, {
+            stdio: "inherit",
+        });
+
+        execSync(`git push origin main --follow-tags`, { stdio: "inherit" });
+
         // ✅ 创建 GitHub Release，并直接从临时文件读取 --notes
         execSync(
-            `gh release create v${version} --title "v${version}" --notes-file "${tempChangelogFile}"`,
+            `gh release create v${v} --title "v${v}" --notes-file "${tempChangelogFile}"`,
             {
                 stdio: "inherit",
             }

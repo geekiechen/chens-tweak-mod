@@ -33,12 +33,6 @@ data:extend{
         order = "a-e"
     }, {
         type = "bool-setting",
-        name = "enable-aai-loaders-no-fluid",
-        setting_type = "startup",
-        default_value = false,
-        order = "b-a"
-    }, {
-        type = "bool-setting",
         name = "start-robot",
         setting_type = "startup",
         default_value = false,
