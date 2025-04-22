@@ -53,12 +53,68 @@ if mods["chens-modpack-py-auxiliary-others"] then
             end
         end
 
+        -- 注册distilator-mk00
+        local distilator_mk00_entity = table.deepcopy(
+                                           data.raw["assembling-machine"]["distilator"])
+        distilator_mk00_entity.name = "distilator-mk00"
+        distilator_mk00_entity.icon = nil
+        distilator_mk00_entity.icons = {
+            {
+                icon = "__pycoalprocessinggraphics__/graphics/icons/distilator.png",
+                icon_size = 64,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+        distilator_mk00_entity.energy_source.type = "burner"
+        distilator_mk00_entity.energy_source.fuel_categories = {"chemical"}
+        distilator_mk00_entity.energy_source.fuel_inventory_size = 1
+        distilator_mk00_entity.energy_source.burnt_inventory_size = 1
+        distilator_mk00_entity.energy_source.burnt_result = "ash"
+        distilator_mk00_entity.minable = {
+            mining_time = 1,
+            result = "distilator-mk00"
+        }
+        distilator_mk00_entity.energy_usage = "500kW"
+        distilator_mk00_entity.next_upgrade = "distilator"
+        distilator_mk00_entity.crafting_categories = {"distilator"}
+
+        if distilator_mk00_entity.graphics_set and
+            distilator_mk00_entity.graphics_set.animation and
+            distilator_mk00_entity.graphics_set.animation.layers then
+            for _, layer in pairs(distilator_mk00_entity.graphics_set.animation
+                                      .layers) do
+                if layer.tint then
+                    layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                end
+            end
+        end
+
+        if distilator_mk00_entity.graphics_set and
+            distilator_mk00_entity.graphics_set.working_visualisations then
+            for _, visual in pairs(distilator_mk00_entity.graphics_set
+                                       .working_visualisations) do
+                if visual.animation and visual.animation.layers then
+                    for _, layer in pairs(visual.animation.layers) do
+                        if layer.tint then
+                            layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
+                        end
+                    end
+                end
+            end
+        end
+
         -- 注册物品子组
         -- 注册evaporator-mk00
         local evaporator_mk00_item_subgroup = table.deepcopy(
                                                   data.raw["item-subgroup"]["py-cp-buildings-mk01"])
         evaporator_mk00_item_subgroup.name = "py-cp-buildings-mk00"
         evaporator_mk00_item_subgroup.group = "coal-processing"
+
+        -- 注册distilator-mk00
+        local distilator_mk00_item_subgroup = table.deepcopy(
+                                                  data.raw["item-subgroup"]["py-cp-buildings-mk01"])
+        distilator_mk00_item_subgroup.name = "py-cp-buildings-mk00"
+        distilator_mk00_item_subgroup.group = "coal-processing"
 
         -- 注册物品
         -- 注册evaporator-mk00
@@ -76,6 +132,21 @@ if mods["chens-modpack-py-auxiliary-others"] then
         evaporator_mk00_item.place_result = "evaporator-mk00"
         evaporator_mk00_item.subgroup = "py-cp-buildings-mk00"
 
+        -- 注册distilator-mk00
+        local distilator_mk00_item = table.deepcopy(data.raw.item["distilator"])
+        distilator_mk00_item.name = "distilator-mk00"
+        distilator_mk00_item.icon = nil
+        distilator_mk00_item.icons = {
+            {
+                icon = "__pycoalprocessinggraphics__/graphics/icons/distilator.png",
+                icon_size = 64,
+                tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
+            }
+        }
+
+        distilator_mk00_item.place_result = "distilator-mk00"
+        distilator_mk00_item.subgroup = "py-cp-buildings-mk00"
+
         -- 注册配方
         -- 注册evaporator-mk00
         local evaporator_mk00_recipe = table.deepcopy(
@@ -83,18 +154,37 @@ if mods["chens-modpack-py-auxiliary-others"] then
         evaporator_mk00_recipe.name = "evaporator-mk00"
         evaporator_mk00_recipe.ingredients = {
             {type = "item", name = "pipe", amount = 2},
-            {type = "item", name = "iron-plate", amount = 2},
-            {type = "item", name = "copper-plate", amount = 3},
-            {type = "item", name = "small-parts-01", amount = 3}
+            {type = "item", name = "small-parts-01", amount = 3},
+            {type = "item", name = "copper-plate", amount = 2},
+            {type = "item", name = "copper-cable", amount = 1},
+            {type = "item", name = "iron-plate", amount = 2}
         }
         evaporator_mk00_recipe.results = {
             {type = "item", name = "evaporator-mk00", amount = 1}
         }
         evaporator_mk00_recipe.enabled = false
 
+        -- 注册distilator-mk00
+        local distilator_mk00_recipe = table.deepcopy(
+                                           data.raw.recipe["distilator"])
+        distilator_mk00_recipe.name = "distilator-mk00"
+        distilator_mk00_recipe.ingredients = {
+            {type = "item", name = "pipe", amount = 2},
+            {type = "item", name = "small-parts-01", amount = 3},
+            {type = "item", name = "copper-plate", amount = 2},
+            {type = "item", name = "iron-stick", amount = 1},
+            {type = "item", name = "iron-plate", amount = 2}
+        }
+        distilator_mk00_recipe.results = {
+            {type = "item", name = "distilator-mk00", amount = 1}
+        }
+        distilator_mk00_recipe.enabled = false
+
         data:extend({
-            evaporator_mk00_entity, evaporator_mk00_item_subgroup,
-            evaporator_mk00_item, evaporator_mk00_recipe
+            evaporator_mk00_entity, distilator_mk00_entity,
+            evaporator_mk00_item_subgroup, distilator_mk00_item_subgroup,
+            evaporator_mk00_item, distilator_mk00_item, evaporator_mk00_recipe,
+            distilator_mk00_recipe
         })
     end
 
@@ -327,9 +417,10 @@ if mods["chens-modpack-py-auxiliary-others"] then
         flotation_cell_mk00_recipe.name = "flotation-cell-mk00"
         flotation_cell_mk00_recipe.ingredients = {
             {type = "item", name = "pipe", amount = 3},
-            {type = "item", name = "iron-plate", amount = 2},
-            {type = "item", name = "copper-plate", amount = 3},
-            {type = "item", name = "small-parts-01", amount = 3}
+            {type = "item", name = "small-parts-01", amount = 3},
+            {type = "item", name = "copper-plate", amount = 2},
+            {type = "item", name = "bolts", amount = 1},
+            {type = "item", name = "iron-plate", amount = 2}
         }
         flotation_cell_mk00_recipe.results = {
             {type = "item", name = "flotation-cell-mk00", amount = 1}
@@ -342,9 +433,10 @@ if mods["chens-modpack-py-auxiliary-others"] then
         hydroclassifier_mk00_recipe.name = "hydroclassifier-mk00"
         hydroclassifier_mk00_recipe.ingredients = {
             {type = "item", name = "pipe", amount = 3},
-            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "small-parts-01", amount = 3},
             {type = "item", name = "copper-plate", amount = 3},
-            {type = "item", name = "small-parts-01", amount = 3}
+            {type = "item", name = "iron-plate", amount = 1},
+            {type = "item", name = "copper-cable", amount = 1}
         }
         hydroclassifier_mk00_recipe.results = {
             {type = "item", name = "hydroclassifier-mk00", amount = 1}
@@ -357,9 +449,10 @@ if mods["chens-modpack-py-auxiliary-others"] then
         leaching_station_mk00_recipe.name = "leaching-station-mk00"
         leaching_station_mk00_recipe.ingredients = {
             {type = "item", name = "pipe", amount = 3},
-            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "small-parts-01", amount = 2},
+            {type = "item", name = "bolts", amount = 1},
             {type = "item", name = "copper-plate", amount = 3},
-            {type = "item", name = "small-parts-01", amount = 3}
+            {type = "item", name = "iron-plate", amount = 2}
         }
         leaching_station_mk00_recipe.results = {
             {type = "item", name = "leaching-station-mk00", amount = 1}
@@ -460,9 +553,10 @@ if mods["chens-modpack-py-auxiliary-others"] then
         biofactory_mk00_recipe.name = "biofactory-mk00"
         biofactory_mk00_recipe.ingredients = {
             {type = "item", name = "pipe", amount = 3},
-            {type = "item", name = "iron-plate", amount = 2},
+            {type = "item", name = "small-parts-01", amount = 3},
             {type = "item", name = "copper-plate", amount = 3},
-            {type = "item", name = "small-parts-01", amount = 3}
+            {type = "item", name = "iron-plate", amount = 1},
+            {type = "item", name = "iron-gear-wheel", amount = 1}
         }
         biofactory_mk00_recipe.results = {
             {type = "item", name = "biofactory-mk00", amount = 1}
@@ -907,7 +1001,9 @@ if mods["chens-modpack-py-auxiliary-others"] then
             effects = {
                 {type = "unlock-recipe", recipe = "early-stone"},
                 {type = "unlock-recipe", recipe = "early-iron-ore"},
-                {type = "unlock-recipe", recipe = "early-copper-ore"}
+                {type = "unlock-recipe", recipe = "early-copper-ore"},
+                {type = "unlock-recipe", recipe = "distilator-mk00"},
+                {type = "unlock-recipe", recipe = "organic-fuel"}
             },
             order = "a",
             localised_description = {"technology-description.basic-resources"}
