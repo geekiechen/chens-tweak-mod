@@ -153,11 +153,11 @@ if mods["chens-modpack-py-auxiliary-others"] then
                                            data.raw.recipe["evaporator"])
         evaporator_mk00_recipe.name = "evaporator-mk00"
         evaporator_mk00_recipe.ingredients = {
-            {type = "item", name = "pipe", amount = 2},
-            {type = "item", name = "small-parts-01", amount = 3},
-            {type = "item", name = "copper-plate", amount = 2},
-            {type = "item", name = "copper-cable", amount = 1},
-            {type = "item", name = "iron-plate", amount = 2}
+            {type = "item", name = "copper-plate", amount = 4},
+            {type = "item", name = "iron-stick", amount = 2},
+            {type = "item", name = "stone-furnace", amount = 1},
+            {type = "item", name = "copper-cable", amount = 3},
+            {type = "item", name = "small-parts-01", amount = 3}
         }
         evaporator_mk00_recipe.results = {
             {type = "item", name = "evaporator-mk00", amount = 1}
@@ -169,11 +169,11 @@ if mods["chens-modpack-py-auxiliary-others"] then
                                            data.raw.recipe["distilator"])
         distilator_mk00_recipe.name = "distilator-mk00"
         distilator_mk00_recipe.ingredients = {
-            {type = "item", name = "pipe", amount = 2},
-            {type = "item", name = "small-parts-01", amount = 3},
-            {type = "item", name = "copper-plate", amount = 2},
-            {type = "item", name = "iron-stick", amount = 1},
-            {type = "item", name = "iron-plate", amount = 2}
+            {type = "item", name = "stone-furnace", amount = 2},
+            {type = "item", name = "iron-plate", amount = 4},
+            {type = "item", name = "copper-cable", amount = 3},
+            {type = "item", name = "pipe", amount = 3},
+            {type = "item", name = "small-parts-01", amount = 2}
         }
         distilator_mk00_recipe.results = {
             {type = "item", name = "distilator-mk00", amount = 1}
@@ -416,11 +416,11 @@ if mods["chens-modpack-py-auxiliary-others"] then
                                                data.raw.recipe["flotation-cell-mk01"])
         flotation_cell_mk00_recipe.name = "flotation-cell-mk00"
         flotation_cell_mk00_recipe.ingredients = {
-            {type = "item", name = "pipe", amount = 3},
-            {type = "item", name = "small-parts-01", amount = 3},
-            {type = "item", name = "copper-plate", amount = 2},
-            {type = "item", name = "bolts", amount = 1},
-            {type = "item", name = "iron-plate", amount = 2}
+            {type = "item", name = "iron-stick", amount = 4},
+            {type = "item", name = "copper-plate", amount = 3},
+            {type = "item", name = "stone", amount = 2},
+            {type = "item", name = "bolts", amount = 3},
+            {type = "item", name = "small-parts-01", amount = 2}
         }
         flotation_cell_mk00_recipe.results = {
             {type = "item", name = "flotation-cell-mk00", amount = 1}
@@ -432,11 +432,11 @@ if mods["chens-modpack-py-auxiliary-others"] then
                                                 data.raw.recipe["hydroclassifier-mk01"])
         hydroclassifier_mk00_recipe.name = "hydroclassifier-mk00"
         hydroclassifier_mk00_recipe.ingredients = {
-            {type = "item", name = "pipe", amount = 3},
+            {type = "item", name = "iron-plate", amount = 3},
+            {type = "item", name = "stone", amount = 4},
+            {type = "item", name = "copper-cable", amount = 2},
             {type = "item", name = "small-parts-01", amount = 3},
-            {type = "item", name = "copper-plate", amount = 3},
-            {type = "item", name = "iron-plate", amount = 1},
-            {type = "item", name = "copper-cable", amount = 1}
+            {type = "item", name = "pipe", amount = 1}
         }
         hydroclassifier_mk00_recipe.results = {
             {type = "item", name = "hydroclassifier-mk00", amount = 1}
@@ -448,11 +448,11 @@ if mods["chens-modpack-py-auxiliary-others"] then
                                                  data.raw.recipe["leaching-station-mk01"])
         leaching_station_mk00_recipe.name = "leaching-station-mk00"
         leaching_station_mk00_recipe.ingredients = {
-            {type = "item", name = "pipe", amount = 3},
-            {type = "item", name = "small-parts-01", amount = 2},
-            {type = "item", name = "bolts", amount = 1},
+            {type = "item", name = "stone", amount = 5},
             {type = "item", name = "copper-plate", amount = 3},
-            {type = "item", name = "iron-plate", amount = 2}
+            {type = "item", name = "iron-stick", amount = 2},
+            {type = "item", name = "bolts", amount = 4},
+            {type = "item", name = "small-parts-01", amount = 3}
         }
         leaching_station_mk00_recipe.results = {
             {type = "item", name = "leaching-station-mk00", amount = 1}
@@ -552,11 +552,11 @@ if mods["chens-modpack-py-auxiliary-others"] then
                                            data.raw.recipe["biofactory-mk01"])
         biofactory_mk00_recipe.name = "biofactory-mk00"
         biofactory_mk00_recipe.ingredients = {
-            {type = "item", name = "pipe", amount = 3},
+            {type = "item", name = "stone-furnace", amount = 1},
+            {type = "item", name = "iron-stick", amount = 3},
+            {type = "item", name = "copper-plate", amount = 2},
             {type = "item", name = "small-parts-01", amount = 3},
-            {type = "item", name = "copper-plate", amount = 3},
-            {type = "item", name = "iron-plate", amount = 1},
-            {type = "item", name = "iron-gear-wheel", amount = 1}
+            {type = "item", name = "bolts", amount = 2}
         }
         biofactory_mk00_recipe.results = {
             {type = "item", name = "biofactory-mk00", amount = 1}
