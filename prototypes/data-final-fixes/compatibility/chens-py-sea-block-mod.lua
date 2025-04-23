@@ -1,3 +1,5 @@
+-- Copyright (c) 2025 JackieChen
+-- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 -- 修复模组的问题
 -- 修复chens-py-sea-block-mod的问题
 if mods["chens-py-sea-block-mod"] then
@@ -54,7 +56,6 @@ if mods["chens-py-sea-block-mod"] then
     end
 end
 
--- 修复模组的问题
 -- 修复chens-tweak-mod的问题
 if mods["chens-tweak-mod"] then
     table.insert(data.raw.technology["basic-resources"].effects,

@@ -1,3 +1,5 @@
+-- Copyright (c) 2025 JackieChen
+-- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 -- 修复科技的问题
 -- 修复steam-power的问题
 table.insert(data.raw.technology["steam-power"].effects,
