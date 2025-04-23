@@ -162,6 +162,22 @@ if mods["easyvoid"] then
     data.raw.technology["void"].prerequisites = {"automation"}
 end
 
+-- 修复loaders-modernized的问题
+if mods["loaders-modernized"] then
+    -- 修复配方的问题
+    -- 修复wood-mdrn-loader的问题
+    for _, ingredient in ipairs(data.raw.recipe["wood-mdrn-loader"].ingredients) do
+        if ingredient.name == "inserter" then
+            ingredient.name = "burner-inserter"
+            break
+        end
+    end
+
+    -- 修复mdrn-loader的问题
+    table.insert(data.raw.recipe["mdrn-loader"].ingredients,
+                 {type = "item", name = "wood-mdrn-loader", amount = 1})
+end
+
 -- 修复实体的问题
 -- 修复transport-belt的问题
 for _, item in pairs(data.raw["transport-belt"]) do

@@ -1,16 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.13.7
+Date: 2025-04-23
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Adjusted recipe: wood-mdrn-loader。
+      - Adjusted recipe: mdrn-loader。
+---------------------------------------------------------------------------------------------------
 Version: 0.13.6
 Date: 2025-04-23
   Changes:
     - [Chens Py Sea Block Mod]: 
-    - Add machine: distilator-mk00.
-    - Adjust recipe: organic-fuel.
-    - Adjust recipe: evaporator-mk00.
-    - Adjust recipe: distilator-mk00.
-    - Adjust recipe: flotation-cell-mk00.
-    - Adjust recipe: hydroclassifier-mk00.
-    - Adjust recipe: leaching-station-mk00.
-    - Adjust recipe: biofactory-mk00.
+      - Add machine: distilator-mk00.
+      - Adjust recipe: organic-fuel.
+      - Adjust recipe: evaporator-mk00.
+      - Adjust recipe: distilator-mk00.
+      - Adjust recipe: flotation-cell-mk00.
+      - Adjust recipe: hydroclassifier-mk00.
+      - Adjust recipe: leaching-station-mk00.
+      - Adjust recipe: biofactory-mk00.
 ---------------------------------------------------------------------------------------------------
 Version: 0.13.5
 Date: 2025-04-21
