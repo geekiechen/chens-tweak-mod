@@ -7,44 +7,21 @@ if settings.startup["disable-hand-crafting"].value then
 end
 
 if settings.startup["furnace-recipe-select"].value then
-    local hasNonFurnaceFurnace = false
-
-    for name, _ in pairs(data.raw.furnace) do
-        if (not string.find(name, "furnace")) then
-            hasNonFurnaceFurnace = true
-        end
-    end
-
-    if (not hasNonFurnaceFurnace) then
-        local uselessFurnace = table.deepcopy(
-                                   data.raw["furnace"]["stone-furnace"])
-        uselessFurnace.name = "useless-furnace"
-        uselessFurnace.hidden = true
-        uselessFurnace.next_upgrade = nil
-        data:extend{uselessFurnace}
-    end
-
-    for name, _ in pairs(data.raw.furnace) do
-        if (string.find(name, "furnace") and name ~= "useless-furnace") then
-            local furnace = util.table.deepcopy(data.raw.furnace[name])
+    if data.raw.furnace then
+        for name, entity in pairs(data.raw.furnace) do
+            local furnace = table.deepcopy(entity)
             furnace.type = "assembling-machine"
             data:extend{furnace}
-            data.raw["furnace"][name] = nil
-        else
-            hasNonFurnaceFurnace = true
-        end
-    end
-
-    for name, _ in pairs(data.raw.furnace) do
-        if (string.find(name, "furnace") and name ~= "useless-furnace") then
-            data.raw["furnace"][name] = nil
+            data.raw.furnace[name] = nil
         end
     end
 end
 
 if settings.startup["enable-machine-item-stack-size-tweak"].value then
-    for _, recipe in pairs(data.raw.recipe) do
-        recipe.allow_inserter_overload = false
+    if data.raw.recipe then
+        for _, recipe in pairs(data.raw.recipe) do
+            recipe.allow_inserter_overload = false
+        end
     end
 end
 
@@ -73,38 +50,46 @@ if settings.startup["enable-transport-belt-speed-multiplier"].value then
     local transportBeltSpeedMultiplier =
         settings.startup["transport-belt-speed-multiplier"].value
 
-    for _, item in pairs(data.raw["transport-belt"]) do
-        if item.speed then
-            item.speed = item.speed * transportBeltSpeedMultiplier
-            if item.speed > maxTransportBeltSpeed then
-                item.speed = maxTransportBeltSpeed
+    if data.raw["transport-belt"] then
+        for _, item in pairs(data.raw["transport-belt"]) do
+            if item.speed then
+                item.speed = item.speed * transportBeltSpeedMultiplier
+                if item.speed > maxTransportBeltSpeed then
+                    item.speed = maxTransportBeltSpeed
+                end
             end
         end
     end
 
-    for _, item in pairs(data.raw["underground-belt"]) do
-        if item.speed then
-            item.speed = item.speed * transportBeltSpeedMultiplier
-            if item.speed > maxTransportBeltSpeed then
-                item.speed = maxTransportBeltSpeed
+    if data.raw["underground-belt"] then
+        for _, item in pairs(data.raw["underground-belt"]) do
+            if item.speed then
+                item.speed = item.speed * transportBeltSpeedMultiplier
+                if item.speed > maxTransportBeltSpeed then
+                    item.speed = maxTransportBeltSpeed
+                end
             end
         end
     end
 
-    for _, item in pairs(data.raw["loader"]) do
-        if item.speed then
-            item.speed = item.speed * transportBeltSpeedMultiplier
-            if item.speed > maxTransportBeltSpeed then
-                item.speed = maxTransportBeltSpeed
+    if data.raw["loader"] then
+        for _, item in pairs(data.raw["loader"]) do
+            if item.speed then
+                item.speed = item.speed * transportBeltSpeedMultiplier
+                if item.speed > maxTransportBeltSpeed then
+                    item.speed = maxTransportBeltSpeed
+                end
             end
         end
     end
 
-    for _, item in pairs(data.raw["splitter"]) do
-        if item.speed then
-            item.speed = item.speed * transportBeltSpeedMultiplier
-            if item.speed > maxTransportBeltSpeed then
-                item.speed = maxTransportBeltSpeed
+    if data.raw["splitter"] then
+        for _, item in pairs(data.raw["splitter"]) do
+            if item.speed then
+                item.speed = item.speed * transportBeltSpeedMultiplier
+                if item.speed > maxTransportBeltSpeed then
+                    item.speed = maxTransportBeltSpeed
+                end
             end
         end
     end
@@ -114,11 +99,14 @@ if settings.startup["enable-inserter-speed-multiplier"].value then
     local inserterSpeedMultiplier =
         settings.startup["inserter-speed-multiplier"].value
 
-    for _, item in pairs(data.raw["inserter"]) do
-        if item.rotation_speed then
-            item.rotation_speed = item.rotation_speed * inserterSpeedMultiplier
-            if item.rotation_speed > maxInserterSpeed then
-                item.rotation_speed = maxInserterSpeed
+    if data.raw.inserter then
+        for _, item in pairs(data.raw.inserter) do
+            if item.rotation_speed then
+                item.rotation_speed = item.rotation_speed *
+                                          inserterSpeedMultiplier
+                if item.rotation_speed > maxInserterSpeed then
+                    item.rotation_speed = maxInserterSpeed
+                end
             end
         end
     end
@@ -128,10 +116,13 @@ if settings.startup["enable-player-running-speed-multiplier"].value then
     local playerSpeedMultiplier =
         settings.startup["player-running-speed-multiplier"].value
 
-    data.raw.character["character"].running_speed =
-        data.raw.character["character"].running_speed * playerSpeedMultiplier
-    if data.raw.character["character"].running_speed > maxPlayerSpeed then
-        data.raw.character["character"].running_speed = maxPlayerSpeed
+    if data.raw.character["character"] then
+        data.raw.character["character"].running_speed =
+            data.raw.character["character"].running_speed *
+                playerSpeedMultiplier
+        if data.raw.character["character"].running_speed > maxPlayerSpeed then
+            data.raw.character["character"].running_speed = maxPlayerSpeed
+        end
     end
 end
 
@@ -140,14 +131,22 @@ if not mods["pypostprocessing"] and
     local robotSpeedMultiplier = settings.startup["robot-speed-multiplier"]
                                      .value
 
-    for _, robot in pairs(data.raw["logistic-robot"]) do
-        robot.speed = robot.speed * robotSpeedMultiplier
-        if robot.speed > maxRobotSpeed then robot.speed = maxRobotSpeed end
+    if data.raw["logistic-robot"] then
+        for _, robot in pairs(data.raw["logistic-robot"]) do
+            robot.speed = robot.speed * robotSpeedMultiplier
+            if robot.speed > maxRobotSpeed then
+                robot.speed = maxRobotSpeed
+            end
+        end
     end
 
-    for _, robot in pairs(data.raw["construction-robot"]) do
-        robot.speed = robot.speed * robotSpeedMultiplier
-        if robot.speed > maxRobotSpeed then robot.speed = maxRobotSpeed end
+    if data.raw["construction-robot"] then
+        for _, robot in pairs(data.raw["construction-robot"]) do
+            robot.speed = robot.speed * robotSpeedMultiplier
+            if robot.speed > maxRobotSpeed then
+                robot.speed = maxRobotSpeed
+            end
+        end
     end
 end
 

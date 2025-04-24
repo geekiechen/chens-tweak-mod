@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.13.9
+Date: 2025-04-24
+  Changes:
+    - [Base, Chens Modpack(py+auxiliary+others), Chens Py Land Block Mod, Chens Py Sea Block Mod]: 
+      - Optimized the code.
+---------------------------------------------------------------------------------------------------
 Version: 0.13.8
 Date: 2025-04-24
   Changes:

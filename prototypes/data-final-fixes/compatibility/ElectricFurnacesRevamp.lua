@@ -2,14 +2,24 @@
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 -- 修复科技的问题
 -- 修复steam-power的问题
-table.insert(data.raw.technology["steam-power"].effects,
-             {type = "unlock-recipe", recipe = "electric-stone-furnace"})
-table.insert(data.raw.technology["steam-power"].effects,
-             {type = "unlock-recipe", recipe = "electric-boiler"})
+if data.raw.technology["steam-power"] then
+    if data.raw.technology["steam-power"].effects then
+        table.insert(data.raw.technology["steam-power"].effects, {
+            type = "unlock-recipe",
+            recipe = "electric-stone-furnace"
+        })
+        table.insert(data.raw.technology["steam-power"].effects,
+                     {type = "unlock-recipe", recipe = "electric-boiler"})
+    end
+end
 
---  修复配方的问题
+-- 修复配方的问题
 -- 修复electric-stone-furnace的问题
-data.raw.recipe["electric-stone-furnace"].enabled = false
+if data.raw.recipe["electric-stone-furnace"] then
+    data.raw.recipe["electric-stone-furnace"].enabled = false
+end
 
 -- 修复electric-boiler的问题
-data.raw.recipe["electric-boiler"].enabled = false
+if data.raw.recipe["electric-boiler"] then
+    data.raw.recipe["electric-boiler"].enabled = false
+end
