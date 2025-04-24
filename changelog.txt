@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.13.10
+Date: 2025-04-24
+  Changes:
+    - [Chens Py Sea Block Mod]: 
+      - Adjusted technology: basic-resources.
+      - Adjusted technology: automation-science-pack.
+---------------------------------------------------------------------------------------------------
 Version: 0.13.9
 Date: 2025-04-24
   Changes:

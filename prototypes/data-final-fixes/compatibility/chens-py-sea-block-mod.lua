@@ -428,6 +428,10 @@ if mods["pycoalprocessing"] then
                      {type = "unlock-recipe", recipe = "evaporator-mk00"})
         table.insert(data.raw.technology["automation-science-pack"].effects,
                      {type = "unlock-recipe", recipe = "biofactory-mk00"})
+        table.insert(data.raw.technology["automation-science-pack"].effects,
+                     {type = "unlock-recipe", recipe = "distilator-mk00"})
+        table.insert(data.raw.technology["automation-science-pack"].effects,
+                     {type = "unlock-recipe", recipe = "organic-fuel"})
     end
 
     -- 修复coal-processing-1的问题

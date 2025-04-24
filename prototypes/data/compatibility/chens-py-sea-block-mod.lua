@@ -1141,9 +1141,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
             effects = {
                 {type = "unlock-recipe", recipe = "early-stone"},
                 {type = "unlock-recipe", recipe = "early-iron-ore"},
-                {type = "unlock-recipe", recipe = "early-copper-ore"},
-                {type = "unlock-recipe", recipe = "distilator-mk00"},
-                {type = "unlock-recipe", recipe = "organic-fuel"}
+                {type = "unlock-recipe", recipe = "early-copper-ore"}
             },
             order = "a",
             localised_description = {"technology-description.basic-resources"}
