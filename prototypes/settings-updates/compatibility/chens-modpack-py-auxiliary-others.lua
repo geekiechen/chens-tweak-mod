@@ -40,6 +40,12 @@ if mods["wood-logistics"] then
             false
     end
 
+    -- 修复wood-logistics-woodtronics的问题
+    if data.raw["bool-setting"]["wood-logistics-woodtronics"] then
+        data.raw["bool-setting"]["wood-logistics-woodtronics"].default_value =
+            false
+    end
+
     -- 修复wood-logistics-belts-circuits的问题
     if data.raw["bool-setting"]["wood-logistics-belts-circuits"] then
         data.raw["bool-setting"]["wood-logistics-belts-circuits"].default_value =
@@ -50,18 +56,6 @@ if mods["wood-logistics"] then
     if data.raw["bool-setting"]["wood-logistics-nerf-small-electric-pole"] then
         data.raw["bool-setting"]["wood-logistics-nerf-small-electric-pole"]
             .default_value = false
-    end
-
-    -- 修复wood-logistics-big-electric-pole的问题
-    if data.raw["bool-setting"]["wood-logistics-big-electric-pole"] then
-        data.raw["bool-setting"]["wood-logistics-big-electric-pole"]
-            .default_value = true
-    end
-
-    -- 修复wood-logistics-big-electric-pole-modify的问题
-    if data.raw["bool-setting"]["wood-logistics-big-electric-pole-modify"] then
-        data.raw["bool-setting"]["wood-logistics-big-electric-pole-modify"]
-            .default_value = true
     end
 end
 
