@@ -1,6 +1,6 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.13.12",
+    "version": "0.14.0",
     "title": "Chens Tweak Mod",
     "author": "JackieChen",
     "dependencies": [
@@ -10,6 +10,7 @@
         "? chens-modpack-py-auxiliary-others",
         "? chens-py-land-block-mod",
         "? chens-py-sea-block-mod",
+        "? chens-waterfill-mod",
         "? pyalternativeenergy",
         "? pypostprocessing",
         "? space-age"

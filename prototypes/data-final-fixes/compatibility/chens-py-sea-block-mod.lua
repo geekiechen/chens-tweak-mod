@@ -363,6 +363,17 @@ end
 -- 修复pycoalprocessing的问题
 if mods["pycoalprocessing"] then
     -- 修复实体的问题
+    -- 修复distilator的问题
+    if data.raw["assembling-machine"]["distilator"] then
+        data.raw["assembling-machine"]["distilator"].energy_source = {
+            type = "burner",
+            fuel_categories = {"chemical"},
+            fuel_inventory_size = 1,
+            burnt_inventory_size = 1,
+            burnt_result = "ash"
+        }
+    end
+
     -- 修复evaporator的问题
     if data.raw["assembling-machine"]["evaporator"] then
         data.raw["assembling-machine"]["evaporator"].crafting_speed = 2
@@ -381,26 +392,6 @@ if mods["pycoalprocessing"] then
     -- 修复evaporator-mk04的问题
     if data.raw["assembling-machine"]["evaporator-mk04"] then
         data.raw["assembling-machine"]["evaporator-mk04"].crafting_speed = 5
-    end
-
-    -- 修复distilator的问题
-    if data.raw["assembling-machine"]["distilator"] then
-        data.raw["assembling-machine"]["distilator"].crafting_speed = 2
-    end
-
-    -- 修复distilator-mk02的问题
-    if data.raw["assembling-machine"]["distilator-mk02"] then
-        data.raw["assembling-machine"]["distilator-mk02"].crafting_speed = 3
-    end
-
-    -- 修复distilator-mk03的问题
-    if data.raw["assembling-machine"]["distilator-mk03"] then
-        data.raw["assembling-machine"]["distilator-mk03"].crafting_speed = 4
-    end
-
-    -- 修复distilator-mk04的问题
-    if data.raw["assembling-machine"]["distilator-mk04"] then
-        data.raw["assembling-machine"]["distilator-mk04"].crafting_speed = 5
     end
 
     -- 修复科技的问题
@@ -429,7 +420,7 @@ if mods["pycoalprocessing"] then
         table.insert(data.raw.technology["automation-science-pack"].effects,
                      {type = "unlock-recipe", recipe = "biofactory-mk00"})
         table.insert(data.raw.technology["automation-science-pack"].effects,
-                     {type = "unlock-recipe", recipe = "distilator-mk00"})
+                     {type = "unlock-recipe", recipe = "distilator"})
         table.insert(data.raw.technology["automation-science-pack"].effects,
                      {type = "unlock-recipe", recipe = "organic-fuel"})
     end
@@ -438,6 +429,13 @@ if mods["pycoalprocessing"] then
     if data.raw.technology["coal-processing-1"] then
         table.insert(data.raw.technology["coal-processing-1"].effects,
                      {type = "unlock-recipe", recipe = "early-raw-coal"})
+
+        for i = #data.raw.technology["coal-processing-1"].effects, 1, -1 do
+            local effect = data.raw.technology["coal-processing-1"].effects[i]
+            if effect.type == "unlock-recipe" and effect.recipe == "distilator" then
+                table.remove(data.raw.technology["coal-processing-1"].effects, i)
+            end
+        end
     end
 
     -- 修复steam-power的问题
@@ -489,12 +487,6 @@ if mods["pycoalprocessing"] then
     if data.raw.recipe["evaporator"] then
         table.insert(data.raw.recipe["evaporator"].ingredients,
                      {type = "item", name = "evaporator-mk00", amount = 1})
-    end
-
-    -- 修复distilator的问题
-    if data.raw.recipe["distilator"] then
-        table.insert(data.raw.recipe["distilator"].ingredients,
-                     {type = "item", name = "distilator-mk00", amount = 1})
     end
 end
 

@@ -63,64 +63,6 @@ if mods["chens-modpack-py-auxiliary-others"] then
             end
         end
 
-        -- 注册distilator-mk00
-        local distilator_mk00_entity
-        if data.raw["assembling-machine"]["distilator"] then
-            distilator_mk00_entity = table.deepcopy(
-                                         data.raw["assembling-machine"]["distilator"])
-            distilator_mk00_entity.name = "distilator-mk00"
-            distilator_mk00_entity.icon = nil
-            distilator_mk00_entity.icons = {
-                {
-                    icon = "__pycoalprocessinggraphics__/graphics/icons/distilator.png",
-                    icon_size = 64,
-                    tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
-                }
-            }
-            distilator_mk00_entity.energy_source.type = "burner"
-            distilator_mk00_entity.energy_source.fuel_categories = {"chemical"}
-            distilator_mk00_entity.energy_source.fuel_inventory_size = 1
-            distilator_mk00_entity.energy_source.burnt_inventory_size = 1
-            distilator_mk00_entity.energy_source.burnt_result = "ash"
-            distilator_mk00_entity.minable = {
-                mining_time = 1,
-                result = "distilator-mk00"
-            }
-            distilator_mk00_entity.energy_usage = "500kW"
-            distilator_mk00_entity.next_upgrade = "distilator"
-            distilator_mk00_entity.crafting_categories = {"distilator"}
-
-            if distilator_mk00_entity.graphics_set and
-                distilator_mk00_entity.graphics_set.animation and
-                distilator_mk00_entity.graphics_set.animation.layers then
-                for _, layer in pairs(distilator_mk00_entity.graphics_set
-                                          .animation.layers) do
-                    if layer.tint then
-                        layer.tint = {r = 0.5, g = 0.5, b = 0.5, a = 1.0}
-                    end
-                end
-            end
-
-            if distilator_mk00_entity.graphics_set and
-                distilator_mk00_entity.graphics_set.working_visualisations then
-                for _, visual in pairs(distilator_mk00_entity.graphics_set
-                                           .working_visualisations) do
-                    if visual.animation and visual.animation.layers then
-                        for _, layer in pairs(visual.animation.layers) do
-                            if layer.tint then
-                                layer.tint = {
-                                    r = 0.5,
-                                    g = 0.5,
-                                    b = 0.5,
-                                    a = 1.0
-                                }
-                            end
-                        end
-                    end
-                end
-            end
-        end
-
         -- 注册物品子组
         -- 注册evaporator-mk00
         local evaporator_mk00_item_subgroup
@@ -129,15 +71,6 @@ if mods["chens-modpack-py-auxiliary-others"] then
                                                 data.raw["item-subgroup"]["py-cp-buildings-mk01"])
             evaporator_mk00_item_subgroup.name = "py-cp-buildings-mk00"
             evaporator_mk00_item_subgroup.group = "coal-processing"
-        end
-
-        -- 注册distilator-mk00
-        local distilator_mk00_item_subgroup
-        if data.raw["item-subgroup"]["py-cp-buildings-mk01"] then
-            distilator_mk00_item_subgroup = table.deepcopy(
-                                                data.raw["item-subgroup"]["py-cp-buildings-mk01"])
-            distilator_mk00_item_subgroup.name = "py-cp-buildings-mk00"
-            distilator_mk00_item_subgroup.group = "coal-processing"
         end
 
         -- 注册物品
@@ -157,25 +90,6 @@ if mods["chens-modpack-py-auxiliary-others"] then
 
             evaporator_mk00_item.place_result = "evaporator-mk00"
             evaporator_mk00_item.subgroup = "py-cp-buildings-mk00"
-        end
-
-        -- 注册distilator-mk00
-        local distilator_mk00_item
-        if data.raw.item["distilator"] then
-            distilator_mk00_item = table.deepcopy(data.raw.item["distilator"])
-            distilator_mk00_item.name = "distilator-mk00"
-            distilator_mk00_item.icon = nil
-            distilator_mk00_item.icons = {
-                {
-                    icon = "__pycoalprocessinggraphics__/graphics/icons/distilator.png",
-                    icon_size = 64,
-                    tint = {r = 0.4, g = 0.4, b = 0.4, a = 1}
-                }
-            }
-
-            distilator_mk00_item.place_result = "distilator-mk00"
-            distilator_mk00_item.subgroup = "py-cp-buildings-mk00"
-            data.raw.item["distilator-mk00"] = distilator_mk00_item
         end
 
         -- 注册配方
@@ -198,30 +112,9 @@ if mods["chens-modpack-py-auxiliary-others"] then
             evaporator_mk00_recipe.enabled = false
         end
 
-        -- 注册distilator-mk00
-        local distilator_mk00_recipe
-        if data.raw.recipe["distilator"] then
-            distilator_mk00_recipe = table.deepcopy(
-                                         data.raw.recipe["distilator"])
-            distilator_mk00_recipe.name = "distilator-mk00"
-            distilator_mk00_recipe.ingredients = {
-                {type = "item", name = "stone-furnace", amount = 2},
-                {type = "item", name = "iron-plate", amount = 4},
-                {type = "item", name = "copper-cable", amount = 3},
-                {type = "item", name = "pipe", amount = 3},
-                {type = "item", name = "small-parts-01", amount = 2}
-            }
-            distilator_mk00_recipe.results = {
-                {type = "item", name = "distilator-mk00", amount = 1}
-            }
-            distilator_mk00_recipe.enabled = false
-        end
-
         data:extend({
-            evaporator_mk00_entity, distilator_mk00_entity,
-            evaporator_mk00_item_subgroup, distilator_mk00_item_subgroup,
-            evaporator_mk00_item, distilator_mk00_item, evaporator_mk00_recipe,
-            distilator_mk00_recipe
+            evaporator_mk00_entity, evaporator_mk00_item_subgroup,
+            evaporator_mk00_item, evaporator_mk00_recipe
         })
     end
 

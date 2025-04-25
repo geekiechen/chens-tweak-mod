@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.14.0
+Date: 2025-04-25
+  Changes:
+    - [Chens Py Sea Block Mod]: 
+      - Adjusted entity: distilator.
+      - Adjusted technology: automation-science-pack.
+      - Adjusted technology: coal-processing-1.
+
+      - Added optional mod: chens-waterfill-mod.
+
+      - Removed entity: distilator-mk00.
+      - Removed adjustments to the entity: distilator-mk02.
+      - Removed adjustments to the entity: distilator-mk03.
+      - Removed adjustments to the entity: distilator-mk04.
+---------------------------------------------------------------------------------------------------
 Version: 0.13.12
 Date: 2025-04-25
   Changes:
@@ -9,7 +24,7 @@ Version: 0.13.11
 Date: 2025-04-24
   Changes:
     - [Chens Py Land Block Mod]: 
-      - Removed the adjustments to the mod: Waterfill_v17.
+      - Removed adjustments to the mod: Waterfill_v17.
 ---------------------------------------------------------------------------------------------------
 Version: 0.13.10
 Date: 2025-04-24
@@ -42,6 +57,7 @@ Date: 2025-04-23
   Changes:
     - [Chens Py Sea Block Mod]: 
       - Add machine: distilator-mk00.
+
       - Adjust recipe: organic-fuel.
       - Adjust recipe: evaporator-mk00.
       - Adjust recipe: distilator-mk00.
@@ -84,6 +100,7 @@ Date: 2025-04-19
     - [Chens Py Sea Block Mod]: 
       - Added item: organic fuel.
       - Added recipe for producing organic fuel.
+
       - Adjusted the recipe: landfill.
       - Adjusted the recipe: sludge.
 ---------------------------------------------------------------------------------------------------
@@ -92,13 +109,15 @@ Date: 2025-04-19
   Changes:
     - [Chens Py Sea Block Mod]: 
       - Added new machines.
+
       - Adjusted some recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.4
 Date: 2025-04-16
   Changes:
     - [Chens Py Sea Block Mod]: 
-      - Added more machines.  
+      - Added more machines.
+
       - Adjusted some recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.12.3
@@ -125,6 +144,7 @@ Date: 2025-04-15
   Changes:
     - [Chens Py Sea Block Mod]: 
       - Added a new machine, Flotation Cell Mk0, to replace the Washer Mk0.
+
       - Overhauled all recipes.
 ---------------------------------------------------------------------------------------------------
 Version: 0.11.5
@@ -164,8 +184,9 @@ Date: 2025-04-12
   Changes:
     - [Chens Py Sea Block Mod]: 
       - Removed optional dependency mod: Chens Arcosphere Mod.
-      - Simplified the mineral recipes. 
       - Removed all adjustments to washer entities.
+
+      - Simplified the mineral recipes. 
 ---------------------------------------------------------------------------------------------------
 Version: 0.10.2
 Date: 2025-04-11
@@ -214,6 +235,7 @@ Date: 2025-04-07
   Changes:
     - [Chens Modpack(py+auxiliary+others)]: 
       - Added a map preset with no water and no resources.
+
       - Modified the code to disable automatic resource generation.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.6
@@ -221,7 +243,8 @@ Date: 2025-04-01
   Changes:
     - [Chens Modpack(py+auxiliary+others)]: 
       - Fixed the issue of the iron-stick recipe being unlocked multiple times by technology.
-      - Removed the changes made to the bobinserters mod.
+
+      - Removed adjustments to the mod: bobinserters.
 ---------------------------------------------------------------------------------------------------
 Version: 0.8.5
 Date: 2025-04-01
@@ -263,10 +286,12 @@ Date: 2025-03-27
     - [Chens Modpack(py+auxiliary+others)]: 
       - The changes will only take effect if the terrain selection is set to "sea-block":
         - Fixed the issue where resin could not be obtained. Fixed the issue where other minerals could not be obtained. 
-          - Adjusted the recipe: wood. 
-          - Adjusted the recipe: seaweed. 
-          - Adjusted the fluid connection positions of the washer entity. 
-          - Removed the changes made to the VoidChestInstant mod.
+
+        - Adjusted the recipe: wood. 
+        - Adjusted the recipe: seaweed. 
+        - Adjusted the fluid connection positions of the washer entity. 
+
+        - Removed adjustments to the mod: VoidChestInstant.
 ---------------------------------------------------------------------------------------------------
 Version: 0.7.1
 Date: 2025-03-25
@@ -291,6 +316,7 @@ Date: 2025-03-25
     - [Chens Modpack(py+auxiliary+others)]: 
       - The changes will only take effect if the terrain selection is set to "sea-block":
         - Made some balance adjustments.
+
         - Added recipes with other minerals.
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
@@ -417,6 +443,7 @@ Date: 2025-03-15
     - [Chens Modpack(py+auxiliary+others)]: 
       - The changes will only take effect if the terrain selection is set to "sea-block":
         - Made some balance adjustments. 
+
         - Added new wood and moss recipes compatible with the Py series mods.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.30

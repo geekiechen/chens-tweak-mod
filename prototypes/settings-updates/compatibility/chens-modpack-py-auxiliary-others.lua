@@ -67,3 +67,13 @@ if mods["Mini-Trains-Lead-the-Way"] then
         data.raw["bool-setting"]["mtlw-nerf-mini-trains"].default_value = true
     end
 end
+
+-- 修复loaders-modernized的问题
+if mods["loaders-modernized"] then
+    -- 修复设置的问题
+    -- 修复mdrn-enable-chute的问题
+    if data.raw["bool-setting"]["mdrn-enable-chute"] then
+        data.raw["bool-setting"]["mdrn-enable-chute"].default_value = false
+        data.raw["bool-setting"]["mdrn-enable-chute"].hidden = true
+    end
+end
