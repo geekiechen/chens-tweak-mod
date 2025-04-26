@@ -685,37 +685,39 @@ if mods["chens-modpack-py-auxiliary-others"] then
         -- 修复pyhardmode的问题
         if mods["pyhardmode"] then
             -- 注册配方
-            data:extend( -- 注册干酪根
-            {
-                type = "recipe",
-                name = "early-kerogen",
-                order = "a",
-                category = "hydroclassifier",
-                energy_required = 2,
-                ingredients = {
-                    {type = "item", name = "sludge", amount = 1},
-                    {type = "fluid", name = "carbolic-oil", amount = 3}
-                },
-                results = {{type = "item", name = "kerogen", amount = 1}},
-                main_product = "kerogen",
-                enabled = false
+            data:extend({ -- 注册干酪根
+                {
+                    type = "recipe",
+                    name = "early-kerogen",
+                    order = "a",
+                    category = "hydroclassifier",
+                    energy_required = 2,
+                    ingredients = {
+                        {type = "item", name = "sludge", amount = 1},
+                        {type = "fluid", name = "carbolic-oil", amount = 3}
+                    },
+                    results = {{type = "item", name = "kerogen", amount = 1}},
+                    main_product = "kerogen",
+                    enabled = false
+                }
             })
         else
             -- 注册配方
-            data:extend( -- 注册干酪根
-            {
-                type = "recipe",
-                name = "early-kerogen",
-                order = "a",
-                category = "hydroclassifier",
-                energy_required = 2,
-                ingredients = {
-                    {type = "item", name = "sludge", amount = 1},
-                    {type = "fluid", name = "water", amount = 10}
-                },
-                results = {{type = "item", name = "kerogen", amount = 1}},
-                main_product = "kerogen",
-                enabled = false
+            data:extend({ -- 注册干酪根
+                {
+                    type = "recipe",
+                    name = "early-kerogen",
+                    order = "a",
+                    category = "hydroclassifier",
+                    energy_required = 2,
+                    ingredients = {
+                        {type = "item", name = "sludge", amount = 1},
+                        {type = "fluid", name = "water", amount = 10}
+                    },
+                    results = {{type = "item", name = "kerogen", amount = 1}},
+                    main_product = "kerogen",
+                    enabled = false
+                }
             })
         end
 
