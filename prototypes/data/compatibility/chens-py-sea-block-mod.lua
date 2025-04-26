@@ -681,6 +681,44 @@ if mods["chens-modpack-py-auxiliary-others"] then
 
     -- hydroclassifier
     if data.raw["recipe-category"]["hydroclassifier"] then
+        -- 修复模组的问题
+        -- 修复pyhardmode的问题
+        if mods["pyhardmode"] then
+            -- 注册配方
+            data:extend( -- 注册干酪根
+            {
+                type = "recipe",
+                name = "early-kerogen",
+                order = "a",
+                category = "hydroclassifier",
+                energy_required = 2,
+                ingredients = {
+                    {type = "item", name = "sludge", amount = 1},
+                    {type = "fluid", name = "carbolic-oil", amount = 3}
+                },
+                results = {{type = "item", name = "kerogen", amount = 1}},
+                main_product = "kerogen",
+                enabled = false
+            })
+        else
+            -- 注册配方
+            data:extend( -- 注册干酪根
+            {
+                type = "recipe",
+                name = "early-kerogen",
+                order = "a",
+                category = "hydroclassifier",
+                energy_required = 2,
+                ingredients = {
+                    {type = "item", name = "sludge", amount = 1},
+                    {type = "fluid", name = "water", amount = 10}
+                },
+                results = {{type = "item", name = "kerogen", amount = 1}},
+                main_product = "kerogen",
+                enabled = false
+            })
+        end
+
         data:extend({ -- 注册铁矿
             {
                 type = "recipe",
@@ -709,20 +747,6 @@ if mods["chens-modpack-py-auxiliary-others"] then
                 results = {{type = "item", name = "copper-ore", amount = 1}},
                 main_product = "copper-ore",
                 enabled = false
-            }, -- 注册石矿
-            {
-                type = "recipe",
-                name = "early-stone",
-                order = "a",
-                category = "hydroclassifier",
-                energy_required = 2,
-                ingredients = {
-                    {type = "item", name = "sludge", amount = 1},
-                    {type = "fluid", name = "water", amount = 10}
-                },
-                results = {{type = "item", name = "stone", amount = 1}},
-                main_product = "stone",
-                enabled = false
             }, -- 注册原煤
             {
                 type = "recipe",
@@ -737,19 +761,19 @@ if mods["chens-modpack-py-auxiliary-others"] then
                 results = {{type = "item", name = "raw-coal", amount = 1}},
                 main_product = "raw-coal",
                 enabled = false
-            }, -- 注册干酪根
+            }, -- 注册石矿
             {
                 type = "recipe",
-                name = "early-kerogen",
+                name = "early-stone",
                 order = "a",
                 category = "hydroclassifier",
                 energy_required = 2,
                 ingredients = {
                     {type = "item", name = "sludge", amount = 1},
-                    {type = "fluid", name = "carbolic-oil", amount = 3}
+                    {type = "fluid", name = "water", amount = 10}
                 },
-                results = {{type = "item", name = "kerogen", amount = 1}},
-                main_product = "kerogen",
+                results = {{type = "item", name = "stone", amount = 1}},
+                main_product = "stone",
                 enabled = false
             }
         })
