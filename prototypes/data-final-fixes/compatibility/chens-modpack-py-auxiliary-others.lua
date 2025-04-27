@@ -48,9 +48,6 @@ if mods["Transport_Drones_Meglinge_Fork"] then
                 break
             end
         end
-
-        table.insert(data.raw.technology["transport-system"].prerequisites,
-                     "logistic-science-pack")
     end
 end
 

@@ -3,25 +3,25 @@
 data:extend{
     {
         type = "bool-setting",
-        name = "disable-crash-site",
+        name = "enable-disable-crash-site",
         setting_type = "startup",
         default_value = false,
         order = "a-a"
     }, {
         type = "bool-setting",
-        name = "disable-hand-crafting",
+        name = "enable-disable-hand-crafting",
         setting_type = "startup",
         default_value = false,
         order = "a-b"
     }, {
         type = "bool-setting",
-        name = "furnace-recipe-select",
+        name = "enable-furnace-recipe-select",
         setting_type = "startup",
         default_value = false,
         order = "a-c"
     }, {
         type = "bool-setting",
-        name = "inventory-clear",
+        name = "enable-inventory-clear",
         setting_type = "startup",
         default_value = false,
         order = "a-d"
@@ -33,19 +33,25 @@ data:extend{
         order = "a-e"
     }, {
         type = "bool-setting",
-        name = "start-robot",
+        name = "enable-technology-tree-optimize",
+        setting_type = "startup",
+        default_value = false,
+        order = "a-f"
+    }, {
+        type = "bool-setting",
+        name = "enable-start-robot",
         setting_type = "startup",
         default_value = false,
         order = "y-a"
     }, {
         type = "bool-setting",
-        name = "start-burner-mining-drill",
+        name = "enable-start-burner-mining-drill",
         setting_type = "startup",
         default_value = false,
         order = "y-b"
     }, {
         type = "bool-setting",
-        name = "start-weapon",
+        name = "enable-start-weapon",
         setting_type = "startup",
         default_value = false,
         order = "y-c"
@@ -119,5 +125,15 @@ data:extend{
         default_value = 1,
         maximum_value = 2147483647,
         order = "z-j"
+    }
+}
+
+data:extend{
+    {
+        type = "bool-setting",
+        name = "enable-remove-decorations",
+        setting_type = "runtime-global",
+        default_value = false,
+        order = "a-a"
     }
 }

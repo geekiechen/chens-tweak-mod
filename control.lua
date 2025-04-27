@@ -2,7 +2,7 @@
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 script.on_init(function()
     -- 禁用坠机现场
-    if settings.startup["disable-crash-site"].value or
+    if settings.startup["enable-disable-crash-site"].value or
         script.active_mods["chens-py-sea-block-mod"] then
         if remote.interfaces.freeplay then
             -- 禁用坠机现场
@@ -25,11 +25,11 @@ script.on_init(function()
     if script.active_mods["chens-py-sea-block-mod"] or
         (script.active_mods["chens-py-land-block-mod"] and
             settings.startup["enable-no-resource"].value) then
-        settings.startup["disable-crash-site"].value = true
-        settings.startup["start-burner-mining-drill"].value = false
+        settings.startup["enable-disable-crash-site"].value = true
+        settings.startup["enable-start-burner-mining-drill"].value = false
     end
 
-    if settings.startup["start-robot"].value then
+    if settings.startup["enable-start-robot"].value then
         local force = game.forces.player
 
         for i = 1, 5 do
@@ -39,12 +39,26 @@ script.on_init(function()
             end
         end
     end
+    if settings.global["enable-remove-decorations"].value then
+        for _, surface in pairs(game.surfaces) do
+            surface.destroy_decoratives {}
+        end
+    end
+
+end)
+
+script.on_configuration_changed(function()
+    if settings.global["enable-remove-decorations"].value then
+        for _, surface in pairs(game.surfaces) do
+            surface.destroy_decoratives {}
+        end
+    end
 end)
 
 function on_player_creation(player)
-    if settings.startup["inventory-clear"].value or
-        settings.startup["start-robot"].value or
-        settings.startup["start-weapon"].value then
+    if settings.startup["enable-inventory-clear"].value or
+        settings.startup["enable-start-robot"].value or
+        settings.startup["enable-start-weapon"].value then
         -- 移除玩家的盔甲
         if player.character and
             player.get_inventory(defines.inventory.character_armor)
@@ -56,7 +70,7 @@ function on_player_creation(player)
         player.get_inventory(defines.inventory.character_main).clear()
     end
 
-    if settings.startup["start-robot"].value then
+    if settings.startup["enable-start-robot"].value then
         -- 插入新的物品
         if script.active_mods["pyalternativeenergy"] then
             player.insert {name = "light-armor", count = 1}
@@ -92,7 +106,7 @@ function on_player_creation(player)
 
     end
 
-    if settings.startup["start-burner-mining-drill"].value then
+    if settings.startup["enable-start-burner-mining-drill"].value then
         if not (script.active_mods["chens-py-sea-block-mod"] or
             (script.active_mods["chens-py-land-block-mod"] and
                 settings.startup["enable-no-resource"].value)) then
@@ -100,12 +114,12 @@ function on_player_creation(player)
         end
     end
 
-    if settings.startup["start-weapon"].value then
+    if settings.startup["enable-start-weapon"].value then
         player.insert {name = "pistol", count = 1}
         player.insert {name = "firearm-magazine", count = 5}
     end
 
-    if settings.startup["disable-hand-crafting"].value then
+    if settings.startup["enable-disable-hand-crafting"].value then
         player.insert {name = "burner-assembling-machine", count = 1}
     end
 

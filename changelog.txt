@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.14.2
+Date: 2025-04-27
+  Changes:
+    - [Base]: 
+      - Added new function: enable-technology-tree-optimize.
+      - Added new function: enable-remove-decorations.
+---------------------------------------------------------------------------------------------------
 Version: 0.14.1
 Date: 2025-04-26
   Changes:
