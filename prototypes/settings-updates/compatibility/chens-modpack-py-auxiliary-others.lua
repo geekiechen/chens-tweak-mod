@@ -16,7 +16,7 @@ if mods["pypostprocessing"] then
         end
 
         -- 修复robot-speed-multiplier的问题
-        if data.raw["bool-setting"]["robot-speed-multiplier"] then
+        if data.raw["double-setting"]["robot-speed-multiplier"] then
             data.raw["double-setting"]["robot-speed-multiplier"].default_value =
                 1
             data.raw["double-setting"]["robot-speed-multiplier"].hidden = true

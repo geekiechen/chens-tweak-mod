@@ -8,7 +8,7 @@ if settings.startup["enable-disable-hand-crafting"].value then
     }
 end
 
-if settings.startup["enable-furnace-recipe-select"].value then
+if settings.startup["enable-furnace-recipe-selection"].value then
     if data.raw.furnace then
         for name, entity in pairs(data.raw.furnace) do
             local furnace = table.deepcopy(entity)
@@ -19,7 +19,7 @@ if settings.startup["enable-furnace-recipe-select"].value then
     end
 end
 
-if settings.startup["enable-technology-tree-optimize"].value then
+if settings.startup["enable-technology-tree-optimization"].value then
     -- 建立科研包配方到解锁它的科技的映射
     local science_pack_unlockers = {}
     for name, tech in pairs(data.raw.technology) do
@@ -120,7 +120,7 @@ if settings.startup["enable-technology-tree-optimize"].value then
     end
 end
 
-if settings.startup["enable-machine-item-stack-size-tweak"].value then
+if settings.startup["enable-item-stack-size-in-machine-adjustment"].value then
     if data.raw.recipe then
         for _, recipe in pairs(data.raw.recipe) do
             recipe.allow_inserter_overload = false
@@ -128,11 +128,11 @@ if settings.startup["enable-machine-item-stack-size-tweak"].value then
     end
 end
 
-local maxStackSize = 2147483647
-local maxRobotSpeed = 2147483647
-local maxTransportBeltSpeed = 2147483647
-local maxInserterSpeed = 2147483647
-local maxPlayerSpeed = 2147483647
+local maxStackSize = 2^32-1
+local maxRobotSpeed = 2^32-1
+local maxTransportBeltSpeed = 2^32-1
+local maxInserterSpeed = 2^32-1
+local maxPlayerSpeed = 2^32-1
 
 if settings.startup["enable-item-stack-size-multiplier"].value then
     local itemStackSizeMultiplier =

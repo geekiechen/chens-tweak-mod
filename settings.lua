@@ -1,6 +1,6 @@
 -- Copyright (c) 2025 JackieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
-data:extend{
+data:extend{ -- a
     {
         type = "bool-setting",
         name = "enable-disable-crash-site",
@@ -15,47 +15,49 @@ data:extend{
         order = "a-b"
     }, {
         type = "bool-setting",
-        name = "enable-furnace-recipe-select",
+        name = "enable-furnace-recipe-selection",
         setting_type = "startup",
         default_value = false,
         order = "a-c"
     }, {
         type = "bool-setting",
-        name = "enable-inventory-clear",
+        name = "enable-inventory-clearing",
         setting_type = "startup",
         default_value = false,
         order = "a-d"
     }, {
         type = "bool-setting",
-        name = "enable-machine-item-stack-size-tweak",
+        name = "enable-item-stack-size-in-machine-adjustment",
         setting_type = "startup",
         default_value = false,
         order = "a-e"
     }, {
         type = "bool-setting",
-        name = "enable-technology-tree-optimize",
+        name = "enable-technology-tree-optimization",
         setting_type = "startup",
         default_value = false,
         order = "a-f"
-    }, {
+    }, -- y
+    {
         type = "bool-setting",
-        name = "enable-start-robot",
+        name = "enable-give-robot-at-game-start",
         setting_type = "startup",
         default_value = false,
         order = "y-a"
     }, {
         type = "bool-setting",
-        name = "enable-start-burner-mining-drill",
+        name = "enable-give-burner-mining-drill-at-game-start",
         setting_type = "startup",
         default_value = false,
         order = "y-b"
     }, {
         type = "bool-setting",
-        name = "enable-start-weapon",
+        name = "enable-give-weapon-at-game-start",
         setting_type = "startup",
         default_value = false,
         order = "y-c"
-    }, {
+    }, -- z
+    {
         type = "bool-setting",
         name = "enable-item-stack-size-multiplier",
         setting_type = "startup",
@@ -67,7 +69,7 @@ data:extend{
         setting_type = "startup",
         minimum_value = 1,
         default_value = 10,
-        maximum_value = 2147483647,
+        maximum_value = 2 ^ 32 - 1,
         order = "z-b"
     }, {
         type = "bool-setting",
@@ -81,7 +83,7 @@ data:extend{
         setting_type = "startup",
         minimum_value = 1,
         default_value = 1,
-        maximum_value = 2147483647,
+        maximum_value = 2 ^ 32 - 1,
         order = "z-d"
     }, {
         type = "bool-setting",
@@ -95,7 +97,7 @@ data:extend{
         setting_type = "startup",
         minimum_value = 1,
         default_value = 1,
-        maximum_value = 2147483647,
+        maximum_value = 2 ^ 32 - 1,
         order = "z-f"
     }, {
         type = "bool-setting",
@@ -109,7 +111,7 @@ data:extend{
         setting_type = "startup",
         minimum_value = 1,
         default_value = 1,
-        maximum_value = 2147483647,
+        maximum_value = 2 ^ 32 - 1,
         order = "z-h"
     }, {
         type = "bool-setting",
@@ -123,12 +125,12 @@ data:extend{
         setting_type = "startup",
         minimum_value = 1,
         default_value = 1,
-        maximum_value = 2147483647,
+        maximum_value = 2 ^ 32 - 1,
         order = "z-j"
     }
 }
 
-data:extend{
+data:extend{ -- a
     {
         type = "bool-setting",
         name = "enable-remove-decorations",

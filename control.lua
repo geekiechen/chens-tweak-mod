@@ -26,10 +26,10 @@ script.on_init(function()
         (script.active_mods["chens-py-land-block-mod"] and
             settings.startup["enable-no-resource"].value) then
         settings.startup["enable-disable-crash-site"].value = true
-        settings.startup["enable-start-burner-mining-drill"].value = false
+        settings.startup["enable-give-burner-mining-drill-at-game-start"].value = false
     end
 
-    if settings.startup["enable-start-robot"].value then
+    if settings.startup["enable-give-robot-at-game-start"].value then
         local force = game.forces.player
 
         for i = 1, 5 do
@@ -56,9 +56,9 @@ script.on_configuration_changed(function()
 end)
 
 function on_player_creation(player)
-    if settings.startup["enable-inventory-clear"].value or
-        settings.startup["enable-start-robot"].value or
-        settings.startup["enable-start-weapon"].value then
+    if settings.startup["enable-inventory-clearing"].value or
+        settings.startup["enable-give-robot-at-game-start"].value or
+        settings.startup["enable-give-weapon-at-game-start"].value then
         -- 移除玩家的盔甲
         if player.character and
             player.get_inventory(defines.inventory.character_armor)
@@ -70,7 +70,7 @@ function on_player_creation(player)
         player.get_inventory(defines.inventory.character_main).clear()
     end
 
-    if settings.startup["enable-start-robot"].value then
+    if settings.startup["enable-give-robot-at-game-start"].value then
         -- 插入新的物品
         if script.active_mods["pyalternativeenergy"] then
             player.insert {name = "light-armor", count = 1}
@@ -106,7 +106,7 @@ function on_player_creation(player)
 
     end
 
-    if settings.startup["enable-start-burner-mining-drill"].value then
+    if settings.startup["enable-give-burner-mining-drill-at-game-start"].value then
         if not (script.active_mods["chens-py-sea-block-mod"] or
             (script.active_mods["chens-py-land-block-mod"] and
                 settings.startup["enable-no-resource"].value)) then
@@ -114,7 +114,7 @@ function on_player_creation(player)
         end
     end
 
-    if settings.startup["enable-start-weapon"].value then
+    if settings.startup["enable-give-weapon-at-game-start"].value then
         player.insert {name = "pistol", count = 1}
         player.insert {name = "firearm-magazine", count = 5}
     end
