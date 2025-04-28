@@ -1,8 +1,8 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.16.0",
+    "version": "0.16.1",
     "title": "Chens Tweak Mod",
-    "author": "JackieChen",
+    "author": "GeekieChen",
     "dependencies": [
         "base >= 2.0.0",
 

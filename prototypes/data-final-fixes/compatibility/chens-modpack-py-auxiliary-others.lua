@@ -229,6 +229,15 @@ if mods["loaders-modernized"] then
     end
 end
 
+-- 修复earlier-teleporters_redux的问题
+if mods["earlier-teleporters_redux"] then
+    -- 修复科技的问题
+    -- 修复teleporter的问题
+    if data.raw.technology["teleporter"] then
+        data.raw.technology["teleporter"].prerequisites = {"electronics"}
+    end
+end
+
 -- 修复实体的问题
 -- 修复transport-belt的问题
 if data.raw["transport-belt"] then

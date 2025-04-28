@@ -18,9 +18,3 @@ if mods["chens-py-sea-block-mod"] or (mods["chens-py-land-block-mod"] and
     settings.startup["enable-no-resource"].value) then
     require("prototypes/data-final-fixes/compatibility/chens-py-sea-block-mod")
 end
-
--- 修复chens-py-land-block-mod的问题
-if mods["chens-py-land-block-mod"] then
-    require("prototypes/data-final-fixes/compatibility/chens-py-land-block-mod")
-end
-
