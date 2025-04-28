@@ -1,19 +1,11 @@
 -- Copyright (c) 2025 JackieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
--- 修复设置的问题
--- 修复enable-no-resource的问题
-if settings.startup["enable-no-resource"].value then
-    -- 修复模组的问题
-    -- 修复Waterfill_v17的问题
-    if mods["Waterfill_v17"] then
-        -- 修复科技问题
-        -- 修复waterfill的问题
-        if data.raw.technology["waterfill"] then
-            data.raw.technology["waterfill"].unit = {
-                count = 50,
-                ingredients = {{"automation-science-pack", 1}},
-                time = 25
-            }
-        end
+-- 修复模组的问题
+-- 修复earlier-teleporters_redux的问题
+if mods["earlier-teleporters_redux"] then
+    -- 修复科技的问题
+    -- 修复teleporter的问题
+    if data.raw.technology["teleporter"] then
+        data.raw.technology["teleporter"].prerequisites = {"electronics"}
     end
 end
