@@ -419,23 +419,14 @@ if mods["pycoalprocessing"] then
                      {type = "unlock-recipe", recipe = "evaporator-mk00"})
         table.insert(data.raw.technology["automation-science-pack"].effects,
                      {type = "unlock-recipe", recipe = "biofactory-mk00"})
-        table.insert(data.raw.technology["automation-science-pack"].effects,
-                     {type = "unlock-recipe", recipe = "distilator"})
-        table.insert(data.raw.technology["automation-science-pack"].effects,
-                     {type = "unlock-recipe", recipe = "organic-fuel"})
     end
 
     -- 修复coal-processing-1的问题
     if data.raw.technology["coal-processing-1"] then
         table.insert(data.raw.technology["coal-processing-1"].effects,
                      {type = "unlock-recipe", recipe = "early-raw-coal"})
-
-        for i = #data.raw.technology["coal-processing-1"].effects, 1, -1 do
-            local effect = data.raw.technology["coal-processing-1"].effects[i]
-            if effect.type == "unlock-recipe" and effect.recipe == "distilator" then
-                table.remove(data.raw.technology["coal-processing-1"].effects, i)
-            end
-        end
+        table.insert(data.raw.technology["coal-processing-1"].effects,
+                     {type = "unlock-recipe", recipe = "organic-fuel"})
     end
 
     -- 修复steam-power的问题
