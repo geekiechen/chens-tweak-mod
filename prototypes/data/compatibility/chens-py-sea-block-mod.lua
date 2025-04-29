@@ -1,8 +1,10 @@
--- Copyright (c) 2025 JackieChen
+-- Copyright (c) 2025 GeekieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 -- 修复模组的问题
--- 修复chens-modpack-py-auxiliary-others的问题
+-- 修复 chens-modpack-py-auxiliary-others 的问题
 if mods["chens-modpack-py-auxiliary-others"] then
+    -- 修复模组的问题
+    -- 修复 pycoalprocessing 的问题
     if mods["pycoalprocessing"] then
         -- 注册实体
         -- 注册evaporator-mk00
@@ -118,6 +120,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
         })
     end
 
+    -- 修复 pyrawores 的问题
     if mods["pyrawores"] then
         -- 注册实体
         -- 注册flotation-cell-mk00
@@ -456,6 +459,7 @@ if mods["chens-modpack-py-auxiliary-others"] then
         })
     end
 
+    -- 修复 pyalienlife 的问题
     if mods["pyalienlife"] then
         -- 注册实体
         -- 注册biofactory-mk00
@@ -681,8 +685,8 @@ if mods["chens-modpack-py-auxiliary-others"] then
 
     -- hydroclassifier
     if data.raw["recipe-category"]["hydroclassifier"] then
-        -- 修复模组的问题
-        -- 修复pyhardmode的问题
+        -- 修复 模组 的问题
+        -- 修复 pyhardmode 的问题
         if mods["pyhardmode"] then
             -- 注册配方
             data:extend({ -- 注册干酪根
