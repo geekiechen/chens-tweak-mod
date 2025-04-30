@@ -26,7 +26,8 @@ script.on_init(function()
         (script.active_mods["chens-py-land-block-mod"] and
             settings.startup["enable-no-resource"].value) then
         settings.startup["enable-disable-crash-site"].value = true
-        settings.startup["enable-give-burner-mining-drill-at-game-start"].value = false
+        settings.startup["enable-give-burner-mining-drill-at-game-start"].value =
+            false
     end
 
     if settings.startup["enable-give-robot-at-game-start"].value then
@@ -124,6 +125,14 @@ function on_player_creation(player)
     end
 
     if script.active_mods["chens-modpack-py-auxiliary-others"] then
+        if script.active_mods["pyhardmode"] and
+            not (script.active_mods["chens-py-sea-block-mod"] or
+                script.active_mods["chens-py-land-block-mod"]) then
+            player.insert {name = "offshore-pump", count = 1}
+        end
+    end
+
+    if script.active_mods["chens-py-sea-block-mod-core"] then
         if script.active_mods["chens-py-sea-block-mod"] then
             player.insert {name = "offshore-pump", count = 1}
             player.insert({name = "evaporator-mk00", count = 1})
@@ -134,8 +143,6 @@ function on_player_creation(player)
             player.insert {name = "offshore-pump", count = 1}
             player.insert({name = "evaporator-mk00", count = 1})
             player.insert {name = "fuelmix-solid", count = 1}
-        elseif script.active_mods["pyhardmode"] then
-            player.insert {name = "offshore-pump", count = 1}
         end
     end
 end
