@@ -123,6 +123,34 @@ if mods["wood-logistics"] then
         end
     end
 
+    -- 修复 bobtech 的问题
+    if mods["bobtech"] then
+        -- 修复配方的问题
+        -- 修复 lab 的问题
+        if data.raw.recipe["lab"] then
+            table.insert(data.raw.recipe["lab"].ingredients,
+                         {type = "item", name = "transport-belt", amount = 4})
+        end
+
+    else
+        -- 修复配方的问题
+        -- 修复 lab 的问题
+        if data.raw.recipe["lab"] then
+            for _, ingredient in ipairs(data.raw.recipe["lab"].ingredients) do
+                if ingredient.name == "inserter" then
+                    ingredient.name = "burner-inserter"
+                    break
+                end
+            end
+
+            table.insert(data.raw.recipe["lab"].ingredients, {
+                type = "item",
+                name = "wood-transport-belt",
+                amount = 4
+            })
+        end
+    end
+
     -- 修复实体的问题
     -- 修复 wood-underground-belt 的问题
     if data.raw["underground-belt"] and
@@ -141,19 +169,6 @@ if mods["wood-logistics"] then
     -- 修复 underground-belt 的问题
     if data.raw.recipe["underground-belt"] then
         data.raw.recipe["underground-belt"].enabled = false
-    end
-
-    -- 修复 lab 的问题
-    if data.raw.recipe["lab"] then
-        for _, ingredient in ipairs(data.raw.recipe["lab"].ingredients) do
-            if ingredient.name == "inserter" then
-                ingredient.name = "burner-inserter"
-                break
-            end
-        end
-
-        table.insert(data.raw.recipe["lab"].ingredients,
-                     {type = "item", name = "wood-transport-belt", amount = 4})
     end
 
     -- 修复 transport-belt 的问题

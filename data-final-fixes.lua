@@ -128,11 +128,11 @@ if settings.startup["enable-item-stack-size-in-machine-adjustment"].value then
     end
 end
 
-local maxStackSize = 2^32-1
-local maxRobotSpeed = 2^32-1
-local maxTransportBeltSpeed = 2^32-1
-local maxInserterSpeed = 2^32-1
-local maxPlayerSpeed = 2^32-1
+local maxStackSize = 2 ^ 32 - 1
+local maxRobotSpeed = 2 ^ 32 - 1
+local maxTransportBeltSpeed = 2 ^ 32 - 1
+local maxInserterSpeed = 2 ^ 32 - 1
+local maxPlayerSpeed = 2 ^ 32 - 1
 
 if settings.startup["enable-item-stack-size-multiplier"].value then
     local itemStackSizeMultiplier =

@@ -121,7 +121,7 @@ function on_player_creation(player)
     end
 
     if settings.startup["enable-disable-hand-crafting"].value then
-        player.insert {name = "burner-assembling-machine", count = 1}
+        player.insert {name = "assembling-machine-1", count = 1}
     end
 
     if script.active_mods["chens-modpack-py-auxiliary-others"] then

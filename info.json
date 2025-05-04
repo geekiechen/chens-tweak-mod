@@ -1,6 +1,6 @@
 {
     "name": "chens-tweak-mod",
-    "version": "0.17.0",
+    "version": "0.17.1",
     "title": "Chens Tweak Mod",
     "author": "GeekieChen",
     "dependencies": [
@@ -14,6 +14,7 @@
         "? chens-py-sea-block-mod-core",
         "? chens-waterfill-mod",
         "? ElectricFurnacesRevamp",
+        "? Krastorio2",
         "? pyalternativeenergy",
         "? pypostprocessing",
         "? space-age",
