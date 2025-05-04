@@ -131,7 +131,6 @@ if mods["wood-logistics"] then
             table.insert(data.raw.recipe["lab"].ingredients,
                          {type = "item", name = "transport-belt", amount = 4})
         end
-
     else
         -- 修复配方的问题
         -- 修复 lab 的问题
@@ -250,6 +249,72 @@ if mods["earlier-teleporters_redux"] then
     -- 修复 teleporter 的问题
     if data.raw.technology["teleporter"] then
         data.raw.technology["teleporter"].prerequisites = {"electronics"}
+    end
+end
+
+-- 修复 bobtech 的问题
+if mods["bobtech"] then
+    -- 修复模组的问题
+    -- 修复 pycoalprocessing 的问题
+    if mods["pycoalprocessing"] then
+        -- 修复科技的问题
+        -- 修复 steam-power 的问题
+        if data.raw.technology["steam-power"] then
+            for i = #data.raw.technology["steam-power"].effects, 1, -1 do
+                local effect = data.raw.technology["steam-power"].effects[i]
+                if effect.type == "unlock-recipe" and effect.recipe ==
+                    "small-electric-pole" then
+                    table.remove(data.raw.technology["steam-power"].effects, i)
+                    break
+                end
+            end
+        end
+
+        -- 修复 automation-science-pack 的问题
+        if data.raw.technology["automation-science-pack"] then
+            for i = #data.raw.technology["automation-science-pack"].effects, 1, -1 do
+                local effect = data.raw.technology["automation-science-pack"]
+                                   .effects[i]
+                if effect.type == "unlock-recipe" and effect.recipe == "lab" then
+                    table.remove(data.raw.technology["automation-science-pack"]
+                                     .effects, i)
+                    break
+                end
+            end
+        end
+    end
+
+    -- 修复 wood-logistics 的问题
+    if mods["wood-logistics"] then
+        -- 修复配方的问题
+        -- 修复 bob-burner-lab 的问题
+        if data.raw.recipe["bob-burner-lab"] then
+            table.insert(data.raw.recipe["bob-burner-lab"].ingredients, {
+                type = "item",
+                name = "wood-transport-belt",
+                amount = 4
+            })
+        end
+    end
+
+    -- 修复科技的问题
+    -- 修复 bob-electricity 的问题
+    if data.raw.technology["bob-electricity"] then
+        for i = #data.raw.technology["bob-electricity"].effects, 1, -1 do
+            local effect = data.raw.technology["bob-electricity"].effects[i]
+            if effect.type == "unlock-recipe" and
+                (effect.recipe == "copper-cable" or effect.recipe ==
+                    "lighted-small-electric-pole") then
+                table.remove(data.raw.technology["bob-electricity"].effects, i)
+            end
+        end
+    end
+
+    -- 修复配方的问题
+    -- 修复 bob-burner-lab 的问题
+    if data.raw.recipe["bob-burner-lab"] then
+        table.insert(data.raw.recipe["bob-burner-lab"].ingredients,
+                     {type = "item", name = "burner-inserter", amount = 4})
     end
 end
 
