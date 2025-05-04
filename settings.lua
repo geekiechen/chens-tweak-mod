@@ -44,6 +44,12 @@ data:extend{ -- a
         setting_type = "startup",
         default_value = false,
         order = "y-a"
+    },{
+        type = "bool-setting",
+        name = "enable-auto-research-worker-robots-speed-at-game-start",
+        setting_type = "startup",
+        default_value = false,
+        order = "y-b"
     }, {
         type = "bool-setting",
         name = "enable-give-burner-mining-drill-at-game-start",

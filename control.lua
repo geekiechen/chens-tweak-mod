@@ -30,22 +30,32 @@ script.on_init(function()
             false
     end
 
-    if settings.startup["enable-give-robot-at-game-start"].value then
+    if settings.startup["enable-auto-research-worker-robots-speed-at-game-start"]
+        .value then
         local force = game.forces.player
 
-        for i = 1, 5 do
-            local tech_name = "worker-robots-speed-" .. i
-            if force.technologies[tech_name] then
-                force.technologies[tech_name].researched = true
+        if script.active_mods["Krastorio2"] then
+            for i = 1, 7 do
+                local tech_name = "worker-robots-speed-" .. i
+                if force.technologies[tech_name] then
+                    force.technologies[tech_name].researched = true
+                end
+            end
+        else
+            for i = 1, 5 do
+                local tech_name = "worker-robots-speed-" .. i
+                if force.technologies[tech_name] then
+                    force.technologies[tech_name].researched = true
+                end
             end
         end
     end
+
     if settings.global["enable-remove-decorations"].value then
         for _, surface in pairs(game.surfaces) do
             surface.destroy_decoratives {}
         end
     end
-
 end)
 
 script.on_configuration_changed(function()
@@ -79,6 +89,9 @@ function on_player_creation(player)
         elseif script.active_mods["5dim_logistic"] then
             player.insert {name = "modular-armor", count = 1}
             player.insert {name = "5d-construction-robot-10", count = 10}
+        elseif script.active_mods["Krastorio2"] then
+            player.insert {name = "modular-armor", count = 1}
+            player.insert {name = "construction-robot", count = 20}
         else
             player.insert {name = "modular-armor", count = 1}
             player.insert {name = "construction-robot", count = 10}
@@ -98,13 +111,17 @@ function on_player_creation(player)
             insert_equipment(grid, "solar-panel-equipment", 16)
             insert_equipment(grid, "night-vision-equipment", 1)
             insert_equipment(grid, "personal-roboport-equipment", 1)
+        elseif script.active_mods["Krastorio2"] then
+            insert_equipment(grid, "solar-panel-equipment", 9)
+            insert_equipment(grid, "battery-equipment", 1)
+            insert_equipment(grid, "personal-roboport-equipment", 1)
+            insert_equipment(grid, "night-vision-equipment", 1)
         else
             insert_equipment(grid, "solar-panel-equipment", 15)
             insert_equipment(grid, "night-vision-equipment", 1)
             insert_equipment(grid, "battery-equipment", 1)
             insert_equipment(grid, "personal-roboport-equipment", 1)
         end
-
     end
 
     if settings.startup["enable-give-burner-mining-drill-at-game-start"].value then

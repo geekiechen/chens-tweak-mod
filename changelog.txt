@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.0
+Date: 2025-05-04
+  Changes:
+    - Added new setting: enable-auto-research-worker-robots-speed-at-game-start.
+
+    - Fixed compatibility problems with mod: Krastorio2.
+---------------------------------------------------------------------------------------------------
 Version: 0.17.1
 Date: 2025-05-04
   Changes:
