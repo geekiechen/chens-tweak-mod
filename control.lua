@@ -177,12 +177,3 @@ script.on_event(defines.events.on_player_created, function(event)
     if player.character == nil then return end
     on_player_creation(player)
 end)
-
-script.on_event(defines.events.on_research_finished, function(event)
-    -- 研究完成后给予物品
-    if event.research.name == "basic-resources" then
-        for _, player in pairs(game.connected_players) do
-            player.insert {name = "hydroclassifier-mk00", count = 1}
-        end
-    end
-end)
