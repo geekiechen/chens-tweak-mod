@@ -1,13 +1,7 @@
 -- Copyright (c) 2025 GeekieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
-if settings.startup["enable-disable-hand-crafting"].value then
-    data:extend({{type = "recipe-category", name = "disable-hand-crafting"}})
-
-    data.raw.character.character.crafting_categories = {
-        "enable-disable-hand-crafting"
-    }
-end
-
+-- 辅助功能
+-- enable-furnace-recipe-selection
 if settings.startup["enable-furnace-recipe-selection"].value then
     if data.raw.furnace then
         for name, entity in pairs(data.raw.furnace) do
@@ -19,6 +13,7 @@ if settings.startup["enable-furnace-recipe-selection"].value then
     end
 end
 
+-- enable-technology-tree-optimization
 if settings.startup["enable-technology-tree-optimization"].value then
     -- 建立科研包配方到解锁它的科技的映射
     local science_pack_unlockers = {}
@@ -120,6 +115,7 @@ if settings.startup["enable-technology-tree-optimization"].value then
     end
 end
 
+-- enable-item-stack-size-in-machine-adjustment
 if settings.startup["enable-item-stack-size-in-machine-adjustment"].value then
     if data.raw.recipe then
         for _, recipe in pairs(data.raw.recipe) do
@@ -128,12 +124,24 @@ if settings.startup["enable-item-stack-size-in-machine-adjustment"].value then
     end
 end
 
+-- 增加难度
+-- enable-disable-hand-crafting
+if settings.startup["enable-disable-hand-crafting"].value then
+    data:extend({{type = "recipe-category", name = "disable-hand-crafting"}})
+
+    data.raw.character.character.crafting_categories = {
+        "enable-disable-hand-crafting"
+    }
+end
+
+-- 属性调整
 local maxStackSize = 2 ^ 32 - 1
 local maxRobotSpeed = 2 ^ 32 - 1
 local maxTransportBeltSpeed = 2 ^ 32 - 1
 local maxInserterSpeed = 2 ^ 32 - 1
 local maxPlayerSpeed = 2 ^ 32 - 1
 
+-- enable-item-stack-size-multiplier
 if settings.startup["enable-item-stack-size-multiplier"].value then
     local itemStackSizeMultiplier =
         settings.startup["item-stack-size-multiplier"].value
@@ -149,6 +157,7 @@ if settings.startup["enable-item-stack-size-multiplier"].value then
     end
 end
 
+-- enable-transport-belt-speed-multiplier
 if settings.startup["enable-transport-belt-speed-multiplier"].value then
     local transportBeltSpeedMultiplier =
         settings.startup["transport-belt-speed-multiplier"].value
@@ -198,6 +207,7 @@ if settings.startup["enable-transport-belt-speed-multiplier"].value then
     end
 end
 
+-- enable-inserter-speed-multiplier
 if settings.startup["enable-inserter-speed-multiplier"].value then
     local inserterSpeedMultiplier =
         settings.startup["inserter-speed-multiplier"].value
@@ -215,6 +225,7 @@ if settings.startup["enable-inserter-speed-multiplier"].value then
     end
 end
 
+-- enable-player-running-speed-multiplier
 if settings.startup["enable-player-running-speed-multiplier"].value then
     local playerSpeedMultiplier =
         settings.startup["player-running-speed-multiplier"].value
@@ -229,6 +240,7 @@ if settings.startup["enable-player-running-speed-multiplier"].value then
     end
 end
 
+-- enable-robot-speed-multiplier
 if not mods["pypostprocessing"] and
     settings.startup["enable-robot-speed-multiplier"].value then
     local robotSpeedMultiplier = settings.startup["robot-speed-multiplier"]

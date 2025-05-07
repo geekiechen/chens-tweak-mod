@@ -9,12 +9,6 @@ data:extend{ -- a
         order = "a-a"
     }, {
         type = "bool-setting",
-        name = "enable-disable-hand-crafting",
-        setting_type = "startup",
-        default_value = false,
-        order = "a-b"
-    }, {
-        type = "bool-setting",
         name = "enable-furnace-recipe-selection",
         setting_type = "startup",
         default_value = false,
@@ -37,6 +31,13 @@ data:extend{ -- a
         setting_type = "startup",
         default_value = false,
         order = "a-f"
+    }, -- b
+    {
+        type = "bool-setting",
+        name = "enable-disable-hand-crafting",
+        setting_type = "startup",
+        default_value = false,
+        order = "b-a"
     }, -- y
     {
         type = "bool-setting",
@@ -44,7 +45,7 @@ data:extend{ -- a
         setting_type = "startup",
         default_value = false,
         order = "y-a"
-    },{
+    }, {
         type = "bool-setting",
         name = "enable-auto-research-worker-robots-speed-at-game-start",
         setting_type = "startup",
@@ -55,13 +56,13 @@ data:extend{ -- a
         name = "enable-give-burner-mining-drill-at-game-start",
         setting_type = "startup",
         default_value = false,
-        order = "y-b"
+        order = "y-c"
     }, {
         type = "bool-setting",
         name = "enable-give-weapon-at-game-start",
         setting_type = "startup",
         default_value = false,
-        order = "y-c"
+        order = "y-d"
     }, -- z
     {
         type = "bool-setting",
