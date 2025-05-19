@@ -7,12 +7,19 @@ if mods["ElectricFurnacesRevamp"] then
     -- 修复 steam-power 的问题
     if data.raw.technology["steam-power"] then
         if data.raw.technology["steam-power"].effects then
-            table.insert(data.raw.technology["steam-power"].effects, {
-                type = "unlock-recipe",
-                recipe = "electric-stone-furnace"
-            })
-            table.insert(data.raw.technology["steam-power"].effects,
-                         {type = "unlock-recipe", recipe = "electric-boiler"})
+            if data.raw.recipe["electric-stone-furnace"] then
+                table.insert(data.raw.technology["steam-power"].effects, {
+                    type = "unlock-recipe",
+                    recipe = "electric-stone-furnace"
+                })
+            end
+
+            if data.raw.recipe["electric-boiler"] then
+                table.insert(data.raw.technology["steam-power"].effects, {
+                    type = "unlock-recipe",
+                    recipe = "electric-boiler"
+                })
+            end
         end
     end
 

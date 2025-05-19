@@ -32,7 +32,10 @@ if mods["Mini_Trains"] then
 
     -- 修复 railway 的问题
     if data.raw.technology["railway"] then
-        table.insert(data.raw.technology["railway"].prerequisites, "mini-trains")
+        if data.raw.technology["mini-trains"] then
+            table.insert(data.raw.technology["railway"].prerequisites,
+                         "mini-trains")
+        end
     end
 end
 
@@ -97,8 +100,13 @@ if mods["pypetroleumhandling"] then
     -- 修复配方的问题
     -- 修复 transport-belt-2 的问题
     if data.raw.recipe["transport-belt-2"] then
-        table.insert(data.raw.recipe["transport-belt-2"].ingredients,
-                     {type = "item", name = "electronic-circuit", amount = 3})
+        if data.raw.item["electronic-circuit"] then
+            table.insert(data.raw.recipe["transport-belt-2"].ingredients, {
+                type = "item",
+                name = "electronic-circuit",
+                amount = 3
+            })
+        end
     end
 end
 
@@ -128,8 +136,13 @@ if mods["wood-logistics"] then
         -- 修复配方的问题
         -- 修复 lab 的问题
         if data.raw.recipe["lab"] then
-            table.insert(data.raw.recipe["lab"].ingredients,
-                         {type = "item", name = "transport-belt", amount = 4})
+            if data.raw.item["transport-belt"] then
+                table.insert(data.raw.recipe["lab"].ingredients, {
+                    type = "item",
+                    name = "transport-belt",
+                    amount = 4
+                })
+            end
         end
     else
         -- 修复配方的问题
@@ -142,11 +155,13 @@ if mods["wood-logistics"] then
                 end
             end
 
-            table.insert(data.raw.recipe["lab"].ingredients, {
-                type = "item",
-                name = "wood-transport-belt",
-                amount = 4
-            })
+            if data.raw.item["wood-transport-belt"] then
+                table.insert(data.raw.recipe["lab"].ingredients, {
+                    type = "item",
+                    name = "wood-transport-belt",
+                    amount = 4
+                })
+            end
         end
     end
 
@@ -160,8 +175,10 @@ if mods["wood-logistics"] then
     -- 修复科技的问题
     -- 修复 logistics 的问题
     if data.raw.technology["logistics"] then
-        table.insert(data.raw.technology["logistics"].effects or {},
-                     {type = "unlock-recipe", recipe = "underground-belt"})
+        if data.raw.recipe["underground-belt"] then
+            table.insert(data.raw.technology["logistics"].effects,
+                         {type = "unlock-recipe", recipe = "underground-belt"})
+        end
     end
 
     -- 修复配方的问题
@@ -172,8 +189,13 @@ if mods["wood-logistics"] then
 
     -- 修复 transport-belt 的问题
     if data.raw.recipe["transport-belt"] then
-        table.insert(data.raw.recipe["transport-belt"].ingredients,
-                     {type = "item", name = "electronic-circuit", amount = 1})
+        if data.raw.item["electronic-circuit"] then
+            table.insert(data.raw.recipe["transport-belt"].ingredients, {
+                type = "item",
+                name = "electronic-circuit",
+                amount = 1
+            })
+        end
     end
 end
 
@@ -182,14 +204,17 @@ if mods["ElectricFurnacesRevamp"] then
     -- 修复科技的问题
     -- 修复 electronics 的问题
     if data.raw.technology["electronics"] then
-        data.raw.technology["electronics"].effects =
-            data.raw.technology["electronics"].effects or {}
-        table.insert(data.raw.technology["electronics"].effects, {
-            type = "unlock-recipe",
-            recipe = "electric-stone-furnace"
-        })
-        table.insert(data.raw.technology["electronics"].effects,
-                     {type = "unlock-recipe", recipe = "electric-boiler"})
+        if data.raw.recipe["electric-stone-furnace"] then
+            table.insert(data.raw.technology["electronics"].effects, {
+                type = "unlock-recipe",
+                recipe = "electric-stone-furnace"
+            })
+        end
+
+        if data.raw.recipe["electric-boiler"] then
+            table.insert(data.raw.technology["electronics"].effects,
+                         {type = "unlock-recipe", recipe = "electric-boiler"})
+        end
     end
 
     -- 修复配方的问题
@@ -238,8 +263,10 @@ if mods["loaders-modernized"] then
 
     -- 修复 mdrn-loader 的问题
     if data.raw.recipe["mdrn-loader"] then
-        table.insert(data.raw.recipe["mdrn-loader"].ingredients,
-                     {type = "item", name = "wood-mdrn-loader", amount = 1})
+        if data.raw.item["wood-mdrn-loader"] then
+            table.insert(data.raw.recipe["mdrn-loader"].ingredients,
+                         {type = "item", name = "wood-mdrn-loader", amount = 1})
+        end
     end
 end
 
@@ -289,11 +316,13 @@ if mods["bobtech"] then
         -- 修复配方的问题
         -- 修复 bob-burner-lab 的问题
         if data.raw.recipe["bob-burner-lab"] then
-            table.insert(data.raw.recipe["bob-burner-lab"].ingredients, {
-                type = "item",
-                name = "wood-transport-belt",
-                amount = 4
-            })
+            if data.raw.item["wood-transport-belt"] then
+                table.insert(data.raw.recipe["bob-burner-lab"].ingredients, {
+                    type = "item",
+                    name = "wood-transport-belt",
+                    amount = 4
+                })
+            end
         end
     end
 
@@ -313,8 +342,105 @@ if mods["bobtech"] then
     -- 修复配方的问题
     -- 修复 bob-burner-lab 的问题
     if data.raw.recipe["bob-burner-lab"] then
-        table.insert(data.raw.recipe["bob-burner-lab"].ingredients,
-                     {type = "item", name = "burner-inserter", amount = 4})
+        if data.raw.item["burner-inserter"] then
+            table.insert(data.raw.recipe["bob-burner-lab"].ingredients,
+                         {type = "item", name = "burner-inserter", amount = 4})
+        end
+    end
+end
+
+-- 修复 aai-industry 的问题
+if mods["aai-industry"] then
+    -- 修复模组的问题
+    -- 修复 chens-py-sea-block-mod 或 chens-py-land-block-mod 的问题
+    if not mods["chens-py-sea-block-mod"] or
+        (mods["chens-py-land-block-mod"] and
+            settings.startup["enable-no-resource"].value) then
+        -- 修复配方的问题
+        -- 修复 pipe 的问题
+        data.raw.recipe["pipe"].enabled = true
+
+        -- 修复 pipe-to-ground 的问题
+        data.raw.recipe["pipe-to-ground"].enabled = true
+    end
+
+    -- 修复实体的问题
+    -- 修复 burner-lab 的问题
+    if data.raw["lab"]["lab"] then
+        local burner_lab = table.deepcopy(data.raw["lab"]["lab"])
+        burner_lab.name = "burner-lab"
+        burner_lab.icon =
+            "__pycoalprocessinggraphics__/graphics/icons/lab-mk01.png"
+        burner_lab.minable = {mining_time = 0.2, result = "burner-lab"}
+        burner_lab.energy_source = {
+            type = "burner",
+            fuel_categories = {
+                "chemical",
+                data.raw["fuel-category"]["processed-chemical"] and
+                    "processed-chemical"
+            },
+            effectivity = 0.9,
+            fuel_inventory_size = 1,
+            burnt_inventory_size = 1,
+            burnt_result = "ash",
+            emissions_per_minute = {pollution = 4},
+            light_flicker = {
+                minimum_light_size = 1,
+                light_intensity_to_size_coefficient = 0.25,
+                color = {1, 0.4, 0},
+                minimum_intensity = 0.1,
+                maximum_intensity = 0.3
+            }
+        }
+        data.raw["lab"]["burner-lab"] = burner_lab
+    end
+
+    -- 修复科技的问题
+    -- 修复 electricity 的问题
+    if data.raw.technology["electricity"] then
+        for i = #data.raw.technology["electricity"].effects, 1, -1 do
+            local effect = data.raw.technology["electricity"].effects[i]
+            if effect.type == "unlock-recipe" and
+                (effect.recipe == "small-electric-pole" or effect.recipe ==
+                    "electric-motor" or effect.recipe == "inserter") then
+                table.remove(data.raw.technology["electricity"].effects, i)
+            end
+        end
+    end
+
+    -- 修复 steam-power 的问题
+    if data.raw.technology["steam-power"] then
+        for i = #data.raw.technology["steam-power"].prerequisites, 1, -1 do
+            local prerequisite = data.raw.technology["steam-power"]
+                                     .prerequisites[i]
+            if prerequisite == "fluid-handling" then
+                table.remove(data.raw.technology["steam-power"].prerequisites, i)
+                break
+            end
+        end
+
+        if data.raw.recipe["electric-motor"] then
+            table.insert(data.raw.technology["steam-power"].effects,
+                         {type = "unlock-recipe", recipe = "electric-motor"})
+        end
+
+        data.raw.technology["steam-power"].unit = nil
+    end
+
+    -- 修复 basic-logistics 的问题
+    if data.raw.technology["basic-logistics"] then
+        if data.raw.technology["electronics"] then
+            table.insert(data.raw.technology["basic-logistics"].prerequisites,
+                         "electronics")
+        end
+    end
+
+    -- 修复 logistics 的问题
+    if data.raw.technology["logistics"] then
+        if data.raw.technology["basic-logistics"] then
+            table.insert(data.raw.technology["logistics"].prerequisites,
+                         "basic-logistics")
+        end
     end
 end
 
@@ -397,9 +523,13 @@ if data.raw.technology then
 
             for _, effect in pairs(technology.effects) do
                 if effect.type == "unlock-recipe" then
-                    table.insert(unlock_recipes, effect)
+                    if data.raw.recipe[effect.recipe] then
+                        table.insert(unlock_recipes, effect)
+                    end
                 else
-                    table.insert(other_effects, effect)
+                    if data.raw.recipe[effect.recipe] then
+                        table.insert(other_effects, effect)
+                    end
                 end
             end
 
@@ -408,7 +538,9 @@ if data.raw.technology then
 
             technology.effects = other_effects
             for _, effect in ipairs(unlock_recipes) do
-                table.insert(technology.effects, effect)
+                if data.raw.recipe[effect.recipe] then
+                    table.insert(technology.effects, effect)
+                end
             end
         end
     end

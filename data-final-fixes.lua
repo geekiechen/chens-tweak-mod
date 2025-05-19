@@ -1,5 +1,7 @@
 -- Copyright (c) 2025 GeekieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
+require("mods-compatibility")
+
 -- 辅助功能
 -- enable-furnace-recipe-selection
 if settings.startup["enable-furnace-recipe-selection"].value then
@@ -264,5 +266,3 @@ if not mods["pypostprocessing"] and
         end
     end
 end
-
-require("mods-compatibility")
