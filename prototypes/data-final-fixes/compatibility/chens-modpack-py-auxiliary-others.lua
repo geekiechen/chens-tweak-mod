@@ -539,9 +539,7 @@ if data.raw.technology then
                         table.insert(unlock_recipes, effect)
                     end
                 else
-                    if data.raw.recipe[effect.recipe] then
-                        table.insert(other_effects, effect)
-                    end
+                    table.insert(other_effects, effect)
                 end
             end
 
