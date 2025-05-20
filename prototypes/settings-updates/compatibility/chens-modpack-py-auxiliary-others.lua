@@ -83,6 +83,6 @@ if mods["bobtech"] and not mods["aai-industry"] then
     -- 修复设置的问题
     -- 修复 bobmods-burnerphase 的问题
     if data.raw["bool-setting"]["bobmods-burnerphase"] then
-        data.raw["bool-setting"]["bobmods-burnerphase"].default_value = true
+        data.raw["bool-setting"]["bobmods-burnerphase"].force_value = true
     end
 end

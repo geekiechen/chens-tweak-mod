@@ -51,6 +51,18 @@ if mods["Transport_Drones_Meglinge_Fork"] then
                 break
             end
         end
+
+        if data.raw.technology["steel-processing"] then
+            data.raw.technology["transport-system"].prerequisites = {
+                "steel-processing"
+            }
+        end
+
+        data.raw.technology["transport-system"].unit = {
+            count = 200,
+            ingredients = {{"automation-science-pack", 1}},
+            time = 30
+        }
     end
 end
 
