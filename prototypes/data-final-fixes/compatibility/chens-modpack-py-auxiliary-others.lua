@@ -407,6 +407,13 @@ if mods["aai-industry"] then
         data.raw["lab"]["burner-lab"] = burner_lab
     end
 
+    -- 修复 offshore-pump 的问题
+    if data.raw["offshore-pump"]["offshore-pump"] then
+        data.raw["offshore-pump"]["offshore-pump"].energy_source = {
+            type = "void"
+        }
+    end
+
     -- 修复科技的问题
     -- 修复 electricity 的问题
     if data.raw.technology["electricity"] then
