@@ -461,6 +461,18 @@ if mods["aai-industry"] then
                          "basic-logistics")
         end
     end
+
+    -- 修复 electronics 的问题
+    if data.raw.technology["electronics"] then
+        for i = #data.raw.technology["electronics"].effects, 1, -1 do
+            local effect = data.raw.technology["electronics"].effects[i]
+            if effect.type == "unlock-recipe" and effect.recipe ==
+                "electronic-circuit-wood" then
+                table.remove(data.raw.technology["electronics"].effects, i)
+                break
+            end
+        end
+    end
 end
 
 -- 修复实体的问题
