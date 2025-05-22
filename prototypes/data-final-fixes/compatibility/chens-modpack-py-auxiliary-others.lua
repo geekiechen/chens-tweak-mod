@@ -443,6 +443,11 @@ if mods["aai-industry"] then
                          {type = "unlock-recipe", recipe = "electric-motor"})
         end
 
+        if data.raw.recipe["offshore-pump"] then
+            table.insert(data.raw.technology["steam-power"].effects,
+                         {type = "unlock-recipe", recipe = "offshore-pump"})
+        end
+
         data.raw.technology["steam-power"].unit = nil
     end
 
@@ -471,6 +476,45 @@ if mods["aai-industry"] then
                 table.remove(data.raw.technology["electronics"].effects, i)
                 break
             end
+        end
+    end
+
+    -- 修复 basic-fluid-handling 的问题
+    if data.raw.technology["basic-fluid-handling"] then
+        for i = #data.raw.technology["basic-fluid-handling"].effects, 1, -1 do
+            local effect =
+                data.raw.technology["basic-fluid-handling"].effects[i]
+            if effect.type == "unlock-recipe" then
+                table.remove(
+                    data.raw.technology["basic-fluid-handling"].effects, i)
+            end
+        end
+
+        if next(data.raw.technology["basic-fluid-handling"].effects or {}) ==
+            nil then
+            for _, tech in pairs(data.raw.technology) do
+                if tech.prerequisites and
+                    table.contains(tech.prerequisites, "basic-fluid-handling") then
+                    for i, prerequisite in ipairs(tech.prerequisites) do
+                        if prerequisite == "basic-fluid-handling" then
+                            table.remove(tech.prerequisites, i)
+                            break
+                        end
+                    end
+
+                    for _, prerequisite in ipairs(
+                                               data.raw.technology["basic-fluid-handling"]
+                                                   .prerequisites or {}) do
+                        if not table.contains(tech.prerequisites, prerequisite) then
+                            if data.raw.technology[prerequisite] then
+                                table.insert(tech.prerequisites, prerequisite)
+                            end
+                        end
+                    end
+                end
+            end
+
+            data.raw.technology["basic-fluid-handling"] = nil
         end
     end
 end

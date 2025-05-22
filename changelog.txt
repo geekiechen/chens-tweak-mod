@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.20.6
+Date: 2025-05-22
+  Changes:
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Adjusted technology: steam-power.
+
+      - Removed technology: basic-fluid-handling.
+---------------------------------------------------------------------------------------------------
 Version: 0.20.5
 Date: 2025-05-21
   Changes:
