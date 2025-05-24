@@ -374,6 +374,9 @@ if mods["aai-industry"] then
 
         -- 修复 pipe-to-ground 的问题
         data.raw.recipe["pipe-to-ground"].enabled = true
+
+        -- 修复 small-electric-pole 的问题
+        data.raw.recipe["small-electric-pole"].enabled = true
     end
 
     -- 修复实体的问题
