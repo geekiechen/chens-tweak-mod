@@ -7,10 +7,13 @@ require("mods-compatibility")
 if settings.startup["enable-furnace-recipe-selection"].value then
     if data.raw.furnace then
         for name, entity in pairs(data.raw.furnace) do
-            local furnace = table.deepcopy(entity)
-            furnace.type = "assembling-machine"
-            data:extend{furnace}
-            data.raw.furnace[name] = nil
+            if string.find(name, "furnace") then
+                local furnace = table.deepcopy(entity)
+                furnace.type = "assembling-machine"
+                data:extend{furnace}
+
+                data.raw.furnace[name] = nil
+            end
         end
     end
 end
