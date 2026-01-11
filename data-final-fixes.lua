@@ -18,6 +18,13 @@ if settings.startup["enable-furnace-recipe-selection"].value then
     end
 end
 
+-- enable-all-technology-display
+if settings.startup["enable-all-technology-display"].value then
+    if data.raw.technology then
+        for _, tech in pairs(data.raw.technology) do tech.hidden = false end
+    end
+end
+
 -- enable-technology-tree-optimization
 if settings.startup["enable-technology-tree-optimization"].value then
     -- 建立科研包配方到解锁它的科技的映射

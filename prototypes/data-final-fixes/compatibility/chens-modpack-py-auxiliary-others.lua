@@ -1,6 +1,41 @@
 -- Copyright (c) 2025 GeekieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 -- 修复模组的问题
+-- 修复 248k-Redux 的问题
+if mods["248k-Redux"] then
+    -- 修复实体的问题
+    -- 修复 labs 的问题
+    local added_science_packs = {
+        "automation-science-pack", "py-science-pack-1", "logistic-science-pack",
+        "py-science-pack-2", "chemical-science-pack", "py-science-pack-3",
+        "production-science-pack", "py-science-pack-4", "utility-science-pack",
+        "space-science-pack", "fu_space_probe_science_item",
+        "gr_materials_red_pack_item", "gr_materials_green_pack_item",
+        "gr_materials_blue_pack_item", "gr_materials_purple_pack_item",
+        "gr_materials_yellow_pack_item", "gr_materials_grey_pack_item",
+        "gr_materials_white_pack_item"
+    }
+
+    local labs_blacklist = {}
+
+    for _, pack in ipairs(added_science_packs) do
+        for _, lab in pairs(data.raw.lab) do
+            for _, lab_blacklist in ipairs(labs_blacklist) do
+                if lab.name == lab_blacklist then goto skip end
+            end
+
+            lab.inputs = lab.inputs or {}
+
+            for _, input in ipairs(lab.inputs) do
+                if input == pack then goto skip end
+            end
+
+            table.insert(lab.inputs, pack)
+            ::skip::
+        end
+    end
+end
+
 -- 修复 Nanobots2 的问题
 if mods["Nanobots2"] then
     -- 修复科技的问题
@@ -173,6 +208,19 @@ if mods["wood-logistics"] then
                     name = "wood-transport-belt",
                     amount = 4
                 })
+            end
+        end
+    end
+
+    -- 修复 aai-industry 的问题
+    if mods["aai-industry"] then
+        -- 修复科技的问题
+        -- 修复 wood-logistics 的问题
+        if data.raw.technology["wood-logistics"] then
+            if data.raw.technology["basic-wood-logistics"] then
+                table.insert(
+                    data.raw.technology["wood-logistics"].prerequisites,
+                    "basic-wood-logistics")
             end
         end
     end
@@ -418,6 +466,92 @@ if mods["aai-industry"] then
     end
 
     -- 修复科技的问题
+    -- 修复 sand-processing 的问题
+    if data.raw.technology["sand-processing"] then
+        for i = #data.raw.technology["sand-processing"].effects, 1, -1 do
+            local effect = data.raw.technology["sand-processing"].effects[i]
+            if effect.type == "unlock-recipe" then
+                table.remove(data.raw.technology["sand-processing"].effects, i)
+            end
+        end
+
+        if next(data.raw.technology["sand-processing"].effects or {}) == nil then
+            for _, tech in pairs(data.raw.technology) do
+                if tech.prerequisites and
+                    table.contains(tech.prerequisites, "sand-processing") then
+                    for i, prerequisite in ipairs(tech.prerequisites) do
+                        if prerequisite == "sand-processing" then
+                            table.remove(tech.prerequisites, i)
+                            break
+                        end
+                    end
+
+                    for _, prerequisite in ipairs(
+                                               data.raw.technology["sand-processing"]
+                                                   .prerequisites or {}) do
+                        if not table.contains(tech.prerequisites, prerequisite) then
+                            if data.raw.technology[prerequisite] then
+                                table.insert(tech.prerequisites, prerequisite)
+                            end
+                        end
+                    end
+                end
+            end
+
+            data.raw.technology["sand-processing"] = nil
+        end
+    end
+
+    -- 修复 glass-processing 的问题
+    if data.raw.technology["glass-processing"] then
+        for i = #data.raw.technology["glass-processing"].effects, 1, -1 do
+            local effect = data.raw.technology["glass-processing"].effects[i]
+            if effect.type == "unlock-recipe" then
+                table.remove(data.raw.technology["glass-processing"].effects, i)
+            end
+        end
+
+        if next(data.raw.technology["glass-processing"].effects or {}) == nil then
+            for _, tech in pairs(data.raw.technology) do
+                if tech.prerequisites and
+                    table.contains(tech.prerequisites, "glass-processing") then
+                    for i, prerequisite in ipairs(tech.prerequisites) do
+                        if prerequisite == "glass-processing" then
+                            table.remove(tech.prerequisites, i)
+                            break
+                        end
+                    end
+
+                    for _, prerequisite in ipairs(
+                                               data.raw.technology["glass-processing"]
+                                                   .prerequisites or {}) do
+                        if not table.contains(tech.prerequisites, prerequisite) then
+                            if data.raw.technology[prerequisite] then
+                                table.insert(tech.prerequisites, prerequisite)
+                            end
+                        end
+                    end
+                end
+            end
+
+            data.raw.technology["glass-processing"] = nil
+        end
+    end
+
+    -- 修复 automation-science-pack 的问题
+    if data.raw.technology["automation-science-pack"] then
+        if data.raw.technology["burner-mechanics"] then
+            table.insert(data.raw.technology["automation-science-pack"]
+                             .prerequisites, "burner-mechanics")
+        end
+
+        data.raw.technology["automation-science-pack"].research_trigger = {
+            type = "craft-item",
+            item = "burner-lab",
+            count = 1
+        }
+    end
+
     -- 修复 electricity 的问题
     if data.raw.technology["electricity"] then
         for i = #data.raw.technology["electricity"].effects, 1, -1 do
@@ -452,14 +586,43 @@ if mods["aai-industry"] then
         end
 
         data.raw.technology["steam-power"].unit = nil
+
+        data.raw.technology["steam-power"].research_trigger = {
+            type = "craft-item",
+            item = "copper-plate",
+            count = 10
+        }
     end
 
     -- 修复 basic-logistics 的问题
     if data.raw.technology["basic-logistics"] then
+        for i = #data.raw.technology["basic-logistics"].prerequisites, 1, -1 do
+            local prerequisite = data.raw.technology["basic-logistics"]
+                                     .prerequisites[i]
+            if prerequisite == "basic-wood-logistics" then
+                table.remove(data.raw.technology["basic-logistics"]
+                                 .prerequisites, i)
+                break
+            end
+        end
+
         if data.raw.technology["electronics"] then
             table.insert(data.raw.technology["basic-logistics"].prerequisites,
                          "electronics")
         end
+
+        if data.raw.technology["wood-logistics"] then
+            table.insert(data.raw.technology["basic-logistics"].prerequisites,
+                         "wood-logistics")
+        end
+
+        data.raw.technology["basic-logistics"].research_trigger = nil
+
+        data.raw.technology["basic-logistics"].unit = {
+            count = 50,
+            ingredients = {{"automation-science-pack", 1}},
+            time = 30
+        }
     end
 
     -- 修复 logistics 的问题

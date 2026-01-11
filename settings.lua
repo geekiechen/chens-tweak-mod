@@ -27,10 +27,16 @@ data:extend{ -- a
         order = "a-e"
     }, {
         type = "bool-setting",
-        name = "enable-technology-tree-optimization",
+        name = "enable-all-technologies-display",
         setting_type = "startup",
         default_value = false,
         order = "a-f"
+    }, {
+        type = "bool-setting",
+        name = "enable-technology-tree-optimization",
+        setting_type = "startup",
+        default_value = false,
+        order = "a-g"
     }, -- b
     {
         type = "bool-setting",

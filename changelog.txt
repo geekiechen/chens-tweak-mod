@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.20.9
+Date: 2026-1-12
+  Changes:
+    - [Base]: 
+      - Added new function: enable-all-technologies-display.
+
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed compatibility problems with mod: aai-industry.
+      - Fixed compatibility problems with mod: 248k-Redux.
+---------------------------------------------------------------------------------------------------
 Version: 0.20.8
 Date: 2025-07-26
   Changes:
