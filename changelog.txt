@@ -2,6 +2,8 @@
 Version: 0.20.10
 Date: 2026-1-13
   Changes:
+      - Changed thumbnail.
+
       - [Base]: 
         - Changed function name: enable-inventory-clearing to enable-clear-inventory.
         - Changed function name: enable-item-stack-size-in-machine-adjustment to enable-adjust-item-stack-size-in-machines.
