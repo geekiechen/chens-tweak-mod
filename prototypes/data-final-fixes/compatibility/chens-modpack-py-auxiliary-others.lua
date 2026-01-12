@@ -36,21 +36,6 @@ if mods["248k-Redux"] then
     end
 end
 
--- 修复 Nanobots2 的问题
-if mods["Nanobots2"] then
-    -- 修复科技的问题
-    -- 修复 nanobots 的问题
-    if data.raw.technology["nanobots"] then
-        for i = #data.raw.technology["nanobots"].effects, 1, -1 do
-            local effect = data.raw.technology["nanobots"].effects[i]
-            if effect.type == "unlock-recipe" and effect.recipe == "iron-stick" then
-                table.remove(data.raw.technology["nanobots"].effects, i)
-                break
-            end
-        end
-    end
-end
-
 -- 修复 Mini_Trains 的问题
 if mods["Mini_Trains"] then
     -- 修复科技的问题
@@ -123,6 +108,48 @@ if mods["pycoalprocessing"] then
                 table.remove(data.raw.technology["circuit-network"].effects, i)
                 break
             end
+        end
+    end
+
+    -- 修复 hidden-mining-fluid-autounlock 的问题
+    if data.raw.technology["hidden-mining-fluid-autounlock"] then
+        for i = #data.raw.technology["hidden-mining-fluid-autounlock"].effects, 1, -1 do
+            local effect = data.raw.technology["hidden-mining-fluid-autounlock"]
+                               .effects[i]
+            if effect.type == "unlock-recipe" and effect.type ==
+                "mining-with-fluid" then
+                table.remove(
+                    data.raw.technology["hidden-mining-fluid-autounlock"]
+                        .effects, i)
+                break
+            end
+        end
+
+        if next(data.raw.technology["hidden-mining-fluid-autounlock"].effects or {}) ==
+            nil then
+            for _, tech in pairs(data.raw.technology) do
+                if tech.prerequisites and
+                    table.contains(tech.prerequisites, "hidden-mining-fluid-autounlock") then
+                    for i, prerequisite in ipairs(tech.prerequisites) do
+                        if prerequisite == "hidden-mining-fluid-autounlock" then
+                            table.remove(tech.prerequisites, i)
+                            break
+                        end
+                    end
+
+                    for _, prerequisite in ipairs(
+                                               data.raw.technology["hidden-mining-fluid-autounlock"]
+                                                   .prerequisites or {}) do
+                        if not table.contains(tech.prerequisites, prerequisite) then
+                            if data.raw.technology[prerequisite] then
+                                table.insert(tech.prerequisites, prerequisite)
+                            end
+                        end
+                    end
+                end
+            end
+
+            data.raw.technology["hidden-mining-fluid-autounlock"] = nil
         end
     end
 

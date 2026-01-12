@@ -30,8 +30,7 @@ script.on_init(function()
             false
     end
 
-    if settings.startup["enable-auto-research-worker-robots-speed-at-game-start"]
-        .value then
+    if settings.startup["enable-give-construction-robots-at-game-start"].value then
         local force = game.forces.player
 
         if script.active_mods["Krastorio2"] then
@@ -67,8 +66,8 @@ script.on_configuration_changed(function()
 end)
 
 function on_player_creation(player)
-    if settings.startup["enable-inventory-clearing"].value or
-        settings.startup["enable-give-robot-at-game-start"].value or
+    if settings.startup["enable-clear-inventory"].value or
+        settings.startup["enable-give-construction-robots-at-game-start"].value or
         settings.startup["enable-give-weapon-at-game-start"].value then
         -- 移除玩家的盔甲
         if player.character and
@@ -81,7 +80,7 @@ function on_player_creation(player)
         player.get_inventory(defines.inventory.character_main).clear()
     end
 
-    if settings.startup["enable-give-robot-at-game-start"].value then
+    if settings.startup["enable-give-construction-robots-at-game-start"].value then
         -- 插入新的物品
         if script.active_mods["pyalternativeenergy"] then
             player.insert {name = "light-armor", count = 1}

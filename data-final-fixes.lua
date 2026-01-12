@@ -18,15 +18,15 @@ if settings.startup["enable-furnace-recipe-selection"].value then
     end
 end
 
--- enable-all-technology-display
-if settings.startup["enable-all-technology-display"].value then
+-- enable-display-all-hidden-technologies
+if settings.startup["enable-display-all-hidden-technologies"].value then
     if data.raw.technology then
         for _, tech in pairs(data.raw.technology) do tech.hidden = false end
     end
 end
 
--- enable-technology-tree-optimization
-if settings.startup["enable-technology-tree-optimization"].value then
+-- enable-optimize-technology-tree
+if settings.startup["enable-optimize-technology-tree"].value then
     -- 建立科研包配方到解锁它的科技的映射
     local science_pack_unlockers = {}
     for name, tech in pairs(data.raw.technology) do
@@ -127,8 +127,8 @@ if settings.startup["enable-technology-tree-optimization"].value then
     end
 end
 
--- enable-item-stack-size-in-machine-adjustment
-if settings.startup["enable-item-stack-size-in-machine-adjustment"].value then
+-- enable-adjust-item-stack-size-in-machines
+if settings.startup["enable-adjust-item-stack-size-in-machines"].value then
     if data.raw.recipe then
         for _, recipe in pairs(data.raw.recipe) do
             recipe.allow_inserter_overload = false

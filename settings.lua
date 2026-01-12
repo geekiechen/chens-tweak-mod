@@ -15,25 +15,25 @@ data:extend{ -- a
         order = "a-c"
     }, {
         type = "bool-setting",
-        name = "enable-inventory-clearing",
+        name = "enable-clear-inventory",
         setting_type = "startup",
         default_value = false,
         order = "a-d"
     }, {
         type = "bool-setting",
-        name = "enable-item-stack-size-in-machine-adjustment",
+        name = "enable-adjust-item-stack-size-in-machines",
         setting_type = "startup",
         default_value = false,
         order = "a-e"
     }, {
         type = "bool-setting",
-        name = "enable-all-technologies-display",
+        name = "enable-display-all-hidden-technologies",
         setting_type = "startup",
         default_value = false,
         order = "a-f"
     }, {
         type = "bool-setting",
-        name = "enable-technology-tree-optimization",
+        name = "enable-optimize-technology-tree",
         setting_type = "startup",
         default_value = false,
         order = "a-g"
@@ -47,25 +47,25 @@ data:extend{ -- a
     }, -- y
     {
         type = "bool-setting",
-        name = "enable-give-robot-at-game-start",
+        name = "enable-give-construction-robots-at-game-start",
         setting_type = "startup",
         default_value = false,
         order = "y-a"
     }, {
         type = "bool-setting",
-        name = "enable-auto-research-worker-robots-speed-at-game-start",
+        name = "enable-give-burner-mining-drill-at-game-start",
         setting_type = "startup",
         default_value = false,
         order = "y-b"
     }, {
         type = "bool-setting",
-        name = "enable-give-burner-mining-drill-at-game-start",
+        name = "enable-give-weapon-at-game-start",
         setting_type = "startup",
         default_value = false,
         order = "y-c"
     }, {
         type = "bool-setting",
-        name = "enable-give-weapon-at-game-start",
+        name = "enable-automatically-researches-worker-robots-speed-at-game-start",
         setting_type = "startup",
         default_value = false,
         order = "y-d"
