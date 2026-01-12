@@ -2,20 +2,20 @@
 Version: 0.20.10
 Date: 2026-1-13
   Changes:
-      - Changed thumbnail.
+    - Changed thumbnail.
 
-      - [Base]: 
-        - Changed function name: enable-inventory-clearing to enable-clear-inventory.
-        - Changed function name: enable-item-stack-size-in-machine-adjustment to enable-adjust-item-stack-size-in-machines.
-        - Changed function name: enable-all-hidden-technologies-display to enable-display-all-hidden-technologies.
-        - Changed function name: enable-technology-tree-optimization to enable-optimize-technology-tree.
-        - Changed function name: enable-auto-research-worker-robots-speed-at-game-start to enable-automatically-researches-worker-robots-speed-at-game-start.
-        - Changed function name: enable-give-robot-at-game-start to enable-give-construction-robots-at-game-start.
+    - [Base]: 
+      - Changed function name: enable-inventory-clearing to enable-clear-inventory.
+      - Changed function name: enable-item-stack-size-in-machine-adjustment to enable-adjust-item-stack-size-in-machines.
+      - Changed function name: enable-all-hidden-technologies-display to enable-display-all-hidden-technologies.
+      - Changed function name: enable-technology-tree-optimization to enable-optimize-technology-tree.
+      - Changed function name: enable-auto-research-worker-robots-speed-at-game-start to enable-automatically-researches-worker-robots-speed-at-game-start.
+      - Changed function name: enable-give-robot-at-game-start to enable-give-construction-robots-at-game-start.
 
-        - Fixed function: enable-display-all-hidden-technologies.
+      - Fixed function: enable-display-all-hidden-technologies.
 
-      - [Chens Modpack(py+auxiliary+others)]: 
-        - Fixed technology: hidden-mining-fluid-autounlock.
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed technology: hidden-mining-fluid-autounlock.
 ---------------------------------------------------------------------------------------------------
 Version: 0.20.9
 Date: 2026-1-12
