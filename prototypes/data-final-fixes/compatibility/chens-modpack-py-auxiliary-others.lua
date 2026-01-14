@@ -1,6 +1,15 @@
 -- Copyright (c) 2025 GeekieChen
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 -- 修复模组的问题
+-- 修复 pyhardmode 的问题
+if not mods["pyhardmode"] then
+    -- 修复科技的问题
+    -- 修复 mining-with-fluid 的问题
+    if data.raw.technology["mining-with-fluid"] then
+        table.insert(data.raw.technology["mining-with-fluid"].effects,
+                     {type = "mining-with-fluid", modifier = true})
+    end
+end
 -- 修复 248k-Redux 的问题
 if mods["248k-Redux"] then
     -- 修复实体的问题
@@ -106,6 +115,20 @@ if mods["pycoalprocessing"] then
             local effect = data.raw.technology["circuit-network"].effects[i]
             if effect.type == "unlock-recipe" and effect.recipe == "iron-stick" then
                 table.remove(data.raw.technology["circuit-network"].effects, i)
+                break
+            end
+        end
+    end
+
+    -- 修复 hidden-mining-fluid-autounlock 的问题
+    if data.raw.technology["hidden-mining-fluid-autounlock"] then
+        for i = #data.raw.technology["hidden-mining-fluid-autounlock"].effects, 1, -1 do
+            local effect = data.raw.technology["hidden-mining-fluid-autounlock"]
+                               .effects[i]
+            if effect.type == "mining-with-fluid" then
+                table.remove(
+                    data.raw.technology["hidden-mining-fluid-autounlock"]
+                        .effects, i)
                 break
             end
         end
