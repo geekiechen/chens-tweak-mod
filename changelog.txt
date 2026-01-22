@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.20.13
+Date: 2026-1-22
+  Changes:
+    - [Base]: 
+      - Adjusted prerequisite mod version range: pypostprocessing (any) -> pypostprocessing (<= 3.0.39).
+
+    - [Chens Modpack(py+auxiliary+others)]: 
+      - Fixed compatibility problems with mod: aai-industry.
+---------------------------------------------------------------------------------------------------
 Version: 0.20.12
 Date: 2026-1-14
   Changes:

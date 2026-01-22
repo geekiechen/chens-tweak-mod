@@ -2,7 +2,29 @@
 -- 此项目遵循 MIT 许可证，详见 LICENSE 文件。
 -- 修复模组的问题
 -- 修复 pyhardmode 的问题
-if not mods["pyhardmode"] then
+if mods["pyhardmode"] then
+    -- 修复模组的问题
+    -- 修复 aai-industry 的问题
+    if mods["aai-industry"] then
+        -- 修复科技的问题
+        -- 修复 steam-power 的问题
+        if data.raw.technology["steam-power"] then
+            for i = #data.raw.technology["steam-power"].effects, 1, -1 do
+                local effect = data.raw.technology["steam-power"].effects[i]
+                if effect.type == "mining-with-fluid" then
+                    table.remove(data.raw.technology["steam-power"].effects, i)
+                    break
+                end
+            end
+        end
+
+        -- 修复 burner-mechanics 的问题
+        if data.raw.technology["burner-mechanics"] then
+            table.insert(data.raw.technology["burner-mechanics"].effects,
+                         {type = "mining-with-fluid", modifier = true})
+        end
+    end
+else
     -- 修复科技的问题
     -- 修复 mining-with-fluid 的问题
     if data.raw.technology["mining-with-fluid"] then
@@ -10,6 +32,7 @@ if not mods["pyhardmode"] then
                      {type = "mining-with-fluid", modifier = true})
     end
 end
+
 -- 修复 248k-Redux 的问题
 if mods["248k-Redux"] then
     -- 修复实体的问题
